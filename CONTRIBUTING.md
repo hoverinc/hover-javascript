@@ -16,7 +16,7 @@ Thanks for being willing to contribute!
 > pull requests from branches on your fork. To do this, run:
 >
 > ```
-> git remote add upstream https://github.com/kentcdodds/kcd-scripts.git
+> git remote add upstream https://github.com/kentcdodds/hvr-scripts.git
 > git fetch upstream
 > git branch --set-upstream-to=upstream/master master
 > ```
@@ -72,4 +72,4 @@ requests! Thanks!
 [egghead]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
 [semantic-release]: https://npmjs.com/package/semantic-release
 [convention]: https://github.com/conventional-changelog/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
-[issues]: https://github.com/kentcdodds/kcd-scripts/issues
+[issues]: https://github.com/kentcdodds/hvr-scripts/issues

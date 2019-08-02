@@ -12,11 +12,11 @@ const {package: pkg, path: pkgPath} = readPkgUp.sync({
 })
 const appDirectory = path.dirname(pkgPath)
 
-function resolveKcdScripts() {
-  if (pkg.name === 'kcd-scripts') {
+function resolveHvrScripts() {
+  if (pkg.name === 'hvr-scripts') {
     return require.resolve('./').replace(process.cwd(), '.')
   }
-  return resolveBin('kcd-scripts')
+  return resolveBin('hvr-scripts')
 }
 
 // eslint-disable-next-line complexity
@@ -187,7 +187,7 @@ module.exports = {
   parseEnv,
   pkg,
   resolveBin,
-  resolveKcdScripts,
+  resolveHvrScripts,
   uniq,
   writeExtraEntry,
 }
