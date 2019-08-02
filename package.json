@@ -31,7 +31,7 @@
     "jest.js"
   ],
   "keywords": [],
-  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "author": "Jamie Rolfs <jamie.rolfs@hover.to>",
   "license": "MIT",
   "dependencies": {
     "@babel/cli": "^7.5.0",
