@@ -1,7 +1,7 @@
 {
   "name": "hvr-scripts",
   "version": "0.0.0-semantically-released",
-  "description": "CLI for common scripts for my projects",
+  "description": "CLI toolbox for common scripts for JavaScript + TypeScript projects",
   "engines": {
     "node": ">= 8",
     "npm": ">= 5"
@@ -108,12 +108,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kentcdodds/hvr-scripts.git"
+    "url": "https://github.com/hoverinc/hvr-scripts.git"
   },
   "bugs": {
-    "url": "https://github.com/kentcdodds/hvr-scripts/issues"
+    "url": "https://github.com/hoverinc/hvr-scripts/issues"
   },
-  "homepage": "https://github.com/kentcdodds/hvr-scripts#readme",
+  "homepage": "https://github.com/hoverinc/hvr-scripts#readme",
   "devDependencies": {
     "jest-in-case": "^1.0.2",
     "slash": "^3.0.0"
