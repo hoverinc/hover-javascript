@@ -10,6 +10,13 @@ node_js:
   - '10'
   - '12'
 script: npm run validate
+before_install:
+  # See: https://github.com/semantic-release/semantic-release/blob/master/docs/03-recipes/git-auth-ssh-keys.md
+  - openssl aes-256-cbc -K $encrypted_c1ac1ba52366_key -iv $encrypted_c1ac1ba52366_iv -in github-deploy-key.enc -out /tmp/github-deploy-key -d
+  - chmod 600 /tmp/github-deploy-key
+  - echo 'echo ${SSH_PASSPHRASE}' > /tmp/askpass && chmod +x /tmp/askpass
+  - eval "$(ssh-agent -s)"
+  - DISPLAY=":0.0" SSH_ASKPASS="/tmp/askpass" setsid ssh-add /tmp/github-deploy-key < /dev/null
 after_success: node src travis-after-success
 branches:
   only:
