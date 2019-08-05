@@ -13,7 +13,7 @@ const {package: pkg, path: pkgPath} = readPkgUp.sync({
 const appDirectory = path.dirname(pkgPath)
 
 function resolveHvrScripts() {
-  if (pkg.name === 'hvr-scripts') {
+  if (pkg.name === '@hover/hvr-scripts') {
     return require.resolve('./').replace(process.cwd(), '.')
   }
   return resolveBin('hvr-scripts')

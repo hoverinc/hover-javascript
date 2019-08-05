@@ -24,7 +24,7 @@ test('appDirectory is the dirname to the package.json', () => {
 })
 
 test('resolveHvrScripts resolves to src/index.js when in the hvr-scripts package', () => {
-  mockPkg({package: {name: 'hvr-scripts'}})
+  mockPkg({package: {name: '@hover/hvr-scripts'}})
   expect(require('../utils').resolveHvrScripts()).toBe(
     require.resolve('../').replace(process.cwd(), '.'),
   )
