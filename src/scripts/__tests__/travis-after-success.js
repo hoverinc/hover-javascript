@@ -40,12 +40,10 @@ cases(
     if (runsNothing) {
       expect(console.log.mock.calls).toMatchSnapshot()
     } else {
-      expect(crossSpawnSyncMock).toHaveBeenCalledTimes(2)
-      const [firstCall, secondCall] = crossSpawnSyncMock.mock.calls
-      const [scriptOne, calledArgsOne] = firstCall
-      expect([scriptOne, ...calledArgsOne].join(' ')).toMatchSnapshot()
-      const [scriptTwo, calledArgsTwo] = secondCall
-      expect([scriptTwo, ...calledArgsTwo].join(' ')).toMatchSnapshot()
+      expect(crossSpawnSyncMock).toHaveBeenCalledTimes(1)
+      const [call] = crossSpawnSyncMock.mock.calls
+      const [script, calledArgs] = call
+      expect([script, ...calledArgs].join(' ')).toMatchSnapshot()
     }
 
     // afterEach
