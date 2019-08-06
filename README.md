@@ -103,11 +103,11 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/kentcdodds/hvr-scripts.svg?style=flat-square
-[build]: https://travis-ci.org/kentcdodds/hvr-scripts
-[coverage-badge]: https://img.shields.io/codecov/c/github/kentcdodds/hvr-scripts.svg?style=flat-square
-[coverage]: https://codecov.io/github/kentcdodds/hvr-scripts
-[version-badge]: https://img.shields.io/npm/v/hvr-scripts.svg?style=flat-square
-[package]: https://www.npmjs.com/package/hvr-scripts
-[license-badge]: https://img.shields.io/npm/l/hvr-scripts.svg?style=flat-square
-[license]: https://github.com/kentcdodds/hvr-scripts/blob/master/LICENSE
+[build-badge]: https://img.shields.io/travis/hoverinc/hover-javascript.svg?style=flat-square
+[build]: https://travis-ci.org/hoverinc/hover-javascript
+[coverage-badge]: https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg?style=flat-square
+[coverage]: https://codecov.io/github/hoverinc/hover-javascript
+[version-badge]: https://img.shields.io/npm/v/@hover/javascript.svg?style=flat-square
+[package]: https://www.npmjs.com/package/@hover/javascript
+[license-badge]: https://img.shields.io/npm/l/@hover/javascript.svg?style=flat-square
+[license]: https://github.com/hoverinc/hover-javascript/blob/master/LICENSE
