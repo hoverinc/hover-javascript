@@ -17,15 +17,13 @@ const useDefaultScripts = typeof validateScripts !== 'string'
 
 const scripts = useDefaultScripts
   ? {
-      build: ifScript('build', 'npm run build --silent'),
-      lint: preCommit ? null : ifScript('lint', 'npm run lint --silent'),
-      test: preCommit
-        ? null
-        : ifScript('test', 'npm run test --silent -- --coverage'),
-      flow: ifScript('flow', 'npm run flow --silent'),
+      build: ifScript('build', 'yarn run build'),
+      lint: preCommit ? null : ifScript('lint', 'yarn run lint'),
+      test: preCommit ? null : ifScript('test', 'yarn run test --coverage'),
+      flow: ifScript('flow', 'yarn run flow'),
     }
   : validateScripts.split(',').reduce((scriptsToRun, name) => {
-      scriptsToRun[name] = `npm run ${name} --silent`
+      scriptsToRun[name] = `yarn run ${name}`
       return scriptsToRun
     }, {})
 

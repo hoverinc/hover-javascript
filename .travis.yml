@@ -12,7 +12,7 @@ cache:
   directories:
     - node_modules
 
-script: npm run validate
+script: yarn validate
 
 jobs:
   include:
