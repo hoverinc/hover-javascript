@@ -12,11 +12,11 @@ const {package: pkg, path: pkgPath} = readPkgUp.sync({
 })
 const appDirectory = path.dirname(pkgPath)
 
-function resolveHvrScripts() {
-  if (pkg.name === '@hover/hvr-scripts') {
+function resolveHoverScripts() {
+  if (pkg.name === '@hover/javascript') {
     return require.resolve('./').replace(process.cwd(), '.')
   }
-  return resolveBin('hvr-scripts')
+  return resolveBin('hover-scripts')
 }
 
 // eslint-disable-next-line complexity
@@ -187,7 +187,7 @@ module.exports = {
   parseEnv,
   pkg,
   resolveBin,
-  resolveHvrScripts,
+  resolveHoverScripts,
   uniq,
   writeExtraEntry,
 }

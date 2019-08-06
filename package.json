@@ -1,5 +1,5 @@
 {
-  "name": "@hover/hvr-scripts",
+  "name": "@hover/javascript",
   "version": "0.0.0-semantically-released",
   "description": "CLI toolbox for common scripts for JavaScript + TypeScript projects",
   "engines": {
@@ -7,7 +7,7 @@
     "npm": ">= 5"
   },
   "bin": {
-    "hvr-scripts": "dist/index.js"
+    "hover-scripts": "dist/index.js"
   },
   "scripts": {
     "test": "node src test",
@@ -108,12 +108,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hoverinc/hvr-scripts.git"
+    "url": "https://github.com/hoverinc/hover-javascript.git"
   },
   "bugs": {
-    "url": "https://github.com/hoverinc/hvr-scripts/issues"
+    "url": "https://github.com/hoverinc/hover-javascript/issues"
   },
-  "homepage": "https://github.com/hoverinc/hvr-scripts#readme",
+  "homepage": "https://github.com/hoverinc/hover-javascript#readme",
   "devDependencies": {
     "jest-in-case": "^1.0.2",
     "slash": "^3.0.0"

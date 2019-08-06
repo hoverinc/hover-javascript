@@ -1,6 +1,6 @@
-const {resolveHvrScripts, resolveBin, isOptedOut} = require('../utils')
+const {resolveHoverScripts, resolveBin, isOptedOut} = require('../utils')
 
-const kcdScripts = resolveHvrScripts()
+const kcdScripts = resolveHoverScripts()
 const doctoc = resolveBin('doctoc')
 
 module.exports = {

@@ -23,17 +23,17 @@ test('appDirectory is the dirname to the package.json', () => {
   expect(require('../utils').appDirectory).toBe(pkgPath)
 })
 
-test('resolveHvrScripts resolves to src/index.js when in the hvr-scripts package', () => {
-  mockPkg({package: {name: '@hover/hvr-scripts'}})
-  expect(require('../utils').resolveHvrScripts()).toBe(
+test('resolveHoverScripts resolves to src/index.js when in the @hover/javascript package', () => {
+  mockPkg({package: {name: '@hover/javascript'}})
+  expect(require('../utils').resolveHoverScripts()).toBe(
     require.resolve('../').replace(process.cwd(), '.'),
   )
 })
 
-test('resolveHvrScripts resolves to hvr-scripts if not in the kcd-scripts package', () => {
-  mockPkg({package: {name: 'not-hvr-scripts'}})
+test('resolveHoverScripts resolves to "hover-scripts" if not in the @hover/javascript package', () => {
+  mockPkg({package: {name: 'not-@nover/javascript'}})
   whichSyncMock.mockImplementationOnce(() => require.resolve('../'))
-  expect(require('../utils').resolveHvrScripts()).toBe('hvr-scripts')
+  expect(require('../utils').resolveHoverScripts()).toBe('hover-scripts')
 })
 
 test(`resolveBin resolves to the full path when it's not in $PATH`, () => {
