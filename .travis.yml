@@ -18,8 +18,8 @@ jobs:
   include:
     - stage: release
       node_js: lts/*
+      script: skip
       deploy:
         provider: script
         skip_cleanup: true
-        script:
-          - 'node src travis-after-success'
+        script: 'node src travis-after-success'
