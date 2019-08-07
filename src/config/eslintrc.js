@@ -7,10 +7,7 @@ const airbnb = withBaseConfig('eslint-config-airbnb-typescript')
 const prettier = withBaseConfig('eslint-config-prettier')
 
 module.exports = {
-  plugins: [
-    require.resolve('eslint-plugin-prettier'),
-    ifAnyDep('react', require.resolve('eslint-plugin-react-hooks')),
-  ],
+  plugins: ['prettier', ifAnyDep('react', 'react-hooks')].filter(Boolean),
   extends: [
     ifAnyDep('react', airbnb(), airbnb('base')),
     prettier(),
