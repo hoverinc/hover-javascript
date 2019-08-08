@@ -1,0 +1,30 @@
+version: '1.0'
+
+stages:
+  - clone
+  - build
+  - release
+
+steps:
+  clone:
+    stage: clone
+    type: 'git-clone'
+    repo: 'hoverinc/hover-javascript'
+    revision: '${{CF_BRANCH}}'
+  build:
+    stage: build
+    image: node:10.16.0-alpine
+    working_directory: ${{clone}}
+    commands:
+      - yarn install
+  test:
+    stage: build
+    image: ${{build}}
+    commands:
+      - yarn validate
+  release:
+    stage: release
+    image: ${{build}}
+    commands:
+      - yarn build
+      - node src travis-after-success
