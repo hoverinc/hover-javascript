@@ -35,6 +35,8 @@ const cache = args.includes('--no-cache')
       fromRoot('node_modules/.cache/.eslintcache'),
     ]
 
+const extensions = args.includes('--ext') ? [] : ['--ext', '.js,.jsx,.ts,.tsx']
+
 const filesGiven = parsedArgs._.length > 0
 
 const filesToApply = filesGiven ? [] : ['.']
@@ -48,7 +50,7 @@ if (filesGiven) {
 
 const result = spawn.sync(
   resolveBin('eslint'),
-  [...config, ...ignore, ...cache, ...args, ...filesToApply],
+  [...config, ...ignore, ...cache, ...extensions, ...args, ...filesToApply],
   {stdio: 'inherit'},
 )
 
