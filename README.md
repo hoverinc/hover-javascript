@@ -79,7 +79,7 @@ Or, for `babel`, a `.babelrc` with:
 Or, for `jest`:
 
 ```javascript
-const {jest: jestConfig} = require('@hover/javascript/config')
+const {jest: jestConfig} = require('@hover/javascript/jest')
 module.exports = Object.assign(jestConfig, {
   // your overrides here
 
