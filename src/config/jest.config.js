@@ -12,13 +12,24 @@ const ignores = [
   '__mocks__',
 ]
 
+const toGlob = extensions => `*.+(${extensions.join('|')})`
+const testMatchExtensions = ['js', 'jsx', 'ts', 'tsx']
+const testMatchGlob = toGlob(testMatchExtensions)
+const testMatchSuffixGlob = toGlob(
+  testMatchExtensions.map(extension => 'test.'.concat(extension)),
+)
+
 const jestConfig = {
-  roots: [fromRoot('src')],
+  roots: [fromRoot('src'), fromRoot('test')],
   testEnvironment: ifAnyDep(['webpack', 'rollup', 'react'], 'jsdom', 'node'),
   testURL: 'http://localhost',
-  moduleFileExtensions: ['js', 'jsx', 'json', 'ts', 'tsx'],
-  collectCoverageFrom: ['src/**/*.+(js|jsx|ts|tsx)'],
-  testMatch: ['**/__tests__/**/*.+(js|jsx|ts|tsx)'],
+  moduleFileExtensions: testMatchExtensions.concat('json'),
+  collectCoverageFrom: [`src/**/${testMatchGlob}`],
+  testMatch: [
+    `**/__tests__/**/${testMatchGlob}`,
+    `test/**/${testMatchGlob}`,
+    `**/${testMatchSuffixGlob}`,
+  ],
   testPathIgnorePatterns: [...ignores],
   coveragePathIgnorePatterns: [...ignores, 'src/(umd|cjs|esm)-entry.js$'],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
