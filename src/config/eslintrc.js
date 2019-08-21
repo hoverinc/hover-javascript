@@ -25,6 +25,7 @@ module.exports = {
     {
       files: testMatch,
       rules: {},
+      'no-empty': ['error', {allowEmptyCatch: true}],
     },
   ],
 }
