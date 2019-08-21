@@ -20,12 +20,14 @@ module.exports = {
   ].filter(Boolean),
   rules: {
     'prettier/prettier': 'error',
+    'import/prefer-default-export': 'off',
   },
   overrides: [
     {
       files: testMatch,
-      rules: {},
-      'no-empty': ['error', {allowEmptyCatch: true}],
+      rules: {
+        'no-empty': ['error', {allowEmptyCatch: true}],
+      },
     },
   ],
 }
