@@ -1,4 +1,5 @@
 const {ifAnyDep} = require('../utils')
+const {testMatch} = require('./jest.config')
 
 const withBaseConfig = base => variant =>
   require.resolve(base + (variant ? `/${variant}` : ''))
@@ -20,4 +21,10 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
   },
+  overrides: [
+    {
+      files: testMatch,
+      rules: {},
+    },
+  ],
 }
