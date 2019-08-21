@@ -45,11 +45,17 @@ const jestConfig = {
     require.resolve('jest-watch-typeahead/filename'),
     require.resolve('jest-watch-typeahead/testname'),
   ],
+  globals: {},
   transform: {},
 }
 
 if (hasAnyDep('ts-jest')) {
   jestConfig.preset = 'ts-jest'
+  jestConfig.globals['ts-jest'] = {
+    diagnostics: {
+      warnOnly: true,
+    },
+  }
 }
 
 if (hasFile('tests/setup-env.js')) {
