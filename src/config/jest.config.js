@@ -24,7 +24,7 @@ const jestConfig = {
   testEnvironment: ifAnyDep(['webpack', 'rollup', 'react'], 'jsdom', 'node'),
   testURL: 'http://localhost',
   moduleFileExtensions: testMatchExtensions.concat('json'),
-  collectCoverageFrom: [`src/**/${testMatchGlob}`],
+  collectCoverageFrom: [`**/${testMatchGlob}`],
   testMatch: [
     `**/__tests__/**/${testMatchGlob}`,
     `test/**/${testMatchGlob}`,
