@@ -1,3 +1,5 @@
+const {rules} = require('eslint-config-airbnb-typescript/lib/shared')
+
 const {ifAnyDep} = require('../utils')
 const {testMatch} = require('./jest.config')
 
@@ -21,6 +23,15 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: rules[
+          'import/no-extraneous-dependencies'
+        ][1].devDependencies.concat('jest/**'),
+        optionalDependencies: false,
+      },
+    ],
   },
   overrides: [
     {
