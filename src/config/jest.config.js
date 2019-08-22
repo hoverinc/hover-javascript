@@ -20,7 +20,7 @@ const testMatchSuffixGlob = toGlob(
 )
 
 const jestConfig = {
-  roots: [fromRoot('src'), fromRoot('test')],
+  roots: [fromRoot('.')],
   testEnvironment: ifAnyDep(['webpack', 'rollup', 'react'], 'jsdom', 'node'),
   testURL: 'http://localhost',
   moduleFileExtensions: testMatchExtensions.concat('json'),
