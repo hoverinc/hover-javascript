@@ -13,6 +13,7 @@ steps:
     revision: '${{CF_BRANCH}}'
   build:
     stage: build
+    type: build
     image: node:10.16.0-alpine
     image_name: 'hover-javascript'
     commands:
