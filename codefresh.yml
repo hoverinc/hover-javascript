@@ -21,9 +21,14 @@ steps:
     image: node:10.16.0-alpine
     commands:
       - yarn validate
+  releaser:
+    stage: release
+    type: build
+    image_name: releaser
+    dockerfile: Dockerfile
   release:
     stage: release
-    image: node:10.16.0-alpine
+    image: ${{releaser}}
     commands:
       - yarn build
       - node src travis-after-success
