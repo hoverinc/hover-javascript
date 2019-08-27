@@ -1,5 +1,7 @@
 const spawn = require('cross-spawn')
 
+const {TRAVIS_BRANCH, CF_BRANCH} = process.env
+
 const {
   resolveBin,
   getConcurrentlyArgs,
@@ -10,8 +12,8 @@ const {
 
 const autorelease =
   pkg.version === '0.0.0-semantically-released' &&
-  parseEnv('TRAVIS', false) &&
-  process.env.TRAVIS_BRANCH === 'master' &&
+  (parseEnv('TRAVIS', false) || parseEnv('CI', false)) &&
+  (TRAVIS_BRANCH === 'master' || CF_BRANCH === 'master') &&
   !parseEnv('TRAVIS_PULL_REQUEST', false)
 
 const reportCoverage = hasFile('coverage') && !parseEnv('SKIP_CODECOV', false)
