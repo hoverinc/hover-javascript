@@ -9,7 +9,7 @@ steps:
   clone:
     stage: clone
     type: 'git-clone'
-    repo: 'hoverinc/hover-javascript'
+    repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
     revision: '${{CF_BRANCH}}'
   build:
     stage: build
