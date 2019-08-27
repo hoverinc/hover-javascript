@@ -31,4 +31,5 @@ steps:
     image: ${{releaser}}
     commands:
       - yarn build
+      - echo "${SSH_KEY}" | tr  ',' '\n' > "/etc/ssh/id_rsa"
       - node src travis-after-success
