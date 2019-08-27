@@ -13,19 +13,17 @@ steps:
     revision: '${{CF_BRANCH}}'
   build:
     stage: build
-    type: build
     image: node:10.16.0-alpine
-    image_name: 'hover-javascript'
     commands:
       - yarn install
   test:
     stage: build
-    image: ${{build}}
+    image: node:10.16.0-alpine
     commands:
       - yarn validate
   release:
     stage: release
-    image: ${{build}}
+    image: node:10.16.0-alpine
     commands:
       - yarn build
       - node src travis-after-success
