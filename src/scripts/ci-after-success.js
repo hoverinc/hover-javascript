@@ -20,7 +20,7 @@ const reportCoverage = hasFile('coverage') && !parseEnv('SKIP_CODECOV', false)
 
 if (!autorelease && !reportCoverage) {
   console.log(
-    'No need to autorelease or report coverage. Skipping travis-after-success script...',
+    'No need to autorelease or report coverage. Skipping ci-after-success script...',
   )
 } else {
   const result = spawn.sync(

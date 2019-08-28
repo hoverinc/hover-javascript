@@ -28,11 +28,11 @@ Usage: ../ [script] [--flags]
 
 Available Scripts:
   build
+  ci-after-success
   format
   lint
   pre-commit
   test
-  travis-after-success
   validate
 
 Options:

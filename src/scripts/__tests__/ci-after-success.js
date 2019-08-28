@@ -4,7 +4,7 @@ import {unquoteSerializer} from './helpers/serializers'
 expect.addSnapshotSerializer(unquoteSerializer)
 
 cases(
-  'travis-after-success',
+  'ci-after-success',
   ({
     version = '0.0.0-semantically-released',
     hasCoverageDir = true,
@@ -36,7 +36,7 @@ cases(
     }
     utils.hasFile = () => hasCoverageDir
     process.env.SKIP_CODECOV = isOptedOutOfCoverage
-    require('../travis-after-success')
+    require('../ci-after-success')
     if (runsNothing) {
       expect(console.log.mock.calls).toMatchSnapshot()
     } else {
@@ -55,7 +55,7 @@ cases(
     jest.resetModules()
   },
   {
-    'calls concurrently with both scripts when on travis': {},
+    'calls concurrently with both scripts when on ci': {},
     'does not do the autorelease script when the version is different': {
       version: '1.2.3',
     },
@@ -65,7 +65,7 @@ cases(
     'does not do the codecov script when opted out': {
       isOptedOutOfCoverage: true,
     },
-    'does not do autorelease script when running on travis but in a pull request': {
+    'does not do autorelease script when running on ci but in a pull request': {
       env: {
         TRAVIS: 'true',
         TRAVIS_BRANCH: 'master',

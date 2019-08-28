@@ -32,4 +32,4 @@ steps:
     commands:
       - yarn build
       - echo "${SSH_KEY}" | tr  ',' '\n' > "/etc/ssh/id_rsa"
-      - node src travis-after-success
+      - node src ci-after-success
