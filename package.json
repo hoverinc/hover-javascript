@@ -43,7 +43,7 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.5.4",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
     "arrify": "^2.0.1",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^24.8.0",
