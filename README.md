@@ -103,8 +103,8 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/hoverinc/hover-javascript.svg?style=flat-square
-[build]: https://travis-ci.org/hoverinc/hover-javascript
+[build-badge]: https://g.codefresh.io/api/badges/pipeline/hoverinc/%40hover%2Fjavascript?type=cf-1
+[build]: https://g.codefresh.io/public/accounts/hoverinc/pipelines/5d4cb5d4e41f3722d4dfdb94
 [coverage-badge]: https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg?style=flat-square
 [coverage]: https://codecov.io/github/hoverinc/hover-javascript
 [version-badge]: https://img.shields.io/npm/v/@hover/javascript.svg?style=flat-square
