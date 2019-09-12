@@ -90,9 +90,12 @@ module.exports = Object.assign(jestConfig, {
 })
 ```
 
-> Note: `hover-scripts` intentionally does not merge things for you when you start
-> configuring things to make it less magical and more straightforward. Extending
-> can take place on your terms. ~~I~~ _Kent_ thinks this is actually a great way to do this.
+> Note: `hover-scripts` intentionally does not merge things for you when you
+> start configuring things to make it less magical and more straightforward.
+> Extending can take place on your terms. ~~I~~ _Kent_ think[s] this is
+> actually a great way to do this.
+>
+> For the record, so do I (Jamie)
 
 ## LICENSE
 
