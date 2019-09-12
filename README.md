@@ -94,9 +94,6 @@ module.exports = Object.assign(jestConfig, {
 > configuring things to make it less magical and more straightforward. Extending
 > can take place on your terms. ~~I~~ _Kent_ thinks this is actually a great way to do this.
 
-This project follows the [all-contributors][all-contributors] specification.
-Contributions of any kind welcome!
-
 ## LICENSE
 
 MIT
