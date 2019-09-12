@@ -29,6 +29,7 @@ Usage: ../ [script] [--flags]
 Available Scripts:
   build
   ci-after-success
+  commit
   format
   lint
   pre-commit
