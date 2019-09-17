@@ -14,10 +14,11 @@ module.exports = {
         'perf',
         'refactor',
         'revert',
+        'style',
         'test',
       ],
     ],
     'scope-case': [1, 'always', 'kebab-case'],
-    'scope-enum': [1, 'always', ['deps', 'build']],
+    'scope-enum': [0, 'always', ['deps', 'build']],
   },
 }
