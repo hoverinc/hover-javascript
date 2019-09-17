@@ -12,6 +12,7 @@ const useBuiltinConfig =
   !args.includes('--config') &&
   !hasFile('.eslintrc') &&
   !hasFile('.eslintrc.js') &&
+  !hasFile('.eslintrc.json') &&
   !hasPkgProp('eslintConfig')
 
 const config = useBuiltinConfig
