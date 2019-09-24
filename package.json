@@ -26,6 +26,7 @@
   "files": [
     "dist",
     "babel.js",
+    "commitlint.js",
     "eslint.js",
     "config.js",
     "prettier.js",
