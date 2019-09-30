@@ -1,3 +1,3 @@
 const {buildConfig} = require('./helpers/eslint')
 
-module.exports = buildConfig()
+module.exports = buildConfig({withReact: true})
