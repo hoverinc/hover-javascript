@@ -63,7 +63,7 @@
     "cross-spawn": "^7.0.0",
     "doctoc": "^1.4.0",
     "eslint": "^6.5.1",
-    "eslint-config-airbnb-typescript": "^4.0.1",
+    "eslint-config-airbnb-typescript": "^5.0.0",
     "eslint-config-kentcdodds": "^14.3.4",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
