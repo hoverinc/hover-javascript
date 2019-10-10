@@ -1,5 +1,12 @@
 version: '1.0'
 
+indicators:
+  - common_release_conditions: &common_release_conditions
+      when:
+        branch:
+          only:
+            - master
+
 stages:
   - prepare
   - build
@@ -22,11 +29,13 @@ steps:
     commands:
       - yarn validate
   releaser:
+    <<: *common_release_conditions
     stage: release
     type: build
     image_name: '${{CF_REPO_NAME}}-releaser'
     dockerfile: Dockerfile
   release:
+    <<: *common_release_conditions
     stage: release
     image: ${{releaser}}
     commands:
