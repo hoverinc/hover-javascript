@@ -3179,27 +3179,27 @@ eslint-config-airbnb@^18.0.1:
     object.entries "^1.1.0"
 
 eslint-config-kentcdodds@^14.3.4:
-  version "14.4.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-kentcdodds/-/eslint-config-kentcdodds-14.4.1.tgz#411fea683161d23c6b0a37fef678461ba2922f38"
-  integrity sha512-70flfWTQeCZZBH4q3xcN5d56371zFceWMK3Hhy7IM98txlNFHWBZhTIOLBglCX5jYAAkn4aFJlMS2QK03FJVgA==
+  version "14.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-kentcdodds/-/eslint-config-kentcdodds-14.6.0.tgz#6358647ea151b33a6a12b15c6160cbba1dcb50f2"
+  integrity sha512-IiqzOFtzD5rQAnO1OCE2LIe45HpSCZyfJRop6233UL26EtE2KygY93ewzcWRDmHs2FbtPVnQkWc7+nRnFaRU9A==
   dependencies:
     babel-eslint "^10.0.3"
-    eslint-config-prettier "^6.2.0"
+    eslint-config-prettier "^6.4.0"
     eslint-import-resolver-webpack "^0.11.1"
     eslint-plugin-babel "^5.3.0"
     eslint-plugin-import "^2.18.2"
-    eslint-plugin-jest "^22.17.0"
+    eslint-plugin-jest "^22.19.0"
     eslint-plugin-jsx-a11y "^6.2.3"
-    eslint-plugin-react "^7.14.3"
-    eslint-plugin-react-hooks "^2.0.1"
-    read-pkg-up "^6.0.0"
+    eslint-plugin-react "^7.16.0"
+    eslint-plugin-react-hooks "^2.1.2"
+    read-pkg-up "^7.0.0"
     semver "^6.3.0"
-    webpack "^4.39.3"
+    webpack "^4.41.2"
 
-eslint-config-prettier@^6.0.0, eslint-config-prettier@^6.2.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.3.0.tgz#e73b48e59dc49d950843f3eb96d519e2248286a3"
-  integrity sha512-EWaGjlDAZRzVFveh2Jsglcere2KK5CJBhkNSa1xs3KfMUGdRiT7lG089eqPdvlzWHpAqaekubOsOMu8W8Yk71A==
+eslint-config-prettier@^6.0.0, eslint-config-prettier@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.4.0.tgz#0a04f147e31d33c6c161b2dd0971418ac52d0477"
+  integrity sha512-YrKucoFdc7SEko5Sxe4r6ixqXPDP1tunGw91POeZTTRKItf/AMFYt/YLEQtZMkR2LVpAVhcAcZgcWpm1oGPW7w==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -3259,10 +3259,10 @@ eslint-plugin-import@^2.18.2:
     read-pkg-up "^2.0.0"
     resolve "^1.11.0"
 
-eslint-plugin-jest@^22.15.0, eslint-plugin-jest@^22.17.0:
-  version "22.17.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.17.0.tgz#dc170ec8369cd1bff9c5dd8589344e3f73c88cf6"
-  integrity sha512-WT4DP4RoGBhIQjv+5D0FM20fAdAUstfYAf/mkufLNTojsfgzc5/IYW22cIg/Q4QBavAZsROQlqppiWDpFZDS8Q==
+eslint-plugin-jest@^22.15.0, eslint-plugin-jest@^22.19.0:
+  version "22.19.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.19.0.tgz#0cf90946a8c927d40a2c64458c89bb635d0f2a0b"
+  integrity sha512-4zUc3rh36ds0SXdl2LywT4YWA3zRe8sfLhz8bPp8qQPIKvynTTkNGwmSCMpl5d9QiZE2JxSinGF+WD8yU+O0Lg==
   dependencies:
     "@typescript-eslint/experimental-utils" "^1.13.0"
 
@@ -3288,35 +3288,15 @@ eslint-plugin-prettier@^3.1.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-react-hooks@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.0.1.tgz#e898ec26a0a335af6f7b0ad1f0bedda7143ed756"
-  integrity sha512-xir+3KHKo86AasxlCV8AHRtIZPHljqCRRUYgASkbatmt0fad4+5GgC7zkT7o/06hdKM6MIwp8giHVXqBPaarHQ==
-
 eslint-plugin-react-hooks@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.1.2.tgz#1358d2acb2c5e02b7e90c37e611ac258a488e3a7"
   integrity sha512-ZR+AyesAUGxJAyTFlF3MbzeVHAcQTFQt1fFVe5o0dzY/HFoj1dgQDMoIkiM+ltN/HhlHBYX4JpJwYonjxsyQMA==
 
-eslint-plugin-react@^7.14.3:
-  version "7.14.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz#911030dd7e98ba49e1b2208599571846a66bdf13"
-  integrity sha512-EzdyyBWC4Uz2hPYBiEJrKCUi2Fn+BJ9B/pJQcjw5X+x/H2Nm59S4MJIvL4O5NEE0+WbnQwEBxWY03oUk+Bc3FA==
-  dependencies:
-    array-includes "^3.0.3"
-    doctrine "^2.1.0"
-    has "^1.0.3"
-    jsx-ast-utils "^2.1.0"
-    object.entries "^1.1.0"
-    object.fromentries "^2.0.0"
-    object.values "^1.1.0"
-    prop-types "^15.7.2"
-    resolve "^1.10.1"
-
-eslint-plugin-react@^7.15.1:
-  version "7.15.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.15.1.tgz#db5f8ed66c6ba46922518f08e1df9dac52ccaa49"
-  integrity sha512-YotSItgMPwLGlr3df44MGVyXnHkmKcpkHTzpte3QwJtocr3nFqCXCuoxFZeBtnT8RHdj038NlTvam3dcAFrMcA==
+eslint-plugin-react@^7.15.1, eslint-plugin-react@^7.16.0:
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.16.0.tgz#9928e4f3e2122ed3ba6a5b56d0303ba3e41d8c09"
+  integrity sha512-GacBAATewhhptbK3/vTP09CbFrgUJmBSaaRcWdbQLFvUZy9yVcQxigBNHGPU/KE2AyHpzj3AWXpxoMTsIDiHug==
   dependencies:
     array-includes "^3.0.3"
     doctrine "^2.1.0"
@@ -3734,7 +3714,7 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-find-up@^4.0.0:
+find-up@^4.0.0, find-up@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-4.1.0.tgz#97afe7d6cdc0bc5928584b7c8d7b16e8a9aa5d19"
   integrity sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==
@@ -5342,7 +5322,7 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jsx-ast-utils@^2.1.0, jsx-ast-utils@^2.2.1:
+jsx-ast-utils@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-2.2.1.tgz#4d4973ebf8b9d2837ee91a8208cc66f3a2776cfb"
   integrity sha512-v3FxCcAf20DayI+uxnCuw795+oOIkVu6EnJ1+kSzhqqTZHNkTZ7B66ZgLp4oLJ/gbA64cI0B7WRoHZMSRdyVRQ==
@@ -6924,6 +6904,15 @@ read-pkg-up@^6.0.0:
     read-pkg "^5.1.1"
     type-fest "^0.5.0"
 
+read-pkg-up@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-7.0.0.tgz#3f3e53858ec5ae5e6fe14bc479da0a7c98f85ff3"
+  integrity sha512-t2ODkS/vTTcRlKwZiZsaLGb5iwfx9Urp924aGzVyboU6+7Z2i6eGr/G1Z4mjvwLLQV3uFOBKobNRGM3ux2PD/w==
+  dependencies:
+    find-up "^4.1.0"
+    read-pkg "^5.2.0"
+    type-fest "^0.8.1"
+
 read-pkg@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-2.0.0.tgz#8ef1c0623c6a6db0dc6713c4bfac46332b2368f8"
@@ -7255,7 +7244,7 @@ resolve@1.1.7:
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
   integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
-resolve@^1.1.6, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.3.2, resolve@^1.4.0, resolve@^1.5.0, resolve@^1.8.1:
+resolve@^1.1.6, resolve@^1.10.0, resolve@^1.11.0, resolve@^1.11.1, resolve@^1.12.0, resolve@^1.3.2, resolve@^1.4.0, resolve@^1.5.0, resolve@^1.8.1:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.12.0.tgz#3fc644a35c84a48554609ff26ec52b66fa577df6"
   integrity sha512-B/dOmuoAik5bKcD6s6nXDCjzUKnaDvdkRyAk6rsmsKLipWj4797iothd7jmmUhWTfinVMU+wc56rYKsit2Qy4w==
@@ -8264,6 +8253,11 @@ type-fest@^0.6.0:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.6.0.tgz#8d2a2370d3df886eb5c90ada1c5bf6188acf838b"
   integrity sha512-q+MB8nYR1KDLrgr4G5yemftpMC7/QLqVndBmEEdqzmNj5dcFOO4Oo8qlwZE3ULT3+Zim1F8Kq4cBnikNhlCMlg==
 
+type-fest@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
+  integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
+
 typedarray-to-buffer@~1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-1.0.4.tgz#9bb8ba0e841fb3f4cf1fe7c245e9f3fa8a5fe99c"
@@ -8576,10 +8570,10 @@ webpack-sources@^1.4.0, webpack-sources@^1.4.1:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.28.4, webpack@^4.39.3:
-  version "4.40.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.40.2.tgz#d21433d250f900bf0facbabe8f50d585b2dc30a7"
-  integrity sha512-5nIvteTDCUws2DVvP9Qe+JPla7kWPPIDFZv55To7IycHWZ+Z5qBdaBYPyuXWdhggTufZkQwfIK+5rKQTVovm2A==
+webpack@^4.28.4, webpack@^4.41.2:
+  version "4.41.2"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.41.2.tgz#c34ec76daa3a8468c9b61a50336d8e3303dce74e"
+  integrity sha512-Zhw69edTGfbz9/8JJoyRQ/pq8FYUoY0diOXqW0T6yhgdhCv6wr0hra5DwwWexNRns2Z2+gsnrNcbe9hbGBgk/A==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
