@@ -28,6 +28,7 @@
     "babel.js",
     "commitlint.js",
     "eslint.js",
+    "eslint-react.js",
     "config.js",
     "prettier.js",
     "jest.js"
