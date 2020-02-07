@@ -31,7 +31,8 @@
     "eslint-react.js",
     "config.js",
     "prettier.js",
-    "jest.js"
+    "jest.js",
+    "lint-staged.js"
   ],
   "keywords": [],
   "author": "Jamie Rolfs <jamie.rolfs@hover.to>",
