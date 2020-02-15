@@ -1,0 +1,30 @@
+const path = require('path')
+const spawn = require('cross-spawn')
+const {hasFile, resolveBin} = require('../utils')
+
+const args = process.argv.slice(2)
+const huskyGitParams = process.env.HUSKY_GIT_PARAMS
+
+const here = p => path.join(__dirname, p)
+const hereRelative = p => here(p).replace(process.cwd(), '.')
+
+const useBuiltinConfig =
+  !args.includes('--config') &&
+  !args.includes('-g') &&
+  !hasFile('commitlint.config.js')
+
+const env = huskyGitParams ? ['--env', 'HUSKY_GIT_PARAMS'] : []
+
+const config = useBuiltinConfig
+  ? ['--config', hereRelative('../config/commitlint.config.js')]
+  : []
+
+const result = spawn.sync(
+  resolveBin('@commitlint/cli', {executable: 'commitlint'}),
+  [...env, ...config],
+  {
+    stdio: 'inherit',
+  },
+)
+
+process.exit(result.status)
