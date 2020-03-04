@@ -5,7 +5,11 @@ const ls = path =>
   readdirSync(path)
     .filter(f => statSync(join(path, f)).isFile())
     .map(
-      f => `${path.split(sep).reverse()[0]}/${f.replace(/(\.config)?.js/, '')}`,
+      f =>
+        `${path.split(sep).reverse()[0]}/${f.replace(
+          /(\.config)?.(json|js)/,
+          '',
+        )}`,
     )
 
 module.exports = {
