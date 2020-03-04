@@ -33,7 +33,8 @@
     "config.js",
     "prettier.js",
     "jest.js",
-    "lint-staged.js"
+    "lint-staged.js",
+    "tsconfig.json"
   ],
   "keywords": [],
   "author": "Jamie Rolfs <jamie.rolfs@hover.to>",
