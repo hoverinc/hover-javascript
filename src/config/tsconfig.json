@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "baseUrl": "./",
     "declaration": true,
     "esModuleInterop": true,
     "importHelpers": true,
@@ -15,7 +14,6 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "rootDir": "./",
     "sourceMap": true,
     "strict": true,
     "strictFunctionTypes": true,
