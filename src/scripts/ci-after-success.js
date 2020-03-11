@@ -1,6 +1,6 @@
-const spawn = require('cross-spawn')
+const spawn = require('cross-spawn');
 
-const {TRAVIS_BRANCH, CF_BRANCH} = process.env
+const { TRAVIS_BRANCH, CF_BRANCH } = process.env;
 
 const {
   resolveBin,
@@ -8,20 +8,24 @@ const {
   hasFile,
   pkg,
   parseEnv,
-} = require('../utils')
+} = require('../utils');
+
+const releaseBranches = ['master', 'next', 'next-major', 'beta', 'alpha'];
+const branch = CF_BRANCH || TRAVIS_BRANCH;
+const isCI = parseEnv('TRAVIS', false) || parseEnv('CI', false);
 
 const autorelease =
   pkg.version === '0.0.0-semantically-released' &&
-  (parseEnv('TRAVIS', false) || parseEnv('CI', false)) &&
-  (TRAVIS_BRANCH === 'master' || CF_BRANCH === 'master') &&
-  !parseEnv('TRAVIS_PULL_REQUEST', false)
+  isCI &&
+  releaseBranches.includes(branch) &&
+  !parseEnv('TRAVIS_PULL_REQUEST', false);
 
-const reportCoverage = hasFile('coverage') && !parseEnv('SKIP_CODECOV', false)
+const reportCoverage = hasFile('coverage') && !parseEnv('SKIP_CODECOV', false);
 
 if (!autorelease && !reportCoverage) {
   console.log(
     'No need to autorelease or report coverage. Skipping ci-after-success script...',
-  )
+  );
 } else {
   const result = spawn.sync(
     resolveBin('concurrently'),
@@ -31,13 +35,13 @@ if (!autorelease && !reportCoverage) {
           ? `echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'`
           : null,
         release: autorelease
-          ? `echo installing semantic-release && npx -p semantic-release@15 -c 'echo running semantic-release && semantic-release'`
+          ? `echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'`
           : null,
       },
-      {killOthers: false},
+      { killOthers: false },
     ),
-    {stdio: 'inherit'},
-  )
+    { stdio: 'inherit' },
+  );
 
-  process.exit(result.status)
+  process.exit(result.status);
 }

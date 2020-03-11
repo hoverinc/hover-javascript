@@ -1,13 +1,13 @@
-const {resolveHoverScripts, resolveBin, isOptedOut} = require('../utils')
+const { resolveHoverScripts, resolveBin } = require('../utils');
 
-const kcdScripts = resolveHoverScripts()
-const doctoc = resolveBin('doctoc')
+const kcdScripts = resolveHoverScripts();
+const doctoc = resolveBin('doctoc');
 
 module.exports = {
   'README.md': [`${doctoc} --maxlevel 3 --notitle`],
-  '*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)': [
-    isOptedOut('autoformat', null, `${kcdScripts} format`),
+  '*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)': [
+    `${kcdScripts} format`,
     `${kcdScripts} lint`,
     `${kcdScripts} test --findRelatedTests`,
-  ].filter(Boolean),
-}
+  ],
+};
