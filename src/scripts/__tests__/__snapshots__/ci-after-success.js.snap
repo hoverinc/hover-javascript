@@ -1,19 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ci-after-success calls concurrently with both scripts when on ci 1`] = `concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@15 -c 'echo running semantic-release && semantic-release'"`;
+exports[`ci-after-success calls concurrently with both scripts when on ci 1`] = `Array []`;
 
-exports[`ci-after-success does not do autorelease script when running on ci but in a pull request 1`] = `concurrently --prefix [{name}] --names codecov --prefix-colors bgBlue.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'"`;
+exports[`ci-after-success calls concurrently with both scripts when on ci 2`] = `
+Array [
+  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
+]
+`;
 
-exports[`ci-after-success does not do the autorelease script when the version is different 1`] = `concurrently --prefix [{name}] --names codecov --prefix-colors bgBlue.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'"`;
+exports[`ci-after-success calls concurrently with both scripts when on travis 1`] = `Array []`;
 
-exports[`ci-after-success does not do the codecov script when opted out 1`] = `concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@15 -c 'echo running semantic-release && semantic-release'"`;
+exports[`ci-after-success calls concurrently with both scripts when on travis 2`] = `
+Array [
+  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
+]
+`;
 
-exports[`ci-after-success does not do the codecov script when there is no coverage directory 1`] = `concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@15 -c 'echo running semantic-release && semantic-release'"`;
+exports[`ci-after-success does not do autorelease script when running on travis but in a pull request 1`] = `Array []`;
+
+exports[`ci-after-success does not do autorelease script when running on travis but in a pull request 2`] = `
+Array [
+  concurrently --prefix [{name}] --names codecov --prefix-colors bgBlue.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'",
+]
+`;
+
+exports[`ci-after-success does not do the autorelease script when the version is different 1`] = `Array []`;
+
+exports[`ci-after-success does not do the autorelease script when the version is different 2`] = `
+Array [
+  concurrently --prefix [{name}] --names codecov --prefix-colors bgBlue.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'",
+]
+`;
+
+exports[`ci-after-success does not do the codecov script when opted out 1`] = `Array []`;
+
+exports[`ci-after-success does not do the codecov script when opted out 2`] = `
+Array [
+  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
+]
+`;
+
+exports[`ci-after-success does not do the codecov script when there is no coverage directory 1`] = `Array []`;
+
+exports[`ci-after-success does not do the codecov script when there is no coverage directory 2`] = `
+Array [
+  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
+]
+`;
 
 exports[`ci-after-success does not run either script when no coverage dir and not the right version 1`] = `
 Array [
   Array [
     No need to autorelease or report coverage. Skipping ci-after-success script...,
   ],
+]
+`;
+
+exports[`ci-after-success does not run either script when no coverage dir and not the right version 2`] = `Array []`;
+
+exports[`ci-after-success runs autorelease script on alternate release branch "next" 1`] = `Array []`;
+
+exports[`ci-after-success runs autorelease script on alternate release branch "next" 2`] = `
+Array [
+  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
 ]
 `;
