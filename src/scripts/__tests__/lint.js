@@ -75,12 +75,14 @@ cases(
     '--no-cache will disable caching': {
       args: ['--no-cache'],
     },
-    'runs on given files, but only js files': {
+    'runs on given files, but only js and ts files': {
       args: [
         './src/index.js',
+        './src/index.ts',
         './package.json',
         './src/index.css',
-        './src/component.js',
+        './src/component.jsx',
+        './src/component.tsx',
       ],
     },
   },
