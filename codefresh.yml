@@ -6,6 +6,7 @@ indicators:
         branch:
           only:
             - master
+            - next
 
 stages:
   - prepare
