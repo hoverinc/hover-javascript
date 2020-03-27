@@ -54,6 +54,9 @@ const buildConfig = ({withReact = false} = {}) => {
         parserOptions: {
           project: './tsconfig.json',
         },
+        extends: [
+          'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        ],
         rules: {
           ...parserRules(true),
         },
