@@ -1,7 +1,7 @@
-import cases from 'jest-in-case';
-import { unquoteSerializer } from './helpers/serializers';
+import cases from 'jest-in-case'
+import {unquoteSerializer} from './helpers/serializers'
 
-expect.addSnapshotSerializer(unquoteSerializer);
+expect.addSnapshotSerializer(unquoteSerializer)
 
 cases(
   'ci-after-success',
@@ -15,40 +15,40 @@ cases(
     },
   }) => {
     // beforeEach
-    const { sync: crossSpawnSyncMock } = require('cross-spawn');
-    const utils = require('../../utils');
-    utils.resolveBin = (modName, { executable = modName } = {}) => executable;
+    const {sync: crossSpawnSyncMock} = require('cross-spawn')
+    const utils = require('../../utils')
+    utils.resolveBin = (modName, {executable = modName} = {}) => executable
     const originalEnvs = Object.keys(env).map(envKey => {
-      const orig = process.env[envKey];
-      process.env[envKey] = env[envKey];
-      return orig;
-    });
-    const originalLog = console.log;
-    const originalExit = process.exit;
-    process.exit = jest.fn();
-    console.log = jest.fn();
+      const orig = process.env[envKey]
+      process.env[envKey] = env[envKey]
+      return orig
+    })
+    const originalLog = console.log
+    const originalExit = process.exit
+    process.exit = jest.fn()
+    console.log = jest.fn()
 
     // tests
     if (version) {
-      utils.pkg.version = version;
+      utils.pkg.version = version
     }
-    utils.hasFile = () => hasCoverageDir;
-    process.env.SKIP_CODECOV = isOptedOutOfCoverage;
-    require('../ci-after-success');
+    utils.hasFile = () => hasCoverageDir
+    process.env.SKIP_CODECOV = isOptedOutOfCoverage
+    require('../ci-after-success')
 
-    expect(console.log.mock.calls).toMatchSnapshot();
+    expect(console.log.mock.calls).toMatchSnapshot()
     const commands = crossSpawnSyncMock.mock.calls.map(
       call => `${call[0]} ${call[1].join(' ')}`,
-    );
-    expect(commands).toMatchSnapshot();
+    )
+    expect(commands).toMatchSnapshot()
 
     // afterEach
-    process.exit = originalExit;
-    console.log = originalLog;
+    process.exit = originalExit
+    console.log = originalLog
     Object.keys(originalEnvs).forEach(envKey => {
-      process.env[envKey] = env[envKey];
-    });
-    jest.resetModules();
+      process.env[envKey] = env[envKey]
+    })
+    jest.resetModules()
   },
   {
     'calls concurrently with both scripts when on ci': {},
@@ -87,4 +87,4 @@ cases(
       version: '1.2.3',
     },
   },
-);
+)

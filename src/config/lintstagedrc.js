@@ -1,7 +1,7 @@
-const { resolveHoverScripts, resolveBin } = require('../utils');
+const {resolveHoverScripts, resolveBin} = require('../utils')
 
-const kcdScripts = resolveHoverScripts();
-const doctoc = resolveBin('doctoc');
+const kcdScripts = resolveHoverScripts()
+const doctoc = resolveBin('doctoc')
 
 module.exports = {
   'README.md': [`${doctoc} --maxlevel 3 --notitle`],
@@ -10,4 +10,4 @@ module.exports = {
     `${kcdScripts} lint`,
     `${kcdScripts} test --findRelatedTests`,
   ],
-};
+}

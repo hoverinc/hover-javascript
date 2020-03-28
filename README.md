@@ -85,7 +85,7 @@ Or, for `babel`, a `.babelrc` with:
 Or, for `jest`:
 
 ```javascript
-const { jest: jestConfig } = require('@hover/javascript/jest');
+const {jest: jestConfig} = require('@hover/javascript/jest')
 module.exports = Object.assign(jestConfig, {
   // your overrides here
 
@@ -93,7 +93,7 @@ module.exports = Object.assign(jestConfig, {
   transform: {
     '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
   },
-});
+})
 ```
 
 > Note: `hover-scripts` intentionally does not merge things for you when you

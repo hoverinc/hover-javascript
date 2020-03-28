@@ -1,15 +1,9 @@
-const path = require('path');
-const {
-  ifAnyDep,
-  hasAnyDep,
-  hasFile,
-  hasPkgProp,
-  fromRoot,
-} = require('../utils');
+const path = require('path')
+const {ifAnyDep, hasAnyDep, hasFile, hasPkgProp, fromRoot} = require('../utils')
 
-const here = p => path.join(__dirname, p);
+const here = p => path.join(__dirname, p)
 
-const useBuiltInBabelConfig = !hasFile('.babelrc') && !hasPkgProp('babel');
+const useBuiltInBabelConfig = !hasFile('.babelrc') && !hasPkgProp('babel')
 
 const ignores = [
   '/node_modules/',
@@ -18,14 +12,14 @@ const ignores = [
   '/__tests__/helpers/',
   '/__tests__/utils/',
   '__mocks__',
-];
+]
 
-const toGlob = extensions => `*.+(${extensions.join('|')})`;
-const testMatchExtensions = ['js', 'jsx', 'ts', 'tsx'];
-const testMatchGlob = toGlob(testMatchExtensions);
+const toGlob = extensions => `*.+(${extensions.join('|')})`
+const testMatchExtensions = ['js', 'jsx', 'ts', 'tsx']
+const testMatchGlob = toGlob(testMatchExtensions)
 const testMatchSuffixGlob = toGlob(
   testMatchExtensions.map(extension => 'test.'.concat(extension)),
-);
+)
 
 const jestConfig = {
   roots: [fromRoot('.')],
@@ -55,25 +49,25 @@ const jestConfig = {
   ],
   globals: {},
   transform: {},
-};
+}
 
 if (hasAnyDep('ts-jest')) {
-  jestConfig.preset = 'ts-jest';
+  jestConfig.preset = 'ts-jest'
   jestConfig.globals['ts-jest'] = {
     diagnostics: {
       warnOnly: true,
     },
-  };
+  }
 }
 
 if (hasFile('tests/setup-env.js')) {
-  jestConfig.setupFilesAfterEnv = [fromRoot('tests/setup-env.js')];
+  jestConfig.setupFilesAfterEnv = [fromRoot('tests/setup-env.js')]
 }
 
 if (useBuiltInBabelConfig) {
   Object.assign(jestConfig.transform, {
     '^.+\\.js$': here('./babel-transform'),
-  });
+  })
 }
 
-module.exports = jestConfig;
+module.exports = jestConfig

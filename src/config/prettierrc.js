@@ -15,4 +15,4 @@ module.exports = {
   trailingComma: 'all',
   useTabs: false,
   bracketSpacing: true,
-};
+}
