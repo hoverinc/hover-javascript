@@ -88,7 +88,7 @@
     "lodash.omit": "^4.5.0",
     "mkdirp": "^0.5.1",
     "prettier": "^2.0.5",
-    "read-pkg-up": "^6.0.0",
+    "read-pkg-up": "^7.0.1",
     "resolve": "^1.14.2",
     "rimraf": "^3.0.0",
     "rollup": "^1.29.0",
