@@ -28,6 +28,7 @@ const jestConfig = {
   testMatch: [
     `**/__tests__/**/${testMatchGlob}`,
     `test/**/${testMatchGlob}`,
+    `e2e/**/${testMatchSuffixGlob}`,
     `**/${testMatchSuffixGlob}`,
   ],
   testPathIgnorePatterns: [...ignores],
