@@ -3,7 +3,7 @@ const {rules} = require('eslint-config-airbnb-typescript/lib/shared')
 const {hasAnyDep} = require('../../utils')
 const {testMatch} = require('../jest.config')
 
-const withBaseConfig = base => variant =>
+const withBaseConfig = (base) => (variant) =>
   require.resolve(base + (variant ? `/${variant}` : ''))
 
 const airbnb = withBaseConfig('eslint-config-airbnb-typescript')
@@ -31,7 +31,7 @@ const buildConfig = ({withReact = false} = {}) => {
         {
           devDependencies: rules[
             'import/no-extraneous-dependencies'
-          ][1].devDependencies.concat('jest/**'),
+          ][1].devDependencies.concat('jest/**', 'e2e/**'),
           optionalDependencies: false,
         },
       ],
