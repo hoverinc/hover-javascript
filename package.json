@@ -95,7 +95,7 @@
     "lodash.has": "^4.5.2",
     "lodash.omit": "^4.5.0",
     "mkdirp": "^1.0.3",
-    "prettier": "1.19.1",
+    "prettier": "^2.0.5",
     "read-pkg-up": "^7.0.1",
     "resolve": "^1.15.1",
     "rimraf": "^3.0.2",
