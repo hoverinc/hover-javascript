@@ -27,10 +27,16 @@ const scripts = useDefaultScripts
       return scriptsToRun
     }, {})
 
-const result = spawn.sync(
-  resolveBin('concurrently'),
-  getConcurrentlyArgs(scripts),
-  {stdio: 'inherit'},
-)
+const scriptCount = Object.values(scripts).filter(Boolean).length
 
-process.exit(result.status)
+if (scriptCount > 0) {
+  const result = spawn.sync(
+    resolveBin('concurrently'),
+    getConcurrentlyArgs(scripts),
+    {stdio: 'inherit'},
+  )
+
+  process.exit(result.status)
+} else {
+  process.exit(0)
+}

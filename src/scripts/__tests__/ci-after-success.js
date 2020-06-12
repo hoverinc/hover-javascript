@@ -10,11 +10,9 @@ cases(
     hasCoverageDir = true,
     isOptedOutOfCoverage = false,
     env = {
-      TRAVIS: 'true',
-      TRAVIS_BRANCH: 'master',
-      TRAVIS_PULL_REQUEST: 'false',
+      CI: 'true',
+      CF_BRANCH: 'master',
     },
-    runsNothing = false,
   }) => {
     // beforeEach
     const {sync: crossSpawnSyncMock} = require('cross-spawn')
@@ -37,14 +35,12 @@ cases(
     utils.hasFile = () => hasCoverageDir
     process.env.SKIP_CODECOV = isOptedOutOfCoverage
     require('../ci-after-success')
-    if (runsNothing) {
-      expect(console.log.mock.calls).toMatchSnapshot()
-    } else {
-      expect(crossSpawnSyncMock).toHaveBeenCalledTimes(1)
-      const [call] = crossSpawnSyncMock.mock.calls
-      const [script, calledArgs] = call
-      expect([script, ...calledArgs].join(' ')).toMatchSnapshot()
-    }
+
+    expect(console.log.mock.calls).toMatchSnapshot()
+    const commands = crossSpawnSyncMock.mock.calls.map(
+      call => `${call[0]} ${call[1].join(' ')}`,
+    )
+    expect(commands).toMatchSnapshot()
 
     // afterEach
     process.exit = originalExit
@@ -56,6 +52,20 @@ cases(
   },
   {
     'calls concurrently with both scripts when on ci': {},
+    'calls concurrently with both scripts when on travis': {
+      env: {
+        TRAVIS: 'true',
+        TRAVIS_BRANCH: 'master',
+        TRAVIS_PULL_REQUEST: 'false',
+      },
+    },
+    'runs autorelease script on alternate release branch "next"': {
+      env: {
+        CI: 'true',
+        CF_BRANCH: 'next',
+        TRAVIS_PULL_REQUEST: 'false',
+      },
+    },
     'does not do the autorelease script when the version is different': {
       version: '1.2.3',
     },
@@ -65,7 +75,7 @@ cases(
     'does not do the codecov script when opted out': {
       isOptedOutOfCoverage: true,
     },
-    'does not do autorelease script when running on ci but in a pull request': {
+    'does not do autorelease script when running on travis but in a pull request': {
       env: {
         TRAVIS: 'true',
         TRAVIS_BRANCH: 'master',
@@ -73,7 +83,6 @@ cases(
       },
     },
     'does not run either script when no coverage dir and not the right version': {
-      runsNothing: true,
       hasCoverageDir: false,
       version: '1.2.3',
     },

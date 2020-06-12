@@ -1,7 +1,12 @@
 jest.mock('read-pkg-up', () => ({
-  sync: jest.fn(() => ({package: {}, path: '/blah/package.json'})),
+  sync: jest.fn(() => ({packageJson: {}, path: '/blah/package.json'})),
 }))
 jest.mock('which', () => ({sync: jest.fn(() => {})}))
+
+jest.mock('cosmiconfig', () => {
+  const cosmiconfigExports = jest.requireActual('cosmiconfig')
+  return {...cosmiconfigExports, cosmiconfigSync: jest.fn()}
+})
 
 let whichSyncMock, readPkgUpSyncMock
 
@@ -38,13 +43,13 @@ test('resolveHoverScripts resolves to "hover-scripts" if not in the @hover/javas
 
 test(`resolveBin resolves to the full path when it's not in $PATH`, () => {
   expect(require('../utils').resolveBin('cross-env')).toBe(
-    require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.'),
+    require.resolve('cross-env/src/bin/cross-env').replace(process.cwd(), '.'),
   )
 })
 
 test(`resolveBin resolves to the binary if it's in $PATH`, () => {
   whichSyncMock.mockImplementationOnce(() =>
-    require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.'),
+    require.resolve('cross-env/src/bin/cross-env').replace(process.cwd(), '.'),
   )
   expect(require('../utils').resolveBin('cross-env')).toBe('cross-env')
   expect(whichSyncMock).toHaveBeenCalledTimes(1)
@@ -137,6 +142,30 @@ test('ifFile returns the true argument if true and the false argument if false',
   expect(require('../utils').ifFile('does-not-exist.blah', t, f)).toBe(f)
 })
 
+test('hasLocalConfiguration returns false if no local configuration found', () => {
+  mockCosmiconfig()
+
+  expect(require('../utils').hasLocalConfig('module')).toBe(false)
+})
+
+test('hasLocalConfig returns true if a local configuration found', () => {
+  mockCosmiconfig({config: {}, filepath: 'path/to/config'})
+
+  expect(require('../utils').hasLocalConfig('module')).toBe(true)
+})
+
+test('hasLocalConfiguration returns true if a local config found and it is empty', () => {
+  mockCosmiconfig({isEmpty: true})
+
+  expect(require('../utils').hasLocalConfig('module')).toBe(true)
+})
+
 function mockPkg({package: pkg = {}, path = '/blah/package.json'}) {
-  readPkgUpSyncMock.mockImplementationOnce(() => ({package: pkg, path}))
+  readPkgUpSyncMock.mockImplementationOnce(() => ({packageJson: pkg, path}))
+}
+
+function mockCosmiconfig(result = null) {
+  const {cosmiconfigSync} = require('cosmiconfig')
+
+  cosmiconfigSync.mockImplementationOnce(() => ({search: () => result}))
 }

@@ -11,6 +11,17 @@ const prettier = withBaseConfig('eslint-config-prettier')
 
 const hasReact = hasAnyDep('react')
 
+const parserRules = (typescript = false) => {
+  const isOff = off => (off ? 'off' : 'error')
+
+  return {
+    'no-implied-eval': isOff(typescript),
+    'no-throw-literal': isOff(typescript),
+    '@typescript-eslint/no-implied-eval': isOff(!typescript),
+    '@typescript-eslint/no-throw-literal': isOff(!typescript),
+  }
+}
+
 const buildConfig = ({withReact = false} = {}) => {
   const ifReact = (t, f) => (withReact || hasReact ? t : f)
 
@@ -35,8 +46,21 @@ const buildConfig = ({withReact = false} = {}) => {
           optionalDependencies: false,
         },
       ],
+      ...parserRules(),
     },
     overrides: [
+      {
+        files: ['**/*.ts?(x)'],
+        parserOptions: {
+          project: './tsconfig.json',
+        },
+        extends: [
+          'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        ],
+        rules: {
+          ...parserRules(true),
+        },
+      },
       {
         files: testMatch,
         rules: {

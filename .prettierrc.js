@@ -1,5 +1,6 @@
 module.exports = {
   arrowParens: 'avoid',
+  bracketSpacing: false,
   endOfLine: 'lf',
   htmlWhitespaceSensitivity: 'css',
   insertPragma: false,
@@ -9,10 +10,9 @@ module.exports = {
   proseWrap: 'always',
   quoteProps: 'as-needed',
   requirePragma: false,
-  semi: true,
+  semi: false,
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'all',
   useTabs: false,
-  bracketSpacing: true,
 }

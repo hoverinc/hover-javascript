@@ -7,8 +7,10 @@ const useBuiltInBabelConfig = !hasFile('.babelrc') && !hasPkgProp('babel')
 
 const ignores = [
   '/node_modules/',
+  '/__fixtures__/',
   '/fixtures/',
   '/__tests__/helpers/',
+  '/__tests__/utils/',
   '__mocks__',
 ]
 
@@ -64,7 +66,9 @@ if (hasFile('tests/setup-env.js')) {
 }
 
 if (useBuiltInBabelConfig) {
-  Object.assign(jestConfig.transform, {'^.+\\.js$': here('./babel-transform')})
+  Object.assign(jestConfig.transform, {
+    '^.+\\.js$': here('./babel-transform'),
+  })
 }
 
 module.exports = jestConfig

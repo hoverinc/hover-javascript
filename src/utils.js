@@ -6,8 +6,9 @@ const arrify = require('arrify')
 const has = require('lodash.has')
 const readPkgUp = require('read-pkg-up')
 const which = require('which')
+const {cosmiconfigSync} = require('cosmiconfig')
 
-const {package: pkg, path: pkgPath} = readPkgUp.sync({
+const {packageJson: pkg, path: pkgPath} = readPkgUp.sync({
   cwd: fs.realpathSync(process.cwd()),
 })
 const appDirectory = path.dirname(pkgPath)
@@ -125,22 +126,6 @@ function getConcurrentlyArgs(scripts, {killOthers = true} = {}) {
   ].filter(Boolean)
 }
 
-function isOptedOut(key, t = true, f = false) {
-  if (!fs.existsSync(fromRoot('.opt-out'))) {
-    return f
-  }
-  const contents = fs.readFileSync(fromRoot('.opt-out'), 'utf-8')
-  return contents.includes(key) ? t : f
-}
-
-function isOptedIn(key, t = true, f = false) {
-  if (!fs.existsSync(fromRoot('.opt-in'))) {
-    return f
-  }
-  const contents = fs.readFileSync(fromRoot('.opt-in'), 'utf-8')
-  return contents.includes(key) ? t : f
-}
-
 function uniq(arr) {
   return Array.from(new Set(arr))
 }
@@ -168,12 +153,19 @@ function writeExtraEntry(name, {cjs, esm}, clean = true) {
   )
 }
 
+function hasLocalConfig(moduleName, searchOptions = {}) {
+  const explorerSync = cosmiconfigSync(moduleName, searchOptions)
+  const result = explorerSync.search(pkgPath)
+
+  return result !== null
+}
+
 module.exports = {
   appDirectory,
-  envIsSet,
   fromRoot,
   getConcurrentlyArgs,
   hasFile,
+  hasLocalConfig,
   hasPkgProp,
   hasScript,
   hasAnyDep,
@@ -183,8 +175,6 @@ module.exports = {
   ifFile,
   ifPeerDep,
   ifScript,
-  isOptedIn,
-  isOptedOut,
   parseEnv,
   pkg,
   resolveBin,

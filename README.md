@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://codefund.io/properties/447/visit-sponsor">
+    <img src="https://codefund.io/properties/447/sponsor" />
+  </a>
+</p>
+
 <div align="center">
 <h1>@hover/javascript 🛠📦</h1>
 
@@ -8,18 +14,17 @@
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package]
-[![MIT License][license-badge]][license]
+[![version][version-badge]][package] [![MIT License][license-badge]][license]
 
 ## The problem
 
-~~I~~ **We** do a bunch of open source and want to make it easier to maintain so many
-projects.
+~~I~~ **We** do a bunch of open source and want to make it easier to maintain so
+many projects.
 
 ## This solution
 
-This is a CLI that abstracts away all configuration for ~~my~~ **our** open source projects
-for linting, testing, building, and more.
+This is a CLI that abstracts away all configuration for ~~my~~ **our** open
+source projects for linting, testing, building, and more.
 
 ## Table of Contents
 
@@ -44,11 +49,12 @@ yarn add -D @hover/javascript
 
 ## Usage
 
-This is a CLI and exposes a bin called `hover-scripts`. You'll find all available scripts in `src/scripts`.
+This is a CLI and exposes a bin called `hover-scripts`. You'll find all
+available scripts in `src/scripts`.
 
 This project actually dogfoods itself. If you look in the `package.json`, you'll
-find scripts with `node src {scriptName}`. This serves as an example of some
-of the things you can do with `hover-scripts`.
+find scripts with `node src {scriptName}`. This serves as an example of some of
+the things you can do with `hover-scripts`.
 
 ### Overriding Config
 
@@ -92,8 +98,8 @@ module.exports = Object.assign(jestConfig, {
 
 > Note: `hover-scripts` intentionally does not merge things for you when you
 > start configuring things to make it less magical and more straightforward.
-> Extending can take place on your terms. ~~I~~ _Kent_ think[s] this is
-> actually a great way to do this.
+> Extending can take place on your terms. ~~I~~ _Kent_ think[s] this is actually
+> a great way to do this.
 >
 > For the record, so do I (Jamie)
 
@@ -103,9 +109,12 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://g.codefresh.io/api/badges/pipeline/hoverinc/npm%2Fjavascript?type=cf-1
-[build]: https://g.codefresh.io/public/accounts/hoverinc/pipelines/5d4cb5d4e41f3722d4dfdb94
-[coverage-badge]: https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg
+[build-badge]:
+  https://g.codefresh.io/api/badges/pipeline/hoverinc/npm%2Fjavascript?type=cf-1
+[build]:
+  https://g.codefresh.io/public/accounts/hoverinc/pipelines/5d4cb5d4e41f3722d4dfdb94
+[coverage-badge]:
+  https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg
 [coverage]: https://codecov.io/github/hoverinc/hover-javascript
 [version-badge]: https://img.shields.io/npm/v/@hover/javascript.svg
 [package]: https://www.npmjs.com/package/@hover/javascript

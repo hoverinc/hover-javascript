@@ -1,25 +1,23 @@
 language: node_js
 
-node_js:
-  - '8'
-  - '10'
-  - '12'
-
-sudo: false
+cache: npm
 notifications:
   email: false
-cache:
-  directories:
-    - node_modules
-
-script: yarn validate
+node_js:
+  - 10.18
+  - 12
+  - node
+install: npm install
+script:
+  - npm run validate
+  - npx codecov@3
+branches:
+  only:
+    - master
+    - next
 
 jobs:
   include:
     - stage: release
-      node_js: lts/*
-      script: yarn build
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script: 'node src travis-after-success'
+      node_js: 12
+      script: node src travis-release

@@ -11,6 +11,7 @@ cases(
     utils = require('../../utils'),
     hasPkgProp = () => false,
     hasFile = () => false,
+    ifScript = () => true,
   }) => {
     // beforeEach
     const {sync: crossSpawnSyncMock} = require('cross-spawn')
@@ -19,22 +20,20 @@ cases(
     Object.assign(utils, {
       hasPkgProp,
       hasFile,
+      ifScript,
       resolveBin: (modName, {executable = modName} = {}) => executable,
     })
     process.exit = jest.fn()
 
     process.argv = ['node', '../pre-commit', ...args]
-    utils.isOptedIn = optIn => optIn === 'pre-commit'
 
     try {
       // tests
       require('../pre-commit')
-      expect(crossSpawnSyncMock).toHaveBeenCalledTimes(2)
-      const [firstCall, secondCall] = crossSpawnSyncMock.mock.calls
-      const [scriptOne, calledArgsOne] = firstCall
-      expect([scriptOne, ...calledArgsOne].join(' ')).toMatchSnapshot()
-      const [scriptTwo, calledArgsTwo] = secondCall
-      expect([scriptTwo, ...calledArgsTwo].join(' ')).toMatchSnapshot()
+      const commands = crossSpawnSyncMock.mock.calls.map(
+        call => `${call[0]} ${call[1].join(' ')}`,
+      )
+      expect(commands).toMatchSnapshot()
     } catch (error) {
       throw error
     } finally {
@@ -60,6 +59,9 @@ cases(
     },
     'forwards args': {
       args: ['--verbose'],
+    },
+    [`does not run validate script if it's not defined`]: {
+      ifScript: () => false,
     },
   },
 )

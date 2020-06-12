@@ -6,6 +6,7 @@ indicators:
         branch:
           only:
             - master
+            - next
 
 stages:
   - prepare
@@ -20,12 +21,12 @@ steps:
     revision: '${{CF_BRANCH}}'
   build:
     stage: build
-    image: node:10.16.3-alpine
+    image: node:10.19.0-alpine
     commands:
       - yarn install
   test:
     stage: build
-    image: node:10.16.3-alpine
+    image: node:10.19.0-alpine
     commands:
       - yarn validate
   releaser:
