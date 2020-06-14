@@ -42,7 +42,7 @@ const buildConfig = ({withReact = false} = {}) => {
         {
           devDependencies: rules[
             'import/no-extraneous-dependencies'
-          ][1].devDependencies.concat('jest/**'),
+          ][1].devDependencies.concat('jest/**', 'e2e/**'),
           optionalDependencies: false,
         },
       ],
