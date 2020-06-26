@@ -88,7 +88,7 @@
     "glob": "^7.1.6",
     "husky": "^4.2.3",
     "is-ci": "^2.0.0",
-    "jest": "^25.1.0",
+    "jest": "^26.1.0",
     "jest-watch-typeahead": "^0.4.2",
     "lint-staged": "^10.0.8",
     "lodash.camelcase": "^4.3.0",
