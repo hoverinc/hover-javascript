@@ -1,3 +1,7 @@
 const {buildConfig} = require('./helpers/eslint')
 
-module.exports = buildConfig()
+const defaultExport = buildConfig()
+
+defaultExport.buildConfig = buildConfig
+
+module.exports = defaultExport
