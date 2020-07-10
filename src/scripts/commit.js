@@ -1,14 +1,7 @@
-const fs = require('fs')
-const path = require('path')
 const {bootstrap} = require('commitizen/dist/cli/git-cz')
-const {fromRoot} = require('../utils')
 
-const here = p => path.join(__dirname, p)
-
-const cliPath = [
-  here('../../node_modules/commitizen'),
-  fromRoot('./node_modules/commitizen'),
-].find(fs.existsSync)
+const commitizenPaths = require.resolve('commitizen/package.json').split('/')
+const cliPath = commitizenPaths.slice(0, -1).join('/')
 
 // eslint-disable-next-line no-warning-comments
 // FIXME: for some reason invoking this script with `yarn commit` now passes
