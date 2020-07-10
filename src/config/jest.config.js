@@ -30,6 +30,7 @@ const jestConfig = {
   testMatch: [
     `**/__tests__/**/${testMatchGlob}`,
     `test/**/${testMatchGlob}`,
+    `test/**/${testMatchSuffixGlob}`,
     `e2e/**/${testMatchSuffixGlob}`,
     `**/${testMatchSuffixGlob}`,
   ],
