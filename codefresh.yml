@@ -21,12 +21,12 @@ steps:
     revision: '${{CF_BRANCH}}'
   build:
     stage: build
-    image: node:10.19.0-alpine
+    image: node:12.18.2-alpine
     commands:
       - yarn install
   test:
     stage: build
-    image: node:10.19.0-alpine
+    image: node:12.18.2-alpine
     commands:
       - yarn validate
   releaser:
