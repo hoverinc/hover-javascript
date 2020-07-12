@@ -968,17 +968,10 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.6":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.4.tgz#a6724f1a6b8d2f6ea5236dbfe58c7d7ea9c5eb99"
   integrity sha512-UpTN5yUJr9b4EX2CnGNWIvER7Ab83ibv0pcvvHc4UOdrBI5jb8bj+32cCwPX6xu0mt2daFNjYhoi+X7beH0RSw==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.7.2", "@babel/runtime@^7.8.7":
-  version "7.8.7"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
-  integrity sha512-+AATMUFppJDw6aiR5NVPHqIQBlV/Pj8wY/EZH+lmvRdUo9xBaz/rF3alAwFJQavvKfeOlPE7oaaDHVbcySbCsg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1127,7 +1120,7 @@
     babel-runtime "^6.23.0"
     lodash "4.17.15"
 
-"@commitlint/load@>6.1.1":
+"@commitlint/load@>6.1.1", "@commitlint/load@^9.0.1":
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/@commitlint/load/-/load-9.0.1.tgz#02ba5795e56da9d6c83dccdc36a6ac940d048c36"
   integrity sha512-6ix/pUjVAggmDLTcnpyk0bgY3H9UBBTsEeFvTkHV+WQ6LNIxsQk8SwEOEZzWHUqt0pxqMQeiUgYeSZsSw2+uiw==
@@ -1167,15 +1160,15 @@
     conventional-commits-parser "^3.0.0"
     lodash "^4.17.11"
 
-"@commitlint/prompt@^8.3.5":
-  version "8.3.5"
-  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-8.3.5.tgz#9f5acbcb27d98111af980f42855eebc24823f577"
-  integrity sha512-tQM9Wq0+KxhivSwXIISNJv7HGrx3MTI/rP0gyrr97F20nPz91OV4Moj9AUJ7kKvJVv+17kmCus4zcIoRBmmSVQ==
+"@commitlint/prompt@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@commitlint/prompt/-/prompt-9.0.1.tgz#4ae1455e7f9c62b6db8bb252380c8194b6ef5f17"
+  integrity sha512-ZWkP/v/fCdxUe53rxt8PptX///x/s8XUG0zt/jXrfCs/5efqrzoJ1nIgtpFlAvZcJCxw9EmZXLsw4oFWRogEnQ==
   dependencies:
-    "@commitlint/load" "^8.3.5"
-    babel-runtime "^6.23.0"
-    chalk "^2.0.0"
-    lodash "4.17.15"
+    "@babel/runtime" "^7.9.6"
+    "@commitlint/load" "^9.0.1"
+    chalk "^3.0.0"
+    lodash "^4.17.15"
     throat "^5.0.0"
     vorpal "^1.12.0"
 
@@ -6596,7 +6589,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash@4.17.15, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.2.1, lodash@^4.5.1:
+lodash@4.17.15:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -6606,7 +6599,7 @@ lodash@^3.3.1:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
   integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
 
-lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.15:
+lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.2.1, lodash@^4.5.1:
   version "4.17.19"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
   integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
