@@ -89,7 +89,7 @@
     "husky": "^4.2.3",
     "is-ci": "^2.0.0",
     "jest": "^26.1.0",
-    "jest-watch-typeahead": "^0.4.2",
+    "jest-watch-typeahead": "^0.6.0",
     "lint-staged": "^10.0.8",
     "lodash.camelcase": "^4.3.0",
     "lodash.has": "^4.5.2",
