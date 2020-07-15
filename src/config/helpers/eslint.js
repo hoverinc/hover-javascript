@@ -22,10 +22,7 @@ const parserRules = (typescript = false) => {
   }
 }
 
-const buildConfig = ({
-  withReact = false,
-  tsProjects = './**/*/tsconfig.json',
-} = {}) => {
+const buildConfig = ({withReact = false} = {}) => {
   const ifReact = (t, f) => (withReact || hasReact ? t : f)
 
   return {
@@ -59,7 +56,7 @@ const buildConfig = ({
       {
         files: ['**/*.ts?(x)'],
         parserOptions: {
-          project: tsProjects,
+          project: './**/*/tsconfig.json',
         },
         extends: [
           'plugin:@typescript-eslint/recommended-requiring-type-checking',
