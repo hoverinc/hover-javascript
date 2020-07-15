@@ -17,7 +17,8 @@
     "lint": "node src lint",
     "format": "node src format",
     "validate": "node src validate",
-    "commit": "node src commit"
+    "commit": "node src commit",
+    "ci-after-success": "node src ci-after-success"
   },
   "husky": {
     "hooks": {
