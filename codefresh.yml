@@ -41,4 +41,4 @@ steps:
     image: ${{releaser}}
     commands:
       - yarn build
-      - node src ci-after-success
+      - yarn ci-after-success
