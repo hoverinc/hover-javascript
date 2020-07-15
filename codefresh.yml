@@ -1,7 +1,14 @@
 version: '1.0'
 
 indicators:
-  - common_release_conditions: &common_release_conditions
+  - x-common_pull_request_conditions: &common_pull_request_conditions
+      when:
+        branch:
+          ignore:
+            - master
+            - next
+
+  - x-common_release_conditions: &common_release_conditions
       when:
         branch:
           only:
@@ -29,6 +36,12 @@ steps:
     image: node:12.18.2-alpine
     commands:
       - yarn validate
+  coverage:
+    <<: *common_pull_request_conditions
+    stage: build
+    image: node:12.18.2-alpine
+    commands:
+      - yarn ci-after-success
   releaser:
     <<: *common_release_conditions
     stage: release
