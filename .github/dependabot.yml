@@ -6,3 +6,7 @@ updates:
     interval: daily
   pull-request-branch-name:
     separator: "-"
+  commit-message:
+    prefix: "feat(deps):"
+    prefix-development: "build(deps-dev):"
+    include: "scope"
