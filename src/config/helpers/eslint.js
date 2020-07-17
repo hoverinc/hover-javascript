@@ -55,9 +55,6 @@ const buildConfig = ({withReact = false} = {}) => {
     overrides: [
       {
         files: ['**/*.ts?(x)'],
-        parserOptions: {
-          project: './**/*/tsconfig.json',
-        },
         extends: [
           'plugin:@typescript-eslint/recommended-requiring-type-checking',
         ],
