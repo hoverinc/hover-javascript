@@ -71,6 +71,12 @@ const buildConfig = ({withReact = false} = {}) => {
           'no-empty': ['error', {allowEmptyCatch: true}],
         },
       },
+      {
+        files: ['**/*/__tests__/helpers/**/*', '**/*/__tests__/utils/**/*'],
+        rules: {
+          'jest/no-export': 'off',
+        },
+      },
     ],
   }
 }
