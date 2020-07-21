@@ -7,6 +7,6 @@ updates:
     pull-request-branch-name:
       separator: '-'
     commit-message:
-      prefix: 'feat(deps):'
-      prefix-development: 'build(deps):'
-      include: 'scope'
+      prefix: feat
+      prefix-development: build
+      include: scope
