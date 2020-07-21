@@ -54,7 +54,7 @@
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^8.3.4",
     "@commitlint/prompt": "^9.1.1",
-    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-json": "^4.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
