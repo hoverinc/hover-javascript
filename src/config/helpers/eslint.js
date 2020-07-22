@@ -33,6 +33,7 @@ const buildConfig = ({withReact = false} = {}) => {
       prettier(),
       prettier('@typescript-eslint'),
       ifReact(prettier('react')),
+      ifReact('plugin:react-hooks/recommended'),
     ].filter(Boolean),
     rules: {
       'prettier/prettier': 'error',
