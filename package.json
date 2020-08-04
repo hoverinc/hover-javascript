@@ -27,6 +27,9 @@
     }
   },
   "files": [
+    "api",
+    "api.js",
+    "api.d.ts",
     "dist",
     "babel.js",
     "commitlint.js",
