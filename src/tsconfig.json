@@ -1,0 +1,12 @@
+{
+  "extends": "./config/tsconfig.json",
+  "include": ["./api"],
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "noEmit": false,
+    "outDir": "../dist",
+    "rootDir": "."
+  }
+}

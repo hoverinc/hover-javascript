@@ -13,7 +13,9 @@
   "scripts": {
     "test": "node src test",
     "test:update": "node src test --updateSnapshot",
-    "build": "node src build",
+    "build": "run-p build:*",
+    "build:source": "node src build",
+    "build:types": "tsc -p src/",
     "lint": "node src lint",
     "format": "node src format",
     "validate": "node src validate",
