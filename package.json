@@ -20,7 +20,10 @@
     "format": "node src format",
     "validate": "node src validate",
     "commit": "node src commit",
-    "ci-after-success": "node src ci-after-success"
+    "ci-after-success": "node src ci-after-success",
+    "start": "run-p start:*",
+    "start:source": "yarn build:source --watch",
+    "start:types": "tsc -b -w --preserveWatchOutput src/"
   },
   "husky": {
     "hooks": {
