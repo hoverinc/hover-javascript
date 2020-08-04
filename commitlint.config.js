@@ -18,7 +18,13 @@ module.exports = {
     'scope-enum': [
       1,
       'always',
-      [...ls('./src/config'), ...ls('./src/scripts'), 'deps', 'build'],
+      [
+        ...ls('./src/config'),
+        ...ls('./src/scripts'),
+        ...ls('./src/api'),
+        'deps',
+        'build',
+      ],
     ],
   },
 }
