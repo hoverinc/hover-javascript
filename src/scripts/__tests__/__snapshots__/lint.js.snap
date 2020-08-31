@@ -17,5 +17,3 @@ exports[`lint does not use built-in ignore with .eslintignore file 1`] = `eslint
 exports[`lint does not use built-in ignore with --ignore-path 1`] = `eslint --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx --ignore-path ./my-ignore .`;
 
 exports[`lint does not use built-in ignore with eslintIgnore pkg prop 1`] = `eslint --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
-
-exports[`lint runs on given files, but only js and ts files 1`] = `eslint --config ./src/config/eslintrc.js --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx ./src/index.js ./src/index.ts ./src/component.jsx ./src/component.tsx`;
