@@ -3,7 +3,7 @@ const spawn = require('cross-spawn')
 const yargsParser = require('yargs-parser')
 const {hasPkgProp, resolveBin, hasFile, fromRoot} = require('../utils')
 
-let args = process.argv.slice(2)
+const args = process.argv.slice(2)
 const here = p => path.join(__dirname, p)
 const hereRelative = p => here(p).replace(process.cwd(), '.')
 const parsedArgs = yargsParser(args)
@@ -41,13 +41,6 @@ const extensions = args.includes('--ext') ? [] : ['--ext', '.js,.jsx,.ts,.tsx']
 const filesGiven = parsedArgs._.length > 0
 
 const filesToApply = filesGiven ? [] : ['.']
-
-if (filesGiven) {
-  // we need to take all the flag-less arguments (the files that should be linted)
-  // and filter out the ones that aren't js files. Otherwise json or css files
-  // may be passed through
-  args = args.filter(a => !parsedArgs._.includes(a) || /\.(j|t)sx?$/.test(a))
-}
 
 const result = spawn.sync(
   resolveBin('eslint'),
