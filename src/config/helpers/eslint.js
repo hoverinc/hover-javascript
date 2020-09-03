@@ -19,6 +19,7 @@ const parserRules = (typescript = false) => {
     'no-throw-literal': isOff(typescript),
     '@typescript-eslint/no-implied-eval': isOff(!typescript),
     '@typescript-eslint/no-throw-literal': isOff(!typescript),
+    'react/prop-types': isOff(typescript),
   }
 }
 
