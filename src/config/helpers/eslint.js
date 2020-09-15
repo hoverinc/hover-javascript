@@ -11,20 +11,23 @@ const prettier = withBaseConfig('eslint-config-prettier')
 
 const hasReact = hasAnyDep('react')
 
-const parserRules = (typescript = false) => {
+const parserRules = (typescript = false, react = false) => {
   const isOff = off => (off ? 'off' : 'error')
+
+  const propTypes = react ? {'react/prop-types': isOff(typescript)} : {}
 
   return {
     'no-implied-eval': isOff(typescript),
     'no-throw-literal': isOff(typescript),
     '@typescript-eslint/no-implied-eval': isOff(!typescript),
     '@typescript-eslint/no-throw-literal': isOff(!typescript),
-    'react/prop-types': isOff(typescript),
+    ...propTypes,
   }
 }
 
 const buildConfig = ({withReact = false} = {}) => {
-  const ifReact = (t, f) => (withReact || hasReact ? t : f)
+  const isReact = withReact || hasReact
+  const ifReact = (t, f) => (isReact ? t : f)
 
   return {
     plugins: ['prettier', 'jest', ifReact('react-hooks')].filter(Boolean),
@@ -52,7 +55,7 @@ const buildConfig = ({withReact = false} = {}) => {
           optionalDependencies: false,
         },
       ],
-      ...parserRules(),
+      ...parserRules(false, isReact),
     },
     overrides: [
       {
@@ -61,7 +64,7 @@ const buildConfig = ({withReact = false} = {}) => {
           'plugin:@typescript-eslint/recommended-requiring-type-checking',
         ],
         rules: {
-          ...parserRules(true),
+          ...parserRules(true, isReact),
         },
       },
       {
