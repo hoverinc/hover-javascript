@@ -99,7 +99,7 @@
     "is-ci": "^2.0.0",
     "jest": "^26.4.2",
     "jest-watch-typeahead": "^0.6.0",
-    "lint-staged": "^10.3.0",
+    "lint-staged": "^10.4.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.has": "^4.5.2",
     "lodash.omit": "^4.5.0",
