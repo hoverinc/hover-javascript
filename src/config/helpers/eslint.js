@@ -55,6 +55,7 @@ const buildConfig = ({withReact = false} = {}) => {
           optionalDependencies: false,
         },
       ],
+      'no-void': ['error', {allowAsStatement: true}],
       ...parserRules(false, isReact),
     },
     overrides: [
