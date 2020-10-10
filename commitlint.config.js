@@ -23,6 +23,7 @@ module.exports = {
         ...ls('./src/scripts'),
         ...ls('./src/api'),
         'deps',
+        'deps-dev',
         'build',
       ],
     ],
