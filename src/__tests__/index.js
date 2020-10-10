@@ -73,10 +73,6 @@ cases(
       args: ['lint'],
       signal: 'SIGKILL',
     },
-    'logs for SIGTERM signal': {
-      args: ['build'],
-      signal: 'SIGTERM',
-    },
     'does not log for other signals': {
       args: ['test'],
       signal: 'SIGBREAK',

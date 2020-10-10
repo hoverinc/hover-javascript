@@ -14,14 +14,6 @@ Array [
 ]
 `;
 
-exports[`format logs for SIGTERM signal 1`] = `
-Array [
-  Array [
-    The script "build" failed because the process exited too early. Someone might have called \`kill\` or \`killall\`, or the system could be shutting down.,
-  ],
-]
-`;
-
 exports[`format logs help with no args 1`] = `
 Array [
   Array [
@@ -29,7 +21,6 @@ Array [
 Usage: ../ [script] [--flags]
 
 Available Scripts:
-  build
   ci-after-success
   commit-msg
   commit

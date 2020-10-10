@@ -1,9 +1,4 @@
-const path = require('path')
-const {ifAnyDep, hasAnyDep, hasFile, hasPkgProp, fromRoot} = require('../utils')
-
-const here = p => path.join(__dirname, p)
-
-const useBuiltInBabelConfig = !hasFile('.babelrc') && !hasPkgProp('babel')
+const {ifAnyDep, hasAnyDep, hasFile, fromRoot} = require('../utils')
 
 const ignores = [
   '/node_modules/',
@@ -50,7 +45,6 @@ const jestConfig = {
     require.resolve('jest-watch-typeahead/testname'),
   ],
   globals: {},
-  transform: {},
 }
 
 if (hasAnyDep('ts-jest')) {
@@ -64,12 +58,6 @@ if (hasAnyDep('ts-jest')) {
 
 if (hasFile('tests/setup-env.js')) {
   jestConfig.setupFilesAfterEnv = [fromRoot('tests/setup-env.js')]
-}
-
-if (useBuiltInBabelConfig) {
-  Object.assign(jestConfig.transform, {
-    '^.+\\.js$': here('./babel-transform'),
-  })
 }
 
 module.exports = jestConfig
