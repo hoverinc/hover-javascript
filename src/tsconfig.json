@@ -1,7 +1,7 @@
 {
   "extends": "./config/tsconfig.json",
   "include": ["./api"],
-  "exclude": ["./**/__tests__/*"],
+  "exclude": ["./**/__tests__/*", "./**/__mocks__/*"],
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
