@@ -1,10 +1,11 @@
 <div align="center">
-<h1>@hover/javascript 🛠📦</h1>
+<br>
+<img width="200" src="https://user-images.githubusercontent.com/288160/95671736-22da8400-0b4f-11eb-953c-339440756a3d.png" alt="Hover Web">
+<br>
+<h1>hover-javascript</h1>
+<p>CLI toolbox for common scripts for <strong>JavaScript</strong> and <strong>TypeScript</strong> projects</p></div>
 
-<p>CLI toolbox for common scripts for <strong>JavaScript</strong> and
-<strong>TypeScript</strong> projects</p></div>
-
-<hr />
+---
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
