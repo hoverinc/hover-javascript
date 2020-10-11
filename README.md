@@ -1,6 +1,6 @@
 <div align="center">
 <br>
-<img width="200" src="https://user-images.githubusercontent.com/288160/95671736-22da8400-0b4f-11eb-953c-339440756a3d.png" alt="Hover Web">
+<img width="200" src="https://user-images.githubusercontent.com/288160/95674568-ed8d6080-0b65-11eb-88be-d119c88ee285.png" alt="Hover Web">
 <br>
 <h1>hover-javascript</h1>
 <p>🧰 Toolbox of scripts and configurations for <strong>JavaScript</strong> and <strong>TypeScript</strong> projects</p></div>
