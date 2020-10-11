@@ -121,16 +121,14 @@ MIT
 
 [react-scripts-link]:
   https://github.com/facebook/create-react-app/tree/master/packages/react-scripts
-[npm]: https://www.npmjs.com/
-[node]: https://nodejs.org
 [build-badge]:
   https://g.codefresh.io/api/badges/pipeline/hoverinc/npm%2Fjavascript?type=cf-1
-[build]:
+[build-link]:
   https://g.codefresh.io/public/accounts/hoverinc/pipelines/5d4cb5d4e41f3722d4dfdb94
 [coverage-badge]:
   https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg
-[coverage]: https://codecov.io/github/hoverinc/hover-javascript
-[version-badge]: https://img.shields.io/npm/v/@hover/javascript.svg
-[package]: https://www.npmjs.com/package/@hover/javascript
+[coverage-link]: https://codecov.io/github/hoverinc/hover-javascript
 [license-badge]: https://img.shields.io/npm/l/@hover/javascript.svg
-[license]: https://github.com/hoverinc/hover-javascript/blob/master/LICENSE
+[license-link]: https://github.com/hoverinc/hover-javascript/blob/master/LICENSE
+[package-badge]: https://img.shields.io/npm/v/@hover/javascript.svg
+[package-link]: https://www.npmjs.com/package/@hover/javascript
