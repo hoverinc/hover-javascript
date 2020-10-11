@@ -3,16 +3,25 @@
 <img width="200" src="https://user-images.githubusercontent.com/288160/95671736-22da8400-0b4f-11eb-953c-339440756a3d.png" alt="Hover Web">
 <br>
 <h1>hover-javascript</h1>
-<p>CLI toolbox for common scripts for <strong>JavaScript</strong> and <strong>TypeScript</strong> projects</p></div>
+<p>🧰 Toolbox of scripts and configurations for <strong>JavaScript</strong> and <strong>TypeScript</strong> projects</p></div>
 
----
+<div align="center">
 
-[![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package] [![MIT License][license-badge]][license]
+[![Build Status][build-badge]][build-link]
+[![Code Coverage][coverage-badge]][coverage-link]
+[![version][package-badge]][package-link]
+[![MIT License][license-badge]][license-link]
 
-This is a CLI that abstracts away configuration for JavaScript and TypeScript
-projects including formatting, linting, testing, and more.
+</div>
+
+<br>
+
+## ✨ Features
+
+- 📦 One package to encapsulate most tooling dependencies
+- ⚙️ Common (extensible) configurations to eliminate boilerplate
+- 📏 Conventions that help enforce consistency
+- 🥽 Best practices to help avoid 🦶🏻🔫
 
 ## Contents
 
@@ -22,6 +31,9 @@ projects including formatting, linting, testing, and more.
 - [Installation](#installation)
 - [Usage](#usage)
   - [Overriding Config](#overriding-config)
+    - [ESLint](#eslint)
+    - [Prettier](#prettier)
+    - [Jest](#jest)
 - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
