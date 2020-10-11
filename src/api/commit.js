@@ -1,6 +1,24 @@
 const {readdirSync, statSync} = require('fs')
 const {join, sep} = require('path')
 
+//
+// Common scopes
+
+/**
+ * Build scopes
+ * - commit
+ * - deps
+ * - deps-dev
+ * - format
+ * - lint
+ */
+const build = () => ['commit', 'deps', 'deps-dev', 'format', 'lint']
+
+const scopes = {build}
+
+//
+// Scope helpers
+
 /**
  * Enumerate config files
  *
@@ -28,4 +46,4 @@ const configs = path =>
 
 const ls = {configs}
 
-module.exports = {ls}
+module.exports = {ls, scopes}
