@@ -1,8 +1,8 @@
 <div align="center">
 <h1>@hover/javascript 🛠📦</h1>
 
-<p>CLI toolbox for common scripts for <del>my</del> <strong>our</strong> projects</p>
-</div>
+<p>CLI toolbox for common scripts for <strong>JavaScript</strong> and
+<strong>TypeScript</strong> projects</p></div>
 
 <hr />
 
@@ -11,17 +11,10 @@
 [![Dependabot Status][dependabot-badge]][dependabot]
 [![version][version-badge]][package] [![MIT License][license-badge]][license]
 
-## The problem
-
-~~I~~ **We** do a bunch of open source and want to make it easier to maintain so
-many projects.
-
-## This solution
-
 This is a CLI that abstracts away all configuration for ~~my~~ **our** open
 source projects for linting, testing, building, and more.
 
-## Table of Contents
+## Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -44,7 +37,7 @@ yarn add -D @hover/javascript
 
 ## Usage
 
-This is a CLI and exposes a bin called `hover-scripts`. You'll find all
+This is a CLI and exposes a bin called **`hover-scripts`**. You'll find all
 available scripts in `src/scripts`.
 
 This project actually dogfoods itself. If you look in the `package.json`, you'll
@@ -53,42 +46,54 @@ the things you can do with `hover-scripts`.
 
 ### Overriding Config
 
-Unlike `react-scripts`, `hover-scripts` allows you to specify your own
-configuration for things and have that plug directly into the way things work
-with `hover-scripts`. There are various ways that it works, but basically if you
-want to have your own config for something, just add the configuration and
-`hover-scripts` will use that instead of it's own internal config. In addition,
-`hover-scripts` exposes its configuration so you can use it and override only
-the parts of the config you need to.
+Unlike **[react-scripts][react-scripts-link]**, `hover-scripts` allows you to
+specify your own configuration for things and have that plug directly into the
+way things work with `hover-scripts`. There are various ways that it works, but
+basically if you want to have your own config for something, just add the
+configuration and `hover-scripts` will use that instead of it's own internal
+config. In addition, `hover-scripts` exposes its configuration so you can use it
+and override only the parts of the config you need to.
 
 This can be a very helpful way to make editor integration work for tools like
 ESLint which require project-based ESLint configuration to be present to work.
 
-So, if we were to do this for ESLint, you could create an `.eslintrc` with the
-contents of:
+#### ESLint
 
-```
-{"extends": "./node_modules/@hover/javascript/eslint.js"}
-```
+So, if we were to do this for ESLint, you could create an `.eslintrc.js` with
+the contents of:
 
-Or, for `babel`, a `.babelrc` with:
-
-```
-{"presets": ["@hover/javascript/babel"]}
-```
-
-Or, for `jest`:
-
-```javascript
-const {jest: jestConfig} = require('@hover/javascript/jest')
-module.exports = Object.assign(jestConfig, {
-  // your overrides here
-
-  // for test written in Typescript, add:
-  transform: {
-    '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
+```js
+module.exports = {
+  extends: require.resolve('@hover/javascript/eslint'),
+  // Include this when using TypeScript
+  parserOptions: {
+    project: ['./tsconfig.json'],
   },
-})
+}
+```
+
+#### Prettier
+
+Or, for Prettier, a `.prettierrc.js` with:
+
+```js
+module.exports = require('@hover/javascript/prettier')
+```
+
+#### Jest
+
+Or, for Jest in `jest.config.js`:
+
+> Note: if **ts-jest** is installed, it will automatically be used as the
+> `preset`
+
+```js
+const config = require('@hover/javascript/jest')
+
+module.exports = {
+  ...config,
+  coverageThreshold: null,
+}
 ```
 
 > Note: `hover-scripts` intentionally does not merge things for you when you
@@ -102,6 +107,8 @@ module.exports = Object.assign(jestConfig, {
 
 MIT
 
+[react-scripts-link]:
+  https://github.com/facebook/create-react-app/tree/master/packages/react-scripts
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
 [build-badge]:
