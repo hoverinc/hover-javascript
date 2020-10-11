@@ -1,4 +1,4 @@
-const {ls} = require('./src/api/commit')
+const {ls, scopes} = require('./src/api/commit')
 
 module.exports = {
   extends: ['./src/config/commitlint.config'],
@@ -7,12 +7,10 @@ module.exports = {
       1,
       'always',
       [
+        ...scopes.build(),
         'config',
         'scripts',
         'api',
-        'deps',
-        'deps-dev',
-        'build',
         ...ls.configs('./src/config'),
         ...ls.configs('./src/scripts'),
         ...ls.configs('./src/api'),
