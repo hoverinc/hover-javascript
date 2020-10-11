@@ -40,7 +40,6 @@ const buildConfig = ({withReact = false} = {}) => {
       ifReact('plugin:react-hooks/recommended'),
     ].filter(Boolean),
     rules: {
-      'prettier/prettier': 'error',
       'import/prefer-default-export': 'off',
       'import/no-extraneous-dependencies': [
         'error',
@@ -55,7 +54,21 @@ const buildConfig = ({withReact = false} = {}) => {
           optionalDependencies: false,
         },
       ],
+      'import/order': [
+        'error',
+        {
+          alphabetize: {order: 'asc'},
+          'newlines-between': 'always',
+          pathGroups: [
+            {pattern: 'src/**/*', group: 'parent', position: 'before'},
+            {pattern: 'assets/**/*', group: 'parent', position: 'before'},
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
+        },
+      ],
       'no-void': ['error', {allowAsStatement: true}],
+      'prettier/prettier': 'error',
+      'sort-imports': ['error', {ignoreDeclarationSort: true}],
       ...parserRules(false, isReact),
     },
     overrides: [
