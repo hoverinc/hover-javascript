@@ -44,6 +44,18 @@ const configs = path =>
         )}`,
     )
 
-const ls = {configs}
+/**
+ * Enumerate one level of directories
+ *
+ * @param {string} path - directory to enumerate
+ * @param {string} [prefix] - prefix for each scope entry (e.g: `prefix/entry`)
+ */
+const dirs = (path, prefix) =>
+  readdirSync(path)
+    .filter(f => statSync(join(path, f)).isDirectory())
+    .map(item => (prefix ? `${prefix}/${item}` : item))
+    .map(item => item.toLowerCase())
+
+const ls = {configs, dirs}
 
 module.exports = {ls, scopes}

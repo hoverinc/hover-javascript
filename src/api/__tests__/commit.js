@@ -15,4 +15,22 @@ describe('ls', () => {
 
     expect(result.sort()).toEqual(expected.sort())
   })
+
+  describe('dirs', () => {
+    test('without prefix', () => {
+      const result = ls.dirs(`${fixtures}/ls/dirs`)
+
+      const expected = ['.baz', 'bar', 'foo']
+
+      expect(result.sort()).toEqual(expected.sort())
+    })
+
+    test('with prefix', () => {
+      const result = ls.dirs(`${fixtures}/ls/dirs`, 'prefix')
+
+      const expected = ['prefix/.baz', 'prefix/bar', 'prefix/foo']
+
+      expect(result.sort()).toEqual(expected.sort())
+    })
+  })
 })
