@@ -9,7 +9,6 @@
 
 [![Build Status][build-badge]][build]
 [![Code Coverage][coverage-badge]][coverage]
-[![Dependabot Status][dependabot-badge]][dependabot]
 [![version][version-badge]][package] [![MIT License][license-badge]][license]
 
 This is a CLI that abstracts away all configuration for ~~my~~ **our** open
@@ -119,9 +118,6 @@ MIT
 [coverage-badge]:
   https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg
 [coverage]: https://codecov.io/github/hoverinc/hover-javascript
-[dependabot-badge]:
-  https://api.dependabot.com/badges/status?host=github&repo=hoverinc/hover-javascript
-[dependabot]: https://dependabot.com
 [version-badge]: https://img.shields.io/npm/v/@hover/javascript.svg
 [package]: https://www.npmjs.com/package/@hover/javascript
 [license-badge]: https://img.shields.io/npm/l/@hover/javascript.svg
