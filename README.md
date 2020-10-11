@@ -9,8 +9,10 @@
 
 [![Build Status][build-badge]][build-link]
 [![Code Coverage][coverage-badge]][coverage-link]
-[![version][package-badge]][package-link]
+[![Version][package-badge]][package-link]
 [![MIT License][license-badge]][license-link]
+[![Code Style][prettier-badge]][prettier-link]
+[![Conventional Commits][conventional-commits-badge]][conventional-commits-link]
 
 </div>
 
@@ -125,6 +127,9 @@ MIT
   https://g.codefresh.io/api/badges/pipeline/hoverinc/npm%2Fjavascript?type=cf-1
 [build-link]:
   https://g.codefresh.io/public/accounts/hoverinc/pipelines/5d4cb5d4e41f3722d4dfdb94
+[conventional-commits-badge]:
+  https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[conventional-commits-link]: https://conventionalcommits.org
 [coverage-badge]:
   https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg
 [coverage-link]: https://codecov.io/github/hoverinc/hover-javascript
@@ -132,3 +137,6 @@ MIT
 [license-link]: https://github.com/hoverinc/hover-javascript/blob/master/LICENSE
 [package-badge]: https://img.shields.io/npm/v/@hover/javascript.svg
 [package-link]: https://www.npmjs.com/package/@hover/javascript
+[prettier-badge]:
+  https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier
+[prettier-link]: https://prettierjs.org/en/download/
