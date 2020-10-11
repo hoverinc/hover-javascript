@@ -11,8 +11,8 @@
 [![Code Coverage][coverage-badge]][coverage]
 [![version][version-badge]][package] [![MIT License][license-badge]][license]
 
-This is a CLI that abstracts away all configuration for ~~my~~ **our** open
-source projects for linting, testing, building, and more.
+This is a CLI that abstracts away configuration for JavaScript and TypeScript
+projects including formatting, linting, testing, and more.
 
 ## Contents
 
