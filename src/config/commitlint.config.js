@@ -24,7 +24,6 @@ module.exports = {
       'always',
       [
         // build(...)
-        'build',
         'deps',
         'deps-dev',
         'format',
