@@ -19,8 +19,11 @@ module.exports = {
       1,
       'always',
       [
+        'config',
         ...ls('./src/config'),
+        'scripts',
         ...ls('./src/scripts'),
+        'api',
         ...ls('./src/api'),
         'deps',
         'deps-dev',
