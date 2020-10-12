@@ -48,7 +48,7 @@ const jestConfig = {
 }
 
 if (hasAnyDep('ts-jest')) {
-  jestConfig.preset = 'ts-jest'
+  jestConfig.preset = 'ts-jest/presets/js-with-ts'
   jestConfig.globals['ts-jest'] = {
     diagnostics: {
       warnOnly: true,
