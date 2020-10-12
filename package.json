@@ -14,7 +14,7 @@
     "test": "node src test",
     "test:update": "node src test --updateSnapshot",
     "build": "run-p build:*",
-    "build:source": "babel --source-maps --out-dir dist --ignore '**/__tests__/**','**/__mocks__/**' src",
+    "build:source": "babel --source-maps --out-dir dist --ignore '**/__tests__/**','**/__mocks__/**' --copy-files --no-copy-ignored src",
     "build:types": "tsc -p src/",
     "lint": "node src lint",
     "format": "node src format",
