@@ -1,3 +1,5 @@
+const {scopes} = require('../api/commit')
+
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -19,6 +21,6 @@ module.exports = {
       ],
     ],
     'scope-case': [1, 'always', 'kebab-case'],
-    'scope-enum': [0, 'always', ['deps', 'build']],
+    'scope-enum': [0, 'always', scopes.build()],
   },
 }

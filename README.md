@@ -1,19 +1,31 @@
 <div align="center">
 <br>
-<img width="200" src="https://user-images.githubusercontent.com/288160/95671736-22da8400-0b4f-11eb-953c-339440756a3d.png" alt="Hover Web">
+<img width="200" src="https://user-images.githubusercontent.com/288160/95674568-ed8d6080-0b65-11eb-88be-d119c88ee285.png" alt="Hover Web">
 <br>
 <h1>hover-javascript</h1>
-<p>CLI toolbox for common scripts for <strong>JavaScript</strong> and <strong>TypeScript</strong> projects</p></div>
+<p>🧰 Toolbox of scripts and configurations for <strong>JavaScript</strong> and <strong>TypeScript</strong> projects</p></div>
 
----
+<div align="center">
 
-[![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
-[![Dependabot Status][dependabot-badge]][dependabot]
-[![version][version-badge]][package] [![MIT License][license-badge]][license]
+[![Build Status][build-badge]][build-link]
+[![Code Coverage][coverage-badge]][coverage-link]
+[![Version][package-badge]][package-link]
+[![Maintenance][maintenance-badge]][maintenance-link]
+[![Node Version][node-badge]][node-link]
+[![MIT License][license-badge]][license-link]
+[![Code Style][prettier-badge]][prettier-link]
+[![Conventional Commits][conventional-commits-badge]][conventional-commits-link]
 
-This is a CLI that abstracts away all configuration for ~~my~~ **our** open
-source projects for linting, testing, building, and more.
+</div>
+
+<br>
+
+## ✨ Features
+
+- 📦 One package to encapsulate most tooling dependencies
+- ⚙️ Common (extensible) configurations to eliminate boilerplate
+- 📏 Conventions that help enforce consistency
+- 🥽 Best practices to help avoid 🦶🏻🔫
 
 ## Contents
 
@@ -23,14 +35,19 @@ source projects for linting, testing, building, and more.
 - [Installation](#installation)
 - [Usage](#usage)
   - [Overriding Config](#overriding-config)
-- [LICENSE](#license)
+    - [ESLint](#eslint)
+    - [Prettier](#prettier)
+    - [Jest](#jest)
+- [License](#license)
+- [Maintenance](#maintenance)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Installation
 
-This module is distributed via [npm][npm] which is bundled with [node][node] and
-should be installed as one of your project's `devDependencies`:
+This module is distributed via [npm][npm-link] which is bundled with
+[node][node-link] and should be installed as one of your project's
+`devDependencies`:
 
 ```
 yarn add -D @hover/javascript
@@ -57,6 +74,10 @@ and override only the parts of the config you need to.
 
 This can be a very helpful way to make editor integration work for tools like
 ESLint which require project-based ESLint configuration to be present to work.
+
+> Note: `hover-scripts` intentionally does not merge things for you when you
+> start configuring things to make it less magical and more straightforward.
+> Extending can take place on your terms.
 
 #### ESLint
 
@@ -97,32 +118,39 @@ module.exports = {
 }
 ```
 
-> Note: `hover-scripts` intentionally does not merge things for you when you
-> start configuring things to make it less magical and more straightforward.
-> Extending can take place on your terms. ~~I~~ _Kent_ think[s] this is actually
-> a great way to do this.
->
-> For the record, so do I (Jamie)
+## License
 
-## LICENSE
+## Maintenance
+
+This project is actively maintained by engineers at
+[@hoverinc][hover-github-link] 😀.
 
 MIT
 
+[hover-github-link]: https://github.com/hoverinc
+[node-link]: https://nodejs.org
+[npm-link]: https://www.npmjs.com/
 [react-scripts-link]:
   https://github.com/facebook/create-react-app/tree/master/packages/react-scripts
-[npm]: https://www.npmjs.com/
-[node]: https://nodejs.org
 [build-badge]:
   https://g.codefresh.io/api/badges/pipeline/hoverinc/npm%2Fjavascript?type=cf-1
-[build]:
+[build-link]:
   https://g.codefresh.io/public/accounts/hoverinc/pipelines/5d4cb5d4e41f3722d4dfdb94
+[conventional-commits-badge]:
+  https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
+[conventional-commits-link]: https://conventionalcommits.org
+[coverage-link]: https://codecov.io/github/hoverinc/hover-javascript
 [coverage-badge]:
   https://img.shields.io/codecov/c/github/hoverinc/hover-javascript.svg
-[coverage]: https://codecov.io/github/hoverinc/hover-javascript
-[dependabot-badge]:
-  https://api.dependabot.com/badges/status?host=github&repo=hoverinc/hover-javascript
-[dependabot]: https://dependabot.com
-[version-badge]: https://img.shields.io/npm/v/@hover/javascript.svg
-[package]: https://www.npmjs.com/package/@hover/javascript
+[maintenance-badge]:
+  https://img.shields.io/badge/maintenance-active-247ddc?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAcCAYAAACUJBTQAAAB1ElEQVRIibWWPUtdQRCGH0VNF/wCCVjYCxr/gZWdhYVgLQYbm/wACTYxxA8SSBDtbKwUbfQWkiJFAgkkmHBBY6U2CXaCGlDDG1buxePOnt17bsgD28zOzjtnZvbuRVKR1SFpVdKepEe1njOGnOWCz0q60B1lSa05/oVE2iTNSfqdCZ7lSyWB0NmkSJekeUmXJqzlayWZUJxckUUTJs23mFAjlhNjSdMHfAQ6g54hZUnDdXyN44ek7iKNH4w0PMaeX7pQ8Ox6HQkWww3Dw1hPWoAJ4BxoB4aNR5oB4APQ5vekUdITSceZDLcreyORrGPcfpEL0CBpVNJRwLmUSWLS7NbGpju8FXEteT2qR+jQ9aS3QK2XgUljjXPpRC6iLpYV4KmxRghNVy28Aqb+t4jjLbBhrAH+RcRxZSwBUiINxlIHKZE/xlIHTTlHBDwHjoDPwHtgF/gEnBnvFJVfzSrXkpYyfxKGvIu14F3ONXP1LOWmzEPjpuWl92j55XyQyDnEjRN5AbwD9gMOPkV7tAPMOJE3ZuuOFmOpjS3gGfCdQDl8fgGnGVtzwt8F7wdGqgKOvOmq4iarB3gMjAFlb78qug5MAwehIO4tKViJe4wDP4FSrgfwF/ntR8JxRSf3AAAAAElFTkSuQmCC
+[maintenance-link]: https://github.com/hoverinc/hover-javascript#maintenance
 [license-badge]: https://img.shields.io/npm/l/@hover/javascript.svg
-[license]: https://github.com/hoverinc/hover-javascript/blob/master/LICENSE
+[license-link]: https://github.com/hoverinc/hover-javascript/blob/master/LICENSE
+[node-link]: https://nodejs.org/en/download/
+[node-badge]: https://img.shields.io/badge/node-v12.18.4-green
+[prettier-badge]:
+  https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier
+[prettier-link]: https://prettierjs.org/en/download/
+[package-badge]: https://img.shields.io/npm/v/@hover/javascript.svg
+[package-link]: https://www.npmjs.com/package/@hover/javascript

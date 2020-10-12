@@ -1,16 +1,4 @@
-const {readdirSync, statSync} = require('fs')
-const {join, sep} = require('path')
-
-const ls = path =>
-  readdirSync(path)
-    .filter(f => statSync(join(path, f)).isFile())
-    .map(
-      f =>
-        `${path.split(sep).reverse()[0]}/${f.replace(
-          /(\.config)?.(json|js)/,
-          '',
-        )}`,
-    )
+const {ls, scopes} = require('./src/api/commit')
 
 module.exports = {
   extends: ['./src/config/commitlint.config'],
@@ -19,11 +7,13 @@ module.exports = {
       1,
       'always',
       [
-        ...ls('./src/config'),
-        ...ls('./src/scripts'),
-        ...ls('./src/api'),
-        'deps',
-        'build',
+        ...scopes.build(),
+        'config',
+        'scripts',
+        'api',
+        ...ls.configs('./src/config'),
+        ...ls.configs('./src/scripts'),
+        ...ls.configs('./src/api'),
       ],
     ],
   },
