@@ -1,4 +1,6 @@
-const {rules} = require('eslint-config-airbnb-typescript/lib/shared')
+const {
+  rules: airbnbRules,
+} = require('eslint-config-airbnb-typescript/lib/shared')
 
 const {hasAnyDep} = require('../../utils')
 const {testMatch} = require('../jest.config')
@@ -44,12 +46,12 @@ const buildConfig = ({withReact = false} = {}) => {
       'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: rules[
+          devDependencies: airbnbRules[
             'import/no-extraneous-dependencies'
           ][1].devDependencies.concat([
             'jest/**',
             'e2e/**',
-            '**/prettier.config.js',
+            '**/*.config.{js,ts}',
           ]),
           optionalDependencies: false,
         },

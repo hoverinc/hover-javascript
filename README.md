@@ -11,7 +11,7 @@
 [![Code Coverage][coverage-badge]][coverage-link]
 [![Version][package-badge]][package-link]
 [![Maintenance][maintenance-badge]][maintenance-link]
-[![Node Version][node-badge]][node-link]
+[![Node Version][node-badge]][node-link] <br>
 [![MIT License][license-badge]][license-link]
 [![Code Style][prettier-badge]][prettier-link]
 [![Conventional Commits][conventional-commits-badge]][conventional-commits-link]
