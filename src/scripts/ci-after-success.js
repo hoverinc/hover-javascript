@@ -1,3 +1,4 @@
+const path = require('path')
 const spawn = require('cross-spawn')
 
 const {TRAVIS_BRANCH, CF_BRANCH} = process.env
@@ -6,9 +7,13 @@ const {
   resolveBin,
   getConcurrentlyArgs,
   hasFile,
+  hasLocalConfig,
   pkg,
   parseEnv,
 } = require('../utils')
+
+const here = p => path.join(__dirname, p)
+const hereRelative = p => here(p).replace(process.cwd(), '.')
 
 const releaseBranches = [
   'main',
@@ -20,6 +25,13 @@ const releaseBranches = [
 ]
 const branch = CF_BRANCH || TRAVIS_BRANCH
 const isCI = parseEnv('TRAVIS', false) || parseEnv('CI', false)
+
+const codecovCommand = `echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'`
+const releaseCommand = `echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'${
+  hasLocalConfig('release')
+    ? ''
+    : ` --extends ${hereRelative('../config/release.config.js')}`
+}`
 
 const autorelease =
   pkg.version === '0.0.0-semantically-released' &&
@@ -38,12 +50,8 @@ if (!autorelease && !reportCoverage) {
     resolveBin('concurrently'),
     getConcurrentlyArgs(
       {
-        codecov: reportCoverage
-          ? `echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'`
-          : null,
-        release: autorelease
-          ? `echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'`
-          : null,
+        codecov: reportCoverage ? codecovCommand : null,
+        release: autorelease ? releaseCommand : null,
       },
       {killOthers: false},
     ),
