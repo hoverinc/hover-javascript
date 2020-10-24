@@ -38,6 +38,7 @@
     - [ESLint](#eslint)
     - [Prettier](#prettier)
     - [Jest](#jest)
+    - [Semantic Release](#semantic-release)
 - [License](#license)
 - [Maintenance](#maintenance)
 
@@ -115,6 +116,17 @@ const config = require('@hover/javascript/jest')
 module.exports = {
   ...config,
   coverageThreshold: null,
+}
+```
+
+#### Semantic Release
+
+Or, for Semantic Release (used in `ci-after-success` script) in
+`release.config.js`:
+
+```js
+module.exports = {
+  extends: require.resolve('@hover/javascript/release'),
 }
 ```
 

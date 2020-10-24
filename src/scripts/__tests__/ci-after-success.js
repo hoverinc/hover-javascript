@@ -3,12 +3,18 @@ import {unquoteSerializer} from './helpers/serializers'
 
 expect.addSnapshotSerializer(unquoteSerializer)
 
+jest.mock('../../utils', () => {
+  const actualUtils = jest.requireActual('../../utils')
+  return {...actualUtils, hasLocalConfig: jest.fn()}
+})
+
 cases(
   'ci-after-success',
   ({
     version = '0.0.0-semantically-released',
     hasCoverageDir = true,
     isOptedOutOfCoverage = false,
+    hasLocalConfig = true,
     env = {
       CI: 'true',
       CF_BRANCH: 'main',
@@ -27,6 +33,8 @@ cases(
     const originalExit = process.exit
     process.exit = jest.fn()
     console.log = jest.fn()
+
+    require('../../utils').hasLocalConfig.mockReturnValue(hasLocalConfig)
 
     // tests
     if (version) {
@@ -68,6 +76,10 @@ cases(
     },
     'does not do the autorelease script when the version is different': {
       version: '1.2.3',
+    },
+    'configures semantic release with internal configuration when no local configuration exists': {
+      hasCoverageDir: false,
+      hasLocalConfig: false,
     },
     'does not do the codecov script when there is no coverage directory': {
       hasCoverageDir: false,
