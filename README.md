@@ -120,12 +120,12 @@ module.exports = {
 
 ## License
 
+MIT
+
 ## Maintenance
 
 This project is actively maintained by engineers at
 [@hoverinc][hover-github-link] 😀.
-
-MIT
 
 [hover-github-link]: https://github.com/hoverinc
 [node-link]: https://nodejs.org
