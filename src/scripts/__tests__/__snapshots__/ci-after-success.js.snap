@@ -20,7 +20,7 @@ exports[`ci-after-success configures semantic release with internal configuratio
 
 exports[`ci-after-success configures semantic release with internal configuration when no local configuration exists 2`] = `
 Array [
-  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release' --extends ./src/config/release.config.js",
+  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release --extends ./src/config/release.config.js'",
 ]
 `;
 
