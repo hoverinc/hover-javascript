@@ -11,7 +11,7 @@ cases(
     isOptedOutOfCoverage = false,
     env = {
       CI: 'true',
-      CF_BRANCH: 'master',
+      CF_BRANCH: 'main',
     },
   }) => {
     // beforeEach
@@ -55,7 +55,7 @@ cases(
     'calls concurrently with both scripts when on travis': {
       env: {
         TRAVIS: 'true',
-        TRAVIS_BRANCH: 'master',
+        TRAVIS_BRANCH: 'main',
         TRAVIS_PULL_REQUEST: 'false',
       },
     },
@@ -78,7 +78,7 @@ cases(
     'does not do autorelease script when running on travis but in a pull request': {
       env: {
         TRAVIS: 'true',
-        TRAVIS_BRANCH: 'master',
+        TRAVIS_BRANCH: 'main',
         TRAVIS_PULL_REQUEST: 'true',
       },
     },
