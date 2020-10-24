@@ -10,7 +10,14 @@ const {
   parseEnv,
 } = require('../utils')
 
-const releaseBranches = ['master', 'next', 'next-major', 'beta', 'alpha']
+const releaseBranches = [
+  'main',
+  'master',
+  'next',
+  'next-major',
+  'beta',
+  'alpha',
+]
 const branch = CF_BRANCH || TRAVIS_BRANCH
 const isCI = parseEnv('TRAVIS', false) || parseEnv('CI', false)
 
