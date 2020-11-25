@@ -13,6 +13,13 @@ const prettier = withBaseConfig('eslint-config-prettier')
 
 const hasReact = hasAnyDep('react')
 
+/**
+ * Helper that applies some rules conditionally based on whether the TypeScript
+ * parser and type-aware linting rules are enabled
+ *
+ * @param {boolean} [typescript] - whether specific TypeScript parsing is applied
+ * @param {boolean} [react] - whether in React support is enabled
+ */
 const parserRules = (typescript = false, react = false) => {
   const isOff = off => (off ? 'off' : 'error')
 
