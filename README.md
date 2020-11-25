@@ -94,6 +94,26 @@ module.exports = {
 }
 ```
 
+##### Strict Preset
+
+> ✨ The strict preset is recommended for new projects!
+
+A strict preset is also available that includes more agressive linting rules
+that enforce the order and grouping of imports.
+
+```js
+module.exports = {
+  extends: [
+    require.resolve('@hover/javascript/eslint'),
+    require.resolve('@hover/javascript/eslint/strict'),
+  ],
+  // Include this when using TypeScript
+  parserOptions: {
+    project: ['./tsconfig.json'],
+  },
+}
+```
+
 #### Prettier
 
 Or, for Prettier, a `.prettierrc.js` with:

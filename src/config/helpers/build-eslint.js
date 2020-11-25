@@ -63,21 +63,8 @@ const buildConfig = ({withReact = false} = {}) => {
           optionalDependencies: false,
         },
       ],
-      'import/order': [
-        'error',
-        {
-          alphabetize: {order: 'asc'},
-          'newlines-between': 'always',
-          pathGroups: [
-            {pattern: 'src/**/*', group: 'parent', position: 'before'},
-            {pattern: 'assets/**/*', group: 'parent', position: 'before'},
-          ],
-          pathGroupsExcludedImportTypes: ['builtin'],
-        },
-      ],
       'no-void': ['error', {allowAsStatement: true}],
       'prettier/prettier': 'error',
-      'sort-imports': ['error', {ignoreDeclarationSort: true}],
       ...parserRules(false, isReact),
     },
     overrides: [
