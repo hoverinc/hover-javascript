@@ -37,7 +37,7 @@
     "api.d.ts",
     "dist",
     "commitlint.js",
-    "eslint.js",
+    "eslint",
     "eslint-react.js",
     "config.js",
     "prettier.js",
