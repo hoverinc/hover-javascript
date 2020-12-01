@@ -39,7 +39,7 @@
     "config.js",
     "dist",
     "eslint-react.js",
-    "eslint.js",
+    "eslint",
     "jest.js",
     "lint-staged.js",
     "prettier.js",
