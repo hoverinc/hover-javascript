@@ -1,1 +1,1 @@
-module.exports = require('./dist/config/eslintrc-strict')
+module.exports = require('../dist/config/eslintrc-strict')
