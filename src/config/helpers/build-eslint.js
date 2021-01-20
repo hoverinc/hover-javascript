@@ -1,4 +1,6 @@
-const {rules} = require('eslint-config-airbnb-typescript/lib/shared')
+const {
+  rules: airbnbRules,
+} = require('eslint-config-airbnb-typescript/lib/shared')
 
 const {hasAnyDep} = require('../../utils')
 const {testMatch} = require('../jest.config')
@@ -11,6 +13,13 @@ const prettier = withBaseConfig('eslint-config-prettier')
 
 const hasReact = hasAnyDep('react')
 
+/**
+ * Helper that applies some rules conditionally based on whether the TypeScript
+ * parser and type-aware linting rules are enabled
+ *
+ * @param {boolean} [typescript] - whether specific TypeScript parsing is applied
+ * @param {boolean} [react] - whether in React support is enabled
+ */
 const parserRules = (typescript = false, react = false) => {
   const isOff = off => (off ? 'off' : 'error')
 
@@ -44,7 +53,7 @@ const buildConfig = ({withReact = false} = {}) => {
       'import/no-extraneous-dependencies': [
         'error',
         {
-          devDependencies: rules[
+          devDependencies: airbnbRules[
             'import/no-extraneous-dependencies'
           ][1].devDependencies.concat([
             'jest/**',
@@ -54,21 +63,8 @@ const buildConfig = ({withReact = false} = {}) => {
           optionalDependencies: false,
         },
       ],
-      'import/order': [
-        'error',
-        {
-          alphabetize: {order: 'asc'},
-          'newlines-between': 'always',
-          pathGroups: [
-            {pattern: 'src/**/*', group: 'parent', position: 'before'},
-            {pattern: 'assets/**/*', group: 'parent', position: 'before'},
-          ],
-          pathGroupsExcludedImportTypes: ['builtin'],
-        },
-      ],
       'no-void': ['error', {allowAsStatement: true}],
       'prettier/prettier': 'error',
-      'sort-imports': ['error', {ignoreDeclarationSort: true}],
       ...parserRules(false, isReact),
     },
     overrides: [
