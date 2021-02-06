@@ -72,7 +72,7 @@
     "eslint-plugin-jest": "^24.0.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.21.2",
+    "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.1.2",
     "glob": "^7.1.6",
     "husky": "^4.3.8",
