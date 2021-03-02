@@ -119,7 +119,7 @@
   "devDependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.12.13",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-env": "^7.13.9",
     "babel-jest": "^26.5.2",
     "eslint-config-kentcdodds": "^15.0.0",
     "jest-in-case": "^1.0.2",
