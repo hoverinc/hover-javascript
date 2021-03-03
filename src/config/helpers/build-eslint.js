@@ -44,8 +44,6 @@ const buildConfig = ({withReact = false} = {}) => {
       ifReact(airbnb(), airbnb('base')),
       'plugin:jest/recommended',
       prettier(),
-      prettier('@typescript-eslint'),
-      ifReact(prettier('react')),
       ifReact('plugin:react-hooks/recommended'),
     ].filter(Boolean),
     rules: {
