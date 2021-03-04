@@ -1,8 +1,22 @@
+import path from 'path'
 import cases from 'jest-in-case'
+import yargsParser from 'yargs-parser'
 import {unquoteSerializer, winPathSerializer} from './helpers/serializers'
 
 expect.addSnapshotSerializer(unquoteSerializer)
 expect.addSnapshotSerializer(winPathSerializer)
+
+jest.mock('os', () => ({
+  ...jest.requireActual('os'),
+  tmpdir: jest.fn(() => '.test-tmp'),
+}))
+
+jest.mock('fs', () => ({
+  ...jest.requireActual('fs'),
+  mkdtempSync: jest.fn(prefix => `${prefix}TMPSUFFIX`),
+  rmdirSync: jest.fn(),
+  writeFileSync: jest.fn(),
+}))
 
 cases(
   'pre-commit',
@@ -12,9 +26,15 @@ cases(
     hasPkgProp = () => false,
     hasFile = () => false,
     ifScript = () => true,
+    expectError = false,
   }) => {
     // beforeEach
     const {sync: crossSpawnSyncMock} = require('cross-spawn')
+    const {
+      writeFileSync: writeFileSyncMock,
+      rmdirSync: rmdirSyncMock,
+    } = require('fs')
+
     const originalArgv = process.argv
     const originalExit = process.exit
     Object.assign(utils, {
@@ -34,12 +54,42 @@ cases(
         call => `${call[0]} ${call[1].join(' ')}`,
       )
       expect(commands).toMatchSnapshot()
+
+      // Specific tests for when a custom test command is supplied
+      if (!!yargsParser(args).testCommand) {
+        // ensure we don't pass `--testCommand` through to `lint-staged`
+        expect(
+          crossSpawnSyncMock.mock.calls.some(([_command, commandArgs]) =>
+            commandArgs.some(
+              a => a === '--testCommand' || a === '--test-command',
+            ),
+          ),
+        ).not.toBeTruthy()
+
+        const [writeFileSyncCall] = writeFileSyncMock.mock.calls
+
+        // Snapshot the config file we use with the custom test command
+        expect(writeFileSyncCall).toMatchSnapshot()
+
+        // Make sure we clean up the temporary config file
+        expect(rmdirSyncMock).toHaveBeenCalledWith(
+          path.dirname(writeFileSyncCall[0]),
+          {recursive: true},
+        )
+      }
     } catch (error) {
-      throw error
+      if (expectError) {
+        expect(error).toMatchSnapshot()
+      } else {
+        throw error
+      }
     } finally {
       // afterEach
       process.exit = originalExit
       process.argv = originalArgv
+
+      writeFileSyncMock.mockClear()
+
       jest.resetModules()
     }
   },
@@ -62,6 +112,39 @@ cases(
     },
     [`does not run validate script if it's not defined`]: {
       ifScript: () => false,
+    },
+    'throws an error when `--config` and `--testCommand` are used together': {
+      expectError: true,
+      args: [
+        '--config',
+        'some-config.js',
+        '--testCommand',
+        '"yarn test:unit --findRelatedTests"',
+      ],
+    },
+    'throws an error when invalid `--testCommand` is provided': {
+      expectError: true,
+      args: ['--testCommand', '--config', 'some-config.js'],
+    },
+    'overrides built-in test command with --testCommand': {
+      args: ['--testCommand', '"yarn test:custom --findRelatedTests foo.js"'],
+    },
+    'overrides built-in test command with --test-command': {
+      args: ['--test-command', '"yarn test:custom --findRelatedTests foo.js"'],
+    },
+    'overrides built-in test command with --testCommand and forwards args': {
+      args: [
+        '--verbose',
+        '--testCommand',
+        '"yarn test:custom --findRelatedTests foo.js"',
+      ],
+    },
+    'overrides built-in test command with --test-command and forwards args': {
+      args: [
+        '--verbose',
+        '--test-command',
+        '"yarn test:custom --findRelatedTests foo.js"',
+      ],
     },
   },
 )
