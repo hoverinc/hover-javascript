@@ -22,7 +22,7 @@ const scopes = {build}
 /**
  * Enumerate config files
  *
- * Example
+ * @example
  *
  * - `dir/foo.js`
  * - `dir/bar.config.js`
