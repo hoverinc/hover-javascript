@@ -52,6 +52,8 @@ const hasFile = (...p) => fs.existsSync(fromRoot(...p))
 const ifFile = (files, t, f) =>
   arrify(files).some(file => hasFile(file)) ? t : f
 
+const getPkgName = () => pkg.name
+
 const hasPkgProp = props => arrify(props).some(prop => has(pkg, prop))
 
 const hasPkgSubProp = pkgProp => props =>
@@ -164,11 +166,12 @@ module.exports = {
   appDirectory,
   fromRoot,
   getConcurrentlyArgs,
+  getPkgName,
+  hasAnyDep,
   hasFile,
   hasLocalConfig,
   hasPkgProp,
   hasScript,
-  hasAnyDep,
   ifAnyDep,
   ifDep,
   ifDevDep,
