@@ -47,3 +47,63 @@ Array [
   npm run validate,
 ]
 `;
+
+exports[`pre-commit overrides built-in test command with --test-command 1`] = `
+Array [
+  lint-staged --config .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
+  npm run validate,
+]
+`;
+
+exports[`pre-commit overrides built-in test command with --test-command 2`] = `
+Array [
+  .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
+  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint","yarn test:custom --findRelatedTests foo.js"]},
+]
+`;
+
+exports[`pre-commit overrides built-in test command with --test-command and forwards args 1`] = `
+Array [
+  lint-staged --config .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json --verbose,
+  npm run validate,
+]
+`;
+
+exports[`pre-commit overrides built-in test command with --test-command and forwards args 2`] = `
+Array [
+  .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
+  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint","yarn test:custom --findRelatedTests foo.js"]},
+]
+`;
+
+exports[`pre-commit overrides built-in test command with --testCommand 1`] = `
+Array [
+  lint-staged --config .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
+  npm run validate,
+]
+`;
+
+exports[`pre-commit overrides built-in test command with --testCommand 2`] = `
+Array [
+  .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
+  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint","yarn test:custom --findRelatedTests foo.js"]},
+]
+`;
+
+exports[`pre-commit overrides built-in test command with --testCommand and forwards args 1`] = `
+Array [
+  lint-staged --config .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json --verbose,
+  npm run validate,
+]
+`;
+
+exports[`pre-commit overrides built-in test command with --testCommand and forwards args 2`] = `
+Array [
+  .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
+  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint","yarn test:custom --findRelatedTests foo.js"]},
+]
+`;
+
+exports[`pre-commit throws an error when \`--config\` and \`--testCommand\` are used together 1`] = `[Error: @hover/javascript/pre-commit: --config and --testCommand cannot be used together (--testCommand only works with built-in lint-staged configuration)]`;
+
+exports[`pre-commit throws an error when invalid \`--testCommand\` is provided 1`] = `[Error: @hover/javascript/pre-commit: invalid --testCommand]`;

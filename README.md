@@ -39,6 +39,7 @@
     - [Prettier](#prettier)
     - [Jest](#jest)
     - [Semantic Release](#semantic-release)
+    - [Lint Staged](#lint-staged)
 - [License](#license)
 - [Maintenance](#maintenance)
 
@@ -147,6 +148,34 @@ Or, for Semantic Release (used in `ci-after-success` script) in
 ```js
 module.exports = {
   extends: require.resolve('@hover/javascript/release'),
+}
+```
+
+#### Lint Staged
+
+Or, for lint-staged (used in `pre-commit` script) in `lint-staged.config.js`:
+
+```js
+module.exports = {
+  ...require.resolve('@hover/javascript/lint-staged'),
+  '*.+(js|jsx|ts|tsx)': ['yarn some-custom-command'],
+}
+```
+
+##### Custom Test Command
+
+If all you want to do is run a custom test command, you can pass `--testCommand`
+to `hover-scripts pre-commit`. The built-in lint-staged configuration will be
+used with your custom command.
+
+```json
+{
+  "name": "my-package",
+  "husky": {
+    "hooks": {
+      "pre-commit": "hover-scripts pre-commit --testCommand 'yarn test:custom' --findRelatedTests"
+    }
+  }
 }
 ```
 
