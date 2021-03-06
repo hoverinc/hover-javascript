@@ -80,6 +80,8 @@ const buildConfig = ({withReact = false} = {}) => {
       {
         files: testMatch,
         rules: {
+          '@typescript-eslint/no-unsafe-assignment': 'off',
+          '@typescript-eslint/no-unsafe-return': 'off',
           'no-empty': ['error', {allowEmptyCatch: true}],
         },
       },
