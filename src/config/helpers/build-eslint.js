@@ -30,6 +30,8 @@ const parserRules = (typescript = false, react = false) => {
     'no-throw-literal': isOff(typescript),
     '@typescript-eslint/no-implied-eval': isOff(!typescript),
     '@typescript-eslint/no-throw-literal': isOff(!typescript),
+    '@typescript-eslint/dot-notation': isOff(!typescript),
+    '@typescript-eslint/return-await': isOff(!typescript),
     ...propTypes,
   }
 }
