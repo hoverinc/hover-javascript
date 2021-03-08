@@ -116,6 +116,21 @@ module.exports = {
 }
 ```
 
+##### React Preset
+
+> ℹ️ The standard preset attempts to detect a React dependency and enable this
+> preset automatically so this is usually only necessary in edge cases where
+> React is not detected (such as a monorepo)
+
+A React preset is available that includes additional React-specific rules as
+well as the **eslint-plugin-react-hooks** plugin.
+
+```js
+module.exports = {
+  extends: require.resolve('@hover/javascript/eslint/react'),
+}
+```
+
 #### Prettier
 
 Or, for Prettier, a `.prettierrc.js` with:
