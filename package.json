@@ -83,7 +83,7 @@
     "read-pkg-up": "^7.0.1",
     "rimraf": "^3.0.2",
     "which": "^2.0.2",
-    "yargs-parser": "^20.2.4"
+    "yargs-parser": "^20.2.7"
   },
   "eslintConfig": {
     "extends": [
