@@ -40,6 +40,8 @@
     - [Jest](#jest)
     - [Semantic Release](#semantic-release)
     - [Lint Staged](#lint-staged)
+  - [Source Control Hooks](#source-control-hooks)
+    - [Husky Example](#husky-example)
 - [License](#license)
 - [Maintenance](#maintenance)
 
@@ -189,6 +191,36 @@ used with your custom command.
   "husky": {
     "hooks": {
       "pre-commit": "hover-scripts pre-commit --testCommand 'yarn test:custom' --findRelatedTests"
+    }
+  }
+}
+```
+
+### Source Control Hooks
+
+This package includes a couple scripts designed to be run as part of your
+project's source control workflow. The most common workflow is using
+[Husky](https://github.com/typicode/husky) to manage
+[Git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks), but they
+should work with other solutions as well.
+
+#### Husky Example
+
+1. Install Husky
+
+```sh
+yarn add -D husky
+```
+
+2. Configure hooks in `package.json`
+
+```json
+{
+  "name": "my-package",
+  "husky": {
+    "hooks": {
+      "pre-commit": "hover-scripts pre-commit",
+      "commit-msg": "hover-scripts commit-msg"
     }
   }
 }
