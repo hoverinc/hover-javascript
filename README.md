@@ -145,8 +145,7 @@ module.exports = require('@hover/javascript/prettier')
 
 Or, for Jest in `jest.config.js`:
 
-> Note: if **ts-jest** is installed, it will automatically be used as the
-> `preset`
+> ℹ️ If **ts-jest** is installed, it will automatically be used as the `preset`
 
 ```js
 const config = require('@hover/javascript/jest')
@@ -208,8 +207,11 @@ should work with other solutions as well.
 
 1. Install Husky
 
+> ⚠️ We're sticking with Husky 4 for now as 5+ has licensing restrictions for
+> commercial projects and significantly changes how hooks are configured
+
 ```sh
-yarn add -D husky
+yarn add -D 'husky@^4.3.8'
 ```
 
 2. Configure hooks in `package.json`
