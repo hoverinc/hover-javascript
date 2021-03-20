@@ -2,14 +2,27 @@ const {resolveHoverScripts, resolveBin} = require('../../utils')
 
 const hoverScripts = resolveHoverScripts()
 const doctoc = resolveBin('doctoc')
+
 const defaultTestCommand = `${hoverScripts} test --findRelatedTests`
 
+const sourceExtensions = ['js', 'jsx', 'ts', 'tsx']
+
+const readmeGlob = 'README.md'
+const formatGlob =
+  '*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)'
+
+// This works around the limitation imposed by using globs as keys in the
+// configuration. We want to run the lint and test commands on the same glob,
+// but we want to do so in parallel. If we specify the commands in an array
+// under the same glob key, they always run in sequence.
+const lintGlob = `*.+(${sourceExtensions.join('|')})`
+const testGlob = `*.+(${sourceExtensions.reverse().join('|')})`
+
 const buildConfig = (testCommand = defaultTestCommand) => ({
-  'README.md': [`${doctoc} --maxlevel 4 --notitle`],
-  '*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)': [
-    `${hoverScripts} format`,
-  ],
-  '*.+(js|jsx|ts|tsx)': [`${hoverScripts} lint`, testCommand],
+  [readmeGlob]: [`${doctoc} --maxlevel 4 --notitle`],
+  [formatGlob]: [`${hoverScripts} format`],
+  [lintGlob]: [`${hoverScripts} lint`],
+  [testGlob]: [testCommand],
 })
 
 module.exports = {buildConfig}
