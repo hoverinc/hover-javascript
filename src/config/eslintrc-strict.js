@@ -7,6 +7,7 @@ module.exports = {
         'newlines-between': 'always',
         pathGroups: [
           {pattern: 'src/**/*', group: 'parent', position: 'before'},
+          {pattern: 'test/**/*', group: 'parent', position: 'before'},
           {pattern: 'assets/**/*', group: 'parent', position: 'before'},
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
