@@ -57,6 +57,7 @@ const buildConfig = ({withReact = false} = {}) => {
             'import/no-extraneous-dependencies'
           ][1].devDependencies.concat([
             'jest/**',
+            'test/**',
             'e2e/**',
             '**/*.config.{js,ts}',
           ]),
