@@ -4,8 +4,8 @@ exports[`commit-msg adds env flag with HUSKY_GIT_PARAMS when available 1`] = `co
 
 exports[`commit-msg calls @commitlint/cli with default args 1`] = `commitlint --config ./src/config/commitlint.config.js`;
 
-exports[`commit-msg does not use built-in config with --config 1`] = `commitlint`;
+exports[`commit-msg does not use built-in config with --config 1`] = `commitlint --config ./custom-config.js`;
 
 exports[`commit-msg does not use built-in config with commitlint.config.js file 1`] = `commitlint`;
 
-exports[`commit-msg forwards args 1`] = `commitlint --config ./src/config/commitlint.config.js`;
+exports[`commit-msg forwards args 1`] = `commitlint --config ./src/config/commitlint.config.js --edit .git/COMMIT_EDITMSG`;
