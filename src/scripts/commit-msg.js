@@ -21,7 +21,7 @@ const config = useBuiltinConfig
 
 const result = spawn.sync(
   resolveBin('@commitlint/cli', {executable: 'commitlint'}),
-  [...env, ...config],
+  [...env, ...config, ...args],
   {
     stdio: 'inherit',
   },

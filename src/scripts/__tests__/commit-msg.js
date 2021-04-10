@@ -57,7 +57,7 @@ cases(
       hasFile: filename => filename === 'commitlint.config.js',
     },
     'forwards args': {
-      args: ['--verbose'],
+      args: ['--edit', '.git/COMMIT_EDITMSG'],
     },
     'adds env flag with HUSKY_GIT_PARAMS when available': {
       env: {HUSKY_GIT_PARAMS: 'husky-git-params'},
