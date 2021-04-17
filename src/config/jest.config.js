@@ -47,7 +47,7 @@ const jestConfig = {
   globals: {},
 }
 
-if (hasAnyDep('ts-jest')) {
+if (hasAnyDep('ts-jest') || hasFile('tsconfig.json')) {
   jestConfig.preset = 'ts-jest/presets/js-with-ts'
   jestConfig.globals['ts-jest'] = {
     diagnostics: {
