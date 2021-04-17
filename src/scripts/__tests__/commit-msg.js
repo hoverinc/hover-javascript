@@ -62,5 +62,8 @@ cases(
     'adds env flag with HUSKY_GIT_PARAMS when available': {
       env: {HUSKY_GIT_PARAMS: 'husky-git-params'},
     },
+    'defaults to `--edit` when no args are passed and HUSKY_GIT_PARAMS is not available': {
+      env: {HUSKY_GIT_PARAMS: undefined, args: []},
+    },
   },
 )
