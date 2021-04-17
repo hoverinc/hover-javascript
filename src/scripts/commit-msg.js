@@ -14,6 +14,7 @@ const useBuiltinConfig =
   !hasFile('commitlint.config.js')
 
 const env = huskyGitParams ? ['--env', 'HUSKY_GIT_PARAMS'] : []
+const defaultEdit = !huskyGitParams && args.length === 0 ? ['--edit'] : []
 
 const config = useBuiltinConfig
   ? ['--config', hereRelative('../config/commitlint.config.js')]
@@ -21,7 +22,7 @@ const config = useBuiltinConfig
 
 const result = spawn.sync(
   resolveBin('@commitlint/cli', {executable: 'commitlint'}),
-  [...env, ...config, ...args],
+  [...env, ...config, ...args, ...defaultEdit],
   {
     stdio: 'inherit',
   },
