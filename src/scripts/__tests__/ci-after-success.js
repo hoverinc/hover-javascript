@@ -21,6 +21,7 @@ cases(
     },
   }) => {
     // beforeEach
+
     const {sync: crossSpawnSyncMock} = require('cross-spawn')
     const utils = require('../../utils')
     utils.resolveBin = (modName, {executable = modName} = {}) => executable
@@ -29,33 +30,45 @@ cases(
       process.env[envKey] = env[envKey]
       return orig
     })
-    const originalLog = console.log
+
     const originalExit = process.exit
+    const originalLog = console.log
+    const originalInfo = console.info
+
     process.exit = jest.fn()
     console.log = jest.fn()
+    console.info = jest.fn()
 
     require('../../utils').hasLocalConfig.mockReturnValue(hasLocalConfig)
 
     // tests
+
     if (version) {
       utils.pkg.version = version
     }
+
     utils.hasFile = () => hasCoverageDir
     process.env.SKIP_CODECOV = isOptedOutOfCoverage
     require('../ci-after-success')
 
     expect(console.log.mock.calls).toMatchSnapshot()
+    expect(console.info.mock.calls).toMatchSnapshot()
+
     const commands = crossSpawnSyncMock.mock.calls.map(
       call => `${call[0]} ${call[1].join(' ')}`,
     )
     expect(commands).toMatchSnapshot()
 
     // afterEach
+
     process.exit = originalExit
     console.log = originalLog
+    console.info = originalInfo
+
     Object.keys(originalEnvs).forEach(envKey => {
       process.env[envKey] = env[envKey]
     })
+
     jest.resetModules()
   },
   {
@@ -64,6 +77,12 @@ cases(
       env: {
         TRAVIS: 'true',
         TRAVIS_BRANCH: 'main',
+        TRAVIS_PULL_REQUEST: 'false',
+      },
+    },
+    'calls concurrently with both scripts when on github actions': {
+      env: {
+        GITHUB_REF: '/refs/heads/main',
         TRAVIS_PULL_REQUEST: 'false',
       },
     },

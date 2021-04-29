@@ -1,7 +1,7 @@
 const path = require('path')
 const spawn = require('cross-spawn')
 
-const {TRAVIS_BRANCH, CF_BRANCH} = process.env
+const {TRAVIS_BRANCH, CF_BRANCH, GITHUB_REF} = process.env
 
 const {
   resolveBin,
@@ -23,7 +23,7 @@ const releaseBranches = [
   'beta',
   'alpha',
 ]
-const branch = CF_BRANCH || TRAVIS_BRANCH
+const branch = CF_BRANCH || TRAVIS_BRANCH || GITHUB_REF.replace(/\/refs\/.*\//)
 const isCI = parseEnv('TRAVIS', false) || parseEnv('CI', false)
 
 const codecovCommand = `echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'`
@@ -40,6 +40,8 @@ const autorelease =
   !parseEnv('TRAVIS_PULL_REQUEST', false)
 
 const reportCoverage = hasFile('coverage') && !parseEnv('SKIP_CODECOV', false)
+
+console.info(`Running ci-after-success for: ${branch}`)
 
 if (!autorelease && !reportCoverage) {
   console.log(
