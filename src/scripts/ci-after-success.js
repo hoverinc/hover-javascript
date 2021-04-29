@@ -23,7 +23,8 @@ const releaseBranches = [
   'beta',
   'alpha',
 ]
-const branch = CF_BRANCH || TRAVIS_BRANCH || GITHUB_REF.replace(/\/refs\/.*\//)
+const branch =
+  CF_BRANCH || TRAVIS_BRANCH || GITHUB_REF.replace(/refs\/.*\//, '')
 const isCI = parseEnv('TRAVIS', false) || parseEnv('CI', false)
 
 const codecovCommand = `echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'`

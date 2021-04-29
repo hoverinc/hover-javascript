@@ -21,10 +21,10 @@ cases(
     },
   }) => {
     // beforeEach
-
     const {sync: crossSpawnSyncMock} = require('cross-spawn')
     const utils = require('../../utils')
     utils.resolveBin = (modName, {executable = modName} = {}) => executable
+
     const originalEnvs = Object.keys(env).map(envKey => {
       const orig = process.env[envKey]
       process.env[envKey] = env[envKey]
@@ -82,7 +82,8 @@ cases(
     },
     'calls concurrently with both scripts when on github actions': {
       env: {
-        GITHUB_REF: '/refs/heads/main',
+        CF_BRANCH: '',
+        GITHUB_REF: 'refs/heads/main',
         TRAVIS_PULL_REQUEST: 'false',
       },
     },
