@@ -243,9 +243,9 @@ This project is actively maintained by engineers at
 [react-scripts-link]:
   https://github.com/facebook/create-react-app/tree/master/packages/react-scripts
 [build-badge]:
-  https://g.codefresh.io/api/badges/pipeline/hoverinc/npm%2Fjavascript?type=cf-1
+  https://github.com/hoverinc/hover-javascript/actions/workflows/build.yml/badge.svg
 [build-link]:
-  https://g.codefresh.io/public/accounts/hoverinc/pipelines/5d4cb5d4e41f3722d4dfdb94
+  https://github.com/hoverinc/hover-javascript/actions/workflows/build.yml
 [conventional-commits-badge]:
   https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg
 [conventional-commits-link]: https://conventionalcommits.org
