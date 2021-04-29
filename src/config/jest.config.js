@@ -1,3 +1,5 @@
+/** @typedef {import('@jest/types').Config.InitialOptions} JestConfig */
+
 const {ifAnyDep, hasAnyDep, hasFile, fromRoot} = require('../utils')
 
 const ignores = [
@@ -16,6 +18,7 @@ const testMatchSuffixGlob = toGlob(
   testMatchExtensions.map(extension => 'test.'.concat(extension)),
 )
 
+/** @type JestConfig */
 const jestConfig = {
   roots: [fromRoot('.')],
   testEnvironment: ifAnyDep(['webpack', 'rollup', 'react'], 'jsdom', 'node'),
@@ -29,9 +32,17 @@ const jestConfig = {
     `e2e/**/${testMatchSuffixGlob}`,
     `**/${testMatchSuffixGlob}`,
   ],
-  testPathIgnorePatterns: [...ignores],
-  coveragePathIgnorePatterns: [...ignores, 'src/(umd|cjs|esm)-entry.js$'],
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
+  testPathIgnorePatterns: [...ignores, '<rootDir>/dist'],
+  coveragePathIgnorePatterns: [
+    ...ignores,
+    'src/(umd|cjs|esm)-entry.js$',
+    '<rootDir>/dist',
+  ],
+  transformIgnorePatterns: [
+    '[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$',
+    '/dist/',
+  ],
+  watchPathIgnorePatterns: ['<rootDir>/dist'],
   coverageThreshold: {
     global: {
       branches: 100,
