@@ -20,7 +20,7 @@ module.exports = {
         'test',
       ],
     ],
-    'scope-case': [1, 'always', 'kebab-case'],
+    'scope-case': [1, 'always', 'lowercase'],
     'scope-enum': [0, 'always', scopes.build()],
   },
 }
