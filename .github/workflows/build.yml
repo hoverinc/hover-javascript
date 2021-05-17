@@ -42,9 +42,7 @@ jobs:
         run: yarn validate
 
       - name: Upload Coverage / Release
-        run: |
-          yarn build
-          yarn ci-after-success
+        run: yarn ci-after-success
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
