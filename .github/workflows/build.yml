@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Build + Test (+ Release)
+    name: Build + Test + Release
     runs-on: ubuntu-latest
 
     steps:
