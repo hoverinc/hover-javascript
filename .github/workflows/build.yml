@@ -8,16 +8,11 @@ on:
       - next
       - alpha
       - beta
-  issue_comment:
-    types: [created]
 
 jobs:
   build:
     name: Build + Test + Release
     runs-on: ubuntu-latest
-    if:
-      ${{ github.event_name == 'pull_request' || github.event_name == 'push' ||
-      contains(github.event.comment.body, 'rebuild') }}
 
     steps:
       - name: Get Yarn cache path
