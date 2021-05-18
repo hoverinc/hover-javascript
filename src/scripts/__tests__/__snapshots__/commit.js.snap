@@ -21,25 +21,3 @@ Object {
 `;
 
 exports[`commit forwards arguments 2`] = `node ../commit --retry`;
-
-exports[`commit strips errant "commit" argument 1`] = `
-Object {
-  cliPath: <PROJECT_ROOT>/node_modules/commitizen,
-  config: Object {
-    path: @commitlint/prompt,
-  },
-}
-`;
-
-exports[`commit strips errant "commit" argument 2`] = `node ../commit`;
-
-exports[`commit strips errant "commit" argument and forwards arguments 1`] = `
-Object {
-  cliPath: <PROJECT_ROOT>/node_modules/commitizen,
-  config: Object {
-    path: @commitlint/prompt,
-  },
-}
-`;
-
-exports[`commit strips errant "commit" argument and forwards arguments 2`] = `node ../commit --retry`;
