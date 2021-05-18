@@ -1,6 +1,7 @@
+const fs = require('fs')
 const path = require('path')
-const spawn = require('cross-spawn')
 const glob = require('glob')
+const spawn = require('cross-spawn')
 
 const [executor, ignoredBin, script] = process.argv
 
@@ -55,15 +56,14 @@ function getEnv() {
 function spawnScript() {
   // get all the arguments of the script and find the position of our script commands
   const args = process.argv.slice(2)
-  const scriptIndex = args.findIndex(
-    x =>
-      x === 'format' ||
-      x === 'lint' ||
-      x === 'pre-commit' ||
-      x === 'test' ||
-      x === 'validate' ||
-      x === 'build',
-  )
+  const scriptsPath = path.join(__dirname, './scripts')
+
+  const scripts = fs
+    .readdirSync(scriptsPath)
+    .filter(f => fs.statSync(path.join(scriptsPath, f)).isFile())
+    .map(f => f.replace(/\.js$/, ''))
+
+  const scriptIndex = args.findIndex(x => scripts.includes(x))
 
   // Extract the node arguments so we can pass them to node later on
   const buildCommand = scriptIndex === -1 ? args[0] : args[scriptIndex]
@@ -73,7 +73,7 @@ function spawnScript() {
     throw new Error(`Unknown script "${script}".`)
   }
 
-  const relativeScriptPath = path.join(__dirname, './scripts', buildCommand)
+  const relativeScriptPath = path.join(scriptsPath, buildCommand)
   const scriptPath = attemptResolve(relativeScriptPath)
   if (!scriptPath) {
     throw new Error(`Unknown script "${script}".`)

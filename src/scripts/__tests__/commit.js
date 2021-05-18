@@ -49,14 +49,8 @@ cases(
   },
   {
     'bootstraps @commitlint/prompt': {},
-    'strips errant "commit" argument': {
-      args: ['commit'],
-    },
     'forwards arguments': {
       args: ['--retry'],
-    },
-    'strips errant "commit" argument and forwards arguments': {
-      args: ['commit', '--retry'],
     },
   },
 )
