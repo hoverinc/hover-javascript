@@ -52,7 +52,7 @@
   "license": "MIT",
   "dependencies": {
     "@commitlint/cli": "^12.1.1",
-    "@commitlint/config-conventional": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.4",
     "@commitlint/prompt": "^12.1.1",
     "@types/jest": "^26.0.21",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
