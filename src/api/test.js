@@ -1,1 +1,1 @@
-module.exports = require('ts-jest/utils')
+export * from 'ts-jest/utils'
