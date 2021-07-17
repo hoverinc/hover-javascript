@@ -24,13 +24,8 @@
     "start:types": "tsc -b -w --preserveWatchOutput src/",
     "test": "node src test",
     "test:update": "node src test --updateSnapshot",
-    "validate": "node src validate"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node src pre-commit",
-      "commit-msg": "node src commit-msg"
-    }
+    "validate": "node src validate",
+    "prepare": "husky install"
   },
   "files": [
     "api",
