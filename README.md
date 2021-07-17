@@ -205,28 +205,34 @@ should work with other solutions as well.
 
 #### Husky Example
 
+> ℹ️ See [Husky Documentation](https://typicode.github.io/husky/#/?id=usage) for
+> more information
+
 1. Install Husky
 
-> ⚠️ We're sticking with Husky 4 for now as 5+ has licensing restrictions for
-> commercial projects and significantly changes how hooks are configured
+   ```bash
+   yarn add -D husky
+   ```
 
-```sh
-yarn add -D 'husky@^4.3.8'
-```
+2. Add `prepare` script
 
-2. Configure hooks in `package.json`
+   ```bash
+   npm set-script prepare "husky install"
+   ```
 
-```json
-{
-  "name": "my-package",
-  "husky": {
-    "hooks": {
-      "pre-commit": "hover-scripts pre-commit",
-      "commit-msg": "hover-scripts commit-msg"
-    }
-  }
-}
-```
+3. Create hooks
+
+   i. 📂 **.husky/pre-commit**
+
+   ```bash
+   yarn husky add .husky/pre-commit "yarn hover-scripts pre-commit"
+   ```
+
+   ii. 📂 **.husky/commit-msg**
+
+   ```bash
+   yarn husky add .husky/commit-msg "yarn hover-scripts commit-msg"
+   ```
 
 ## License
 
