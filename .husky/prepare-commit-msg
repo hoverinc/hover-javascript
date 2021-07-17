@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Automates pair commits with git-duet
+# See: https://github.com/git-duet/git-duet/#co-authored-by-trailer-support
+
+if [ $(git help -a | grep duet-prepare-msg) ]; then
+  exec git duet-prepare-commit-msg "$@"
+fi
