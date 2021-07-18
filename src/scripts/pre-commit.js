@@ -4,19 +4,20 @@ const os = require('os')
 const spawn = require('cross-spawn')
 const yargsParser = require('yargs-parser')
 const {
-  hasPkgProp,
+  getPkgName,
   hasFile,
+  hasPkgProp,
   ifScript,
   relative,
   resolveBin,
-  getPkgName,
+  stripArgument,
 } = require('../utils')
 const {buildConfig} = require('../config/helpers/build-lint-staged')
 
 const hereRelative = relative(__dirname)
 
 const args = process.argv.slice(2)
-const {argv: parsedArgs, aliases} = yargsParser.detailed(args)
+const {argv: parsedArgs} = yargsParser.detailed(args)
 
 /**
  * Generate a temporary copy of the built-in lint-staged
@@ -47,15 +48,11 @@ if (parsedArgs.config && parsedArgs.testCommand) {
 
 // Don't forward `--testCommand` or `--test-command`
 // flags through to `lint-staged` (yes, this is gross)
-const testCommandIndex = args.findIndex(
-  a =>
-    a === '--testCommand' ||
-    (aliases.testCommand && aliases.testCommand.includes(a.replace(/^--/, ''))),
+const argsToForward = stripArgument(
+  args,
+  ['--test-command', '--testCommand'],
+  2,
 )
-const argsToForward = [...args]
-if (testCommandIndex >= 0) {
-  argsToForward.splice(testCommandIndex, 2)
-}
 
 const useCustomBuiltInConfig = !!parsedArgs.testCommand
 const customBuiltInConfig = useCustomBuiltInConfig

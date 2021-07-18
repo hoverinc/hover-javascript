@@ -163,6 +163,25 @@ function hasLocalConfig(moduleName, searchOptions = {}) {
 }
 
 /**
+ * Strip an argument and it's values from arguments forwarded to lint-staged
+ *
+ * @param {any[]} from arguments to strip argument(s) from, e.g: `process.argv`
+ * @param {string[]} argument array of argument aliases, e.g: `['--foo-bar', '--fooBar']
+ * @param {number} length number arguments to strip, i.e: `--arg value` = 2
+ */
+const stripArgument = (from, argument, length = 1) => {
+  const index = from.findIndex(a => argument.includes(a))
+
+  if (index < 0) return from
+
+  const stripped = [...from]
+
+  stripped.splice(index, length)
+
+  return stripped
+}
+
+/**
  * Get function that converts relative paths to absolute
  *
  * @param {string} dirname `__dirname`
@@ -197,6 +216,7 @@ module.exports = {
   relative,
   resolveBin,
   resolveHoverScripts,
+  stripArgument,
   uniq,
   writeExtraEntry,
 }
