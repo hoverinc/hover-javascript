@@ -1,6 +1,5 @@
 import path from 'path'
 import cases from 'jest-in-case'
-import yargsParser from 'yargs-parser'
 import {unquoteSerializer, winPathSerializer} from './helpers/serializers'
 
 expect.addSnapshotSerializer(unquoteSerializer)
@@ -55,13 +54,19 @@ cases(
       )
       expect(commands).toMatchSnapshot()
 
-      // Specific tests for when a custom test command is supplied
-      if (!!yargsParser(args).testCommand) {
-        // ensure we don't pass `--testCommand` through to `lint-staged`
+      // ↓ ⚠️ Specific tests for when a custom test  ↓
+      // ↓ command is supplied or DocToc is disabled ↓
+
+      if (args.includes('--no-toc') || args.includes('--test-command')) {
+        // ensure we don't pass invalid arguments through to `lint-staged`
         expect(
           crossSpawnSyncMock.mock.calls.some(([_command, commandArgs]) =>
             commandArgs.some(
-              a => a === '--testCommand' || a === '--test-command',
+              a =>
+                a === '--testCommand' ||
+                a === '--test-command' ||
+                a === '--no-toc' ||
+                a === '--noToc',
             ),
           ),
         ).not.toBeTruthy()
@@ -77,6 +82,9 @@ cases(
           {recursive: true},
         )
       }
+
+      // ↑ ⚠️ Specific tests for when a custom test  ↑
+      // ↑ command is supplied or DocToc is disabled ↑
     } catch (error) {
       if (expectError) {
         expect(error).toMatchSnapshot()
@@ -145,6 +153,18 @@ cases(
         '--test-command',
         '"yarn test:custom --findRelatedTests foo.js"',
       ],
+    },
+    'disables DocToc, overrides built-in test command, and forwards args': {
+      args: [
+        '--verbose',
+        '--no-toc',
+        '--test-command',
+        '"yarn test:custom --findRelatedTests foo.js"',
+        '--some-other-arg',
+      ],
+    },
+    'disables DocToc and forwards args': {
+      args: ['--verbose', '--no-toc', '--some-other-arg'],
     },
   },
 )

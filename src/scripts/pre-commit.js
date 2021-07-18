@@ -23,15 +23,16 @@ const {argv: parsedArgs} = yargsParser.detailed(args)
  * Generate a temporary copy of the built-in lint-staged
  * configuration with a custom test command
  *
- * @param {string} command
+ * @param {boolean} toc include DocToc
+ * @param {string} command custom test command
  *
  * @returns {string} filename of generated config file
  */
-const generateConfigWithTestCommand = command => {
+const generateConfigWithTestCommand = (toc, command) => {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hover-javascript'))
   const tmpConfigFile = path.join(tmpDir, '.lintstaged.json')
 
-  fs.writeFileSync(tmpConfigFile, JSON.stringify(buildConfig(command)))
+  fs.writeFileSync(tmpConfigFile, JSON.stringify(buildConfig(toc, command)))
 
   return tmpConfigFile
 }
@@ -46,17 +47,18 @@ if (parsedArgs.config && parsedArgs.testCommand) {
   )
 }
 
-// Don't forward `--testCommand` or `--test-command`
-// flags through to `lint-staged` (yes, this is gross)
+// Don't pass `--no-toc` or `--test-command [command]` to lint-staged
 const argsToForward = stripArgument(
-  args,
-  ['--test-command', '--testCommand'],
-  2,
+  stripArgument(args, ['--test-command', '--testCommand'], 2),
+  ['--no-toc', '--noToc'],
 )
 
-const useCustomBuiltInConfig = !!parsedArgs.testCommand
+// Use temporary configuration if `--no-toc` or `--test-command [command]` is passed
+const useCustomBuiltInConfig =
+  !!parsedArgs.testCommand || parsedArgs.toc === false
+
 const customBuiltInConfig = useCustomBuiltInConfig
-  ? generateConfigWithTestCommand(parsedArgs.testCommand)
+  ? generateConfigWithTestCommand(parsedArgs.toc, parsedArgs.testCommand)
   : null
 
 const useBuiltInConfig =
