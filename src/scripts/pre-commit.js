@@ -81,7 +81,7 @@ const lintStagedResult = spawn.sync(
   {stdio: 'inherit'},
 )
 
-if (useCustomBuiltInConfig) {
+if (useCustomBuiltInConfig && customBuiltInConfig) {
   fs.rmdirSync(path.dirname(customBuiltInConfig), {recursive: true})
 }
 
@@ -90,7 +90,7 @@ if (lintStagedResult.status === 0 && ifScript('validate')) {
     stdio: 'inherit',
   })
 
-  process.exit(validateResult.status)
+  process.exit(validateResult.status ?? 0)
 } else {
-  process.exit(lintStagedResult.status)
+  process.exit(lintStagedResult.status ?? 0)
 }
