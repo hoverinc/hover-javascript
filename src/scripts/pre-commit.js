@@ -7,13 +7,13 @@ const {
   hasPkgProp,
   hasFile,
   ifScript,
+  relative,
   resolveBin,
   getPkgName,
 } = require('../utils')
 const {buildConfig} = require('../config/helpers/build-lint-staged')
 
-const here = p => path.join(__dirname, p)
-const hereRelative = p => here(p).replace(process.cwd(), '.')
+const hereRelative = relative(__dirname)
 
 const args = process.argv.slice(2)
 const {argv: parsedArgs, aliases} = yargsParser.detailed(args)
