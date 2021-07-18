@@ -18,8 +18,8 @@ const formatGlob =
 const lintGlob = `*.+(${sourceExtensions.join('|')})`
 const testGlob = `*.+(${sourceExtensions.reverse().join('|')})`
 
-const buildConfig = (testCommand = defaultTestCommand) => ({
-  [readmeGlob]: [`${doctoc} --maxlevel 4 --notitle`],
+const buildConfig = (toc = true, testCommand = defaultTestCommand) => ({
+  ...(toc ? {[readmeGlob]: [`${doctoc} --maxlevel 4 --notitle`]} : {}),
   [formatGlob]: [`${hoverScripts} format`],
   [lintGlob]: [`${hoverScripts} lint`],
   [testGlob]: [testCommand],
