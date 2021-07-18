@@ -162,6 +162,20 @@ function hasLocalConfig(moduleName, searchOptions = {}) {
   return result !== null
 }
 
+/**
+ * Get function that converts relative paths to absolute
+ *
+ * @param {string} dirname `__dirname`
+ */
+const relative =
+  dirname =>
+  /**
+   *
+   * @param {string} p relative path
+   */
+  p =>
+    path.join(dirname, p).replace(process.cwd(), '.')
+
 module.exports = {
   appDirectory,
   fromRoot,
@@ -180,6 +194,7 @@ module.exports = {
   ifScript,
   parseEnv,
   pkg,
+  relative,
   resolveBin,
   resolveHoverScripts,
   uniq,
