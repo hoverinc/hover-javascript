@@ -16,7 +16,7 @@ module.exports = {
       tsconfig: './src/tsconfig.json',
       diagnostics: {
         warnOnly: true,
-        exclude: ['src/scripts/**/*.js', 'src/config/**/*.js'],
+        exclude: ['**/*'],
       },
     },
   },
