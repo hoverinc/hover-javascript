@@ -1,6 +1,7 @@
 /** @typedef {import('@jest/types').Config.InitialOptions} JestConfig */
 
 const {ifAnyDep, hasAnyDep, hasFile, fromRoot} = require('../utils')
+const {jsWithTs: preset} = require('ts-jest/presets')
 
 const ignores = [
   '/node_modules/',
@@ -59,7 +60,8 @@ const jestConfig = {
 }
 
 if (hasAnyDep('ts-jest') || hasFile('tsconfig.json')) {
-  jestConfig.preset = 'ts-jest/presets/js-with-ts'
+  Object.assign(jestConfig, preset)
+
   jestConfig.globals['ts-jest'] = {
     diagnostics: {
       warnOnly: true,
