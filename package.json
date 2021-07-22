@@ -37,7 +37,7 @@
     "eslint-react.js",
     "eslint",
     "jest.js",
-    "lint-staged.js",
+    "lint-staged",
     "prettier.js",
     "release.js",
     "tsconfig.json"
