@@ -113,7 +113,7 @@
   "homepage": "https://github.com/hoverinc/hover-javascript#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.14.8",
+    "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.14.9",
     "@types/cross-spawn": "^6.0.2",
     "babel-jest": "^27.0.6",
