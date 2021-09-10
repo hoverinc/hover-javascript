@@ -116,7 +116,7 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@types/cross-spawn": "^6.0.2",
-    "babel-jest": "^27.0.6",
+    "babel-jest": "^27.1.1",
     "eslint-config-kentcdodds": "^19.1.1",
     "husky": "^7.0.2",
     "jest-in-case": "^1.0.2",
