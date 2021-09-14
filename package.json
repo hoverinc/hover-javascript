@@ -51,7 +51,7 @@
     "@commitlint/prompt": "^13.1.0",
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.29.3",
+    "@typescript-eslint/parser": "^4.31.1",
     "arrify": "^2.0.1",
     "commitizen": "^4.2.4",
     "concurrently": "^6.2.1",
