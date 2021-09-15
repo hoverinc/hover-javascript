@@ -75,7 +75,7 @@
     "lint-staged": "^11.1.2",
     "lodash.has": "^4.5.2",
     "mkdirp": "^1.0.3",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.0",
     "read-pkg-up": "^7.0.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.5",
