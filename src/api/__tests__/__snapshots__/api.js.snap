@@ -3,11 +3,11 @@
 exports[`format calls \`prettier.format\` with internal Prettier configuration 1`] = `
 Object {
   "arrowParens": "avoid",
+  "bracketSameLine": false,
   "bracketSpacing": true,
   "endOfLine": "lf",
   "htmlWhitespaceSensitivity": "css",
   "insertPragma": false,
-  "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
   "printWidth": 80,
   "proseWrap": "always",
@@ -24,11 +24,11 @@ Object {
 exports[`format merges provided \`options\` with internal Prettier configuration 1`] = `
 Object {
   "arrowParens": "always",
+  "bracketSameLine": false,
   "bracketSpacing": true,
   "endOfLine": "lf",
   "htmlWhitespaceSensitivity": "css",
   "insertPragma": false,
-  "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
   "parser": "css",
   "printWidth": 100,
