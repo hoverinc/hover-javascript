@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`lint --no-cache will disable caching 1`] = `eslint --config ./src/config/eslintrc.js --ignore-path ./src/config/eslintignore --ext .js,.jsx,.ts,.tsx --no-cache .`;
+exports[`lint --no-cache will disable caching 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --config ./src/config/eslintrc.js --ignore-path ./src/config/eslintignore --ext .js,.jsx,.ts,.tsx --no-cache .`;
 
-exports[`lint calls eslint CLI with default args 1`] = `eslint --config ./src/config/eslintrc.js --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
+exports[`lint calls eslint CLI with default args 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --config ./src/config/eslintrc.js --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
 
-exports[`lint does not use built-in config with .eslintrc file 1`] = `eslint --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
+exports[`lint does not use built-in config with .eslintrc file 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
 
-exports[`lint does not use built-in config with .eslintrc.js file 1`] = `eslint --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
+exports[`lint does not use built-in config with .eslintrc.js file 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
 
-exports[`lint does not use built-in config with --config 1`] = `eslint --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx --config ./custom-config.js .`;
+exports[`lint does not use built-in config with --config 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx --config ./custom-config.js .`;
 
-exports[`lint does not use built-in config with eslintConfig pkg prop 1`] = `eslint --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
+exports[`lint does not use built-in config with eslintConfig pkg prop 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --ignore-path ./src/config/eslintignore --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
 
-exports[`lint does not use built-in ignore with .eslintignore file 1`] = `eslint --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
+exports[`lint does not use built-in ignore with .eslintignore file 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
 
-exports[`lint does not use built-in ignore with --ignore-path 1`] = `eslint --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx --ignore-path ./my-ignore .`;
+exports[`lint does not use built-in ignore with --ignore-path 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx --ignore-path ./my-ignore .`;
 
-exports[`lint does not use built-in ignore with eslintIgnore pkg prop 1`] = `eslint --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;
+exports[`lint does not use built-in ignore with eslintIgnore pkg prop 1`] = `eslint --resolve-plugins-relative-to <PROJECT_ROOT>/src/scripts/__mocks__/@hover/javascript --config ./src/config/eslintrc.js --cache --cache-location <PROJECT_ROOT>/node_modules/.cache/.eslintcache --ext .js,.jsx,.ts,.tsx .`;

@@ -18,6 +18,7 @@ if (script) {
       s
         .replace(scriptsPath, '')
         .replace(/__tests__/, '')
+        .replace(/__mocks__/, '')
         .replace(/\.js$/, ''),
     )
     .filter(Boolean)
