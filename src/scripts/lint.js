@@ -15,6 +15,18 @@ const useBuiltinConfig =
   !hasFile('.eslintrc.json') &&
   !hasPkgProp('eslintConfig')
 
+let resolved
+
+try {
+  resolved = require.resolve('@hover/javascript/eslint')
+} catch {
+  // This is only here for internal usage as the above will not resolve
+}
+
+const resolvePlugins = resolved
+  ? ['--resolve-plugins-relative-to', path.dirname(resolved)]
+  : []
+
 const config = useBuiltinConfig
   ? ['--config', hereRelative('../config/eslintrc.js')]
   : []
@@ -44,7 +56,15 @@ const filesToApply = filesGiven ? [] : ['.']
 
 const result = spawn.sync(
   resolveBin('eslint'),
-  [...config, ...ignore, ...cache, ...extensions, ...args, ...filesToApply],
+  [
+    ...resolvePlugins,
+    ...config,
+    ...ignore,
+    ...cache,
+    ...extensions,
+    ...args,
+    ...filesToApply,
+  ],
   {stdio: 'inherit'},
 )
 
