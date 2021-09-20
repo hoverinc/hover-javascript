@@ -4,6 +4,12 @@ const {jsWithTs: preset} = require('ts-jest/presets')
 
 const {ifAnyDep, hasAnyDep, hasFile, fromRoot} = require('../utils')
 
+const {
+  testMatch,
+  testMatchGlob,
+  testMatchExtensions,
+} = require('./helpers/test-match')
+
 const ignores = [
   '/node_modules/',
   '/__fixtures__/',
@@ -13,13 +19,6 @@ const ignores = [
   '__mocks__',
 ]
 
-const toGlob = extensions => `*.+(${extensions.join('|')})`
-const testMatchExtensions = ['js', 'jsx', 'ts', 'tsx']
-const testMatchGlob = toGlob(testMatchExtensions)
-const testMatchSuffixGlob = toGlob(
-  testMatchExtensions.map(extension => 'test.'.concat(extension)),
-)
-
 /** @type JestConfig */
 const jestConfig = {
   roots: [fromRoot('.')],
@@ -27,13 +26,7 @@ const jestConfig = {
   testURL: 'http://localhost',
   moduleFileExtensions: testMatchExtensions.concat('json'),
   collectCoverageFrom: [`**/${testMatchGlob}`],
-  testMatch: [
-    `**/__tests__/**/${testMatchGlob}`,
-    `test/**/${testMatchGlob}`,
-    `test/**/${testMatchSuffixGlob}`,
-    `e2e/**/${testMatchSuffixGlob}`,
-    `**/${testMatchSuffixGlob}`,
-  ],
+  testMatch,
   testPathIgnorePatterns: [...ignores, '<rootDir>/dist'],
   coveragePathIgnorePatterns: [
     ...ignores,

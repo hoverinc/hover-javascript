@@ -3,7 +3,7 @@ const {
 } = require('eslint-config-airbnb-typescript/lib/shared')
 
 const {hasAnyDep} = require('../../utils')
-const {testMatch} = require('../jest.config')
+const {testMatch} = require('../helpers/test-match')
 
 const withBaseConfig = base => variant =>
   require.resolve(base + (variant ? `/${variant}` : ''))
