@@ -7,6 +7,9 @@
     "npm": ">=6",
     "yarn": ">=1"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "bin": {
     "hover-scripts": "dist/index.js"
   },
