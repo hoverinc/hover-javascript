@@ -5,11 +5,12 @@ const {
 const {hasAnyDep} = require('../../utils')
 const {testMatch} = require('../helpers/test-match')
 
-const withBaseConfig = base => variant =>
-  require.resolve(base + (variant ? `/${variant}` : ''))
+const withBaseConfig = (base, separator) => variant =>
+  require.resolve(base + (variant ? `${separator}${variant}` : ''))
 
-const airbnb = withBaseConfig('eslint-config-airbnb-typescript')
-const prettier = withBaseConfig('eslint-config-prettier')
+const airbnb = withBaseConfig('eslint-config-airbnb', '-')
+const airbnbTypeScript = withBaseConfig('eslint-config-airbnb-typescript', '/')
+const prettier = withBaseConfig('eslint-config-prettier', '/')
 
 const hasReact = hasAnyDep('react')
 
@@ -44,6 +45,7 @@ const buildConfig = ({withReact = false} = {}) => {
     plugins: ['prettier', 'jest', ifReact('react-hooks')].filter(Boolean),
     extends: [
       ifReact(airbnb(), airbnb('base')),
+      ifReact(airbnbTypeScript(), airbnbTypeScript('base')),
       'plugin:jest/recommended',
       prettier(),
       ifReact('plugin:react-hooks/recommended'),
