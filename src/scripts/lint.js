@@ -13,6 +13,8 @@ const useBuiltinConfig =
   !hasFile('.eslintrc') &&
   !hasFile('.eslintrc.js') &&
   !hasFile('.eslintrc.json') &&
+  !hasFile('.eslintrc.yml') &&
+  !hasFile('.eslintrc.yaml') &&
   !hasPkgProp('eslintConfig')
 
 let resolved
