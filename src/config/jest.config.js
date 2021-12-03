@@ -28,6 +28,7 @@ const jestConfig = {
   collectCoverageFrom: [`**/${testMatchGlob}`],
   testMatch,
   testPathIgnorePatterns: [...ignores, '<rootDir>/dist'],
+  testLocationInResults: true,
   coveragePathIgnorePatterns: [
     ...ignores,
     'src/(umd|cjs|esm)-entry.js$',
