@@ -22,5 +22,10 @@ const config =
     ? ['--config', JSON.stringify(require('../config/jest.config'))]
     : []
 
+const reporters =
+  isCI && process.env.GITHUB_WORKFLOW
+    ? ['--reporters=default', '--reporters=jest-github-actions-reporter']
+    : []
+
 // eslint-disable-next-line jest/no-jest-import
-require('jest').run([...config, ...watch, ...args])
+require('jest').run([...config, ...watch, ...reporters, ...args])

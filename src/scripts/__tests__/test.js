@@ -69,6 +69,10 @@ cases(
     'does not watch on SCRIPTS_PRE-COMMIT': {
       env: {'SCRIPTS_PRE-COMMIT': true},
     },
+    'configures GitHub actions reporter on GitHub actions': {
+      ci: true,
+      env: {GITHUB_WORKFLOW: 'test.yml'},
+    },
     'does not watch with --no-watch': {
       args: ['--no-watch'],
     },
