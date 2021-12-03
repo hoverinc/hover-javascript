@@ -12,25 +12,28 @@ cases(
   'test',
   ({
     args = [],
-    utils = require('../../utils'),
-    pkgHasJestProp = false,
-    hasJestConfigFile = false,
-    setup = () => () => {},
     ci = false,
-    preCommit = 'false',
+    env = {},
+    hasJestConfigFile = false,
+    pkgHasJestProp = false,
+    setup = () => () => {},
+    utils = require('../../utils'),
   }) => {
     // beforeEach
-    // eslint-disable-next-line jest/no-jest-import
-    const {run: jestRunMock} = require('jest')
+    const {run: jestRunMock} = require('jest') // eslint-disable-line jest/no-jest-import
+
     const originalArgv = process.argv
     const prevCI = mockIsCI
-    const prevPreCommit = process.env['SCRIPTS_PRE-COMMIT']
+    const originalEnv = process.env
+
     mockIsCI = ci
-    process.env['SCRIPTS_PRE-COMMIT'] = preCommit
+    process.env = env
+
     Object.assign(utils, {
       hasPkgProp: () => pkgHasJestProp,
       hasFile: () => hasJestConfigFile,
     })
+
     process.exit = jest.fn()
     const teardown = setup()
 
@@ -39,9 +42,12 @@ cases(
     try {
       // tests
       require('../test')
+
       expect(jestRunMock).toHaveBeenCalledTimes(1)
+
       const [firstCall] = jestRunMock.mock.calls
       const [jestArgs] = firstCall
+
       expect(jestArgs.join(' ')).toMatchSnapshot()
     } catch (error) {
       throw error
@@ -50,7 +56,8 @@ cases(
       // afterEach
       process.argv = originalArgv
       mockIsCI = prevCI
-      process.env['SCRIPTS_PRE-COMMIT'] = prevPreCommit
+      process.env = originalEnv
+
       jest.resetModules()
     }
   },
@@ -60,7 +67,7 @@ cases(
       ci: true,
     },
     'does not watch on SCRIPTS_PRE-COMMIT': {
-      preCommit: 'true',
+      env: {'SCRIPTS_PRE-COMMIT': true},
     },
     'does not watch with --no-watch': {
       args: ['--no-watch'],
