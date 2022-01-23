@@ -65,6 +65,7 @@ const useBuiltInConfig =
   !args.includes('--config') &&
   !hasFile('.lintstagedrc') &&
   !hasFile('lint-staged.config.js') &&
+  !hasFile('lint-staged.config.cjs') &&
   !hasPkgProp('lint-staged')
 
 const config =
