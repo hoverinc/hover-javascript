@@ -12,6 +12,7 @@ const useBuiltinConfig =
   !args.includes('--config') &&
   !hasFile('.eslintrc') &&
   !hasFile('.eslintrc.js') &&
+  !hasFile('.eslintrc.cjs') &&
   !hasFile('.eslintrc.json') &&
   !hasFile('.eslintrc.yml') &&
   !hasFile('.eslintrc.yaml') &&

@@ -11,7 +11,8 @@ const hereRelative = p => here(p).replace(process.cwd(), '.')
 const useBuiltinConfig =
   !args.includes('--config') &&
   !args.includes('-g') &&
-  !hasFile('commitlint.config.js')
+  !hasFile('commitlint.config.js') &&
+  !hasFile('commitlint.config.cjs')
 
 const env = huskyGitParams ? ['--env', 'HUSKY_GIT_PARAMS'] : []
 const defaultEdit = !huskyGitParams && args.length === 0 ? ['--edit'] : []
