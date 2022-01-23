@@ -52,7 +52,7 @@
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@commitlint/prompt": "^13.1.0",
-    "@types/jest": "^27.0.2",
+    "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.4.0",
     "arrify": "^2.0.1",
