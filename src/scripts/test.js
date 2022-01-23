@@ -18,6 +18,7 @@ const watch =
 const config =
   !args.includes('--config') &&
   !hasFile('jest.config.js') &&
+  !hasFile('jest.config.ts') &&
   !hasPkgProp('jest')
     ? ['--config', JSON.stringify(require('../config/jest.config'))]
     : []
