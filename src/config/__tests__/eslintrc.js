@@ -1,6 +1,7 @@
 import eslint from '../eslintrc'
 import eslintStrict from '../eslintrc-strict'
 import eslintReact from '../eslintrc-react'
+import eslintReactStrict from '../eslintrc-react-strict'
 
 import {
   winPathSerializer,
@@ -20,4 +21,8 @@ test('Strict ESLint configuration', () => {
 
 test('ESLint React configuration', () => {
   expect(eslintReact).toMatchSnapshot()
+})
+
+test('Strict ESLint React configuration', () => {
+  expect(eslintReactStrict).toMatchSnapshot()
 })
