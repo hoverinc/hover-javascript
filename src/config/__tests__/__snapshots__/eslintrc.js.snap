@@ -261,6 +261,26 @@ Object {
 }
 `;
 
+exports[`Strict ESLint React configuration 1`] = `
+Object {
+  "rules": Object {
+    "react/function-component-definition": Array [
+      "error",
+      Object {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function",
+      },
+    ],
+    "react/jsx-sort-props": Array [
+      "error",
+      Object {
+        "reservedFirst": false,
+      },
+    ],
+  },
+}
+`;
+
 exports[`Strict ESLint configuration 1`] = `
 Object {
   "rules": Object {
