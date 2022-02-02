@@ -1,5 +1,5 @@
 import cases from 'jest-in-case'
-import {unquoteSerializer} from './helpers/serializers'
+import {unquoteSerializer} from '../../test/helpers/serializers'
 
 jest.mock('jest', () => ({run: jest.fn()}))
 jest.mock('../../config/jest.config', () => ({builtInConfig: true}))

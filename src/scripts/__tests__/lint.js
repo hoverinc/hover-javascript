@@ -3,7 +3,7 @@ import {
   unquoteSerializer,
   winPathSerializer,
   relativePathSerializer,
-} from './helpers/serializers'
+} from '../../test/helpers/serializers'
 
 expect.addSnapshotSerializer(unquoteSerializer)
 expect.addSnapshotSerializer(winPathSerializer)

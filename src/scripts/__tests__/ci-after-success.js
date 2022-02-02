@@ -1,5 +1,5 @@
 import cases from 'jest-in-case'
-import {unquoteSerializer} from './helpers/serializers'
+import {unquoteSerializer} from '../../test/helpers/serializers'
 
 expect.addSnapshotSerializer(unquoteSerializer)
 
@@ -97,26 +97,29 @@ cases(
     'does not do the autorelease script when the version is different': {
       version: '1.2.3',
     },
-    'configures semantic release with internal configuration when no local configuration exists': {
-      hasCoverageDir: false,
-      hasLocalConfig: false,
-    },
+    'configures semantic release with internal configuration when no local configuration exists':
+      {
+        hasCoverageDir: false,
+        hasLocalConfig: false,
+      },
     'does not do the codecov script when there is no coverage directory': {
       hasCoverageDir: false,
     },
     'does not do the codecov script when opted out': {
       isOptedOutOfCoverage: true,
     },
-    'does not do autorelease script when running on travis but in a pull request': {
-      env: {
-        TRAVIS: 'true',
-        TRAVIS_BRANCH: 'main',
-        TRAVIS_PULL_REQUEST: 'true',
+    'does not do autorelease script when running on travis but in a pull request':
+      {
+        env: {
+          TRAVIS: 'true',
+          TRAVIS_BRANCH: 'main',
+          TRAVIS_PULL_REQUEST: 'true',
+        },
       },
-    },
-    'does not run either script when no coverage dir and not the right version': {
-      hasCoverageDir: false,
-      version: '1.2.3',
-    },
+    'does not run either script when no coverage dir and not the right version':
+      {
+        hasCoverageDir: false,
+        version: '1.2.3',
+      },
   },
 )
