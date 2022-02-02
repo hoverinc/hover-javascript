@@ -127,6 +127,7 @@ Object {
       },
     ],
     "prettier/prettier": "error",
+    "react/jsx-props-no-spreading": "off",
     "react/prop-types": "error",
   },
 }
