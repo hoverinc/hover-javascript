@@ -1,5 +1,8 @@
 import cases from 'jest-in-case'
-import {unquoteSerializer, winPathSerializer} from './helpers/serializers'
+import {
+  unquoteSerializer,
+  winPathSerializer,
+} from '../../test/helpers/serializers'
 
 expect.addSnapshotSerializer(unquoteSerializer)
 expect.addSnapshotSerializer(winPathSerializer)
@@ -62,8 +65,9 @@ cases(
     'adds env flag with HUSKY_GIT_PARAMS when available': {
       env: {HUSKY_GIT_PARAMS: 'husky-git-params'},
     },
-    'defaults to `--edit` when no args are passed and HUSKY_GIT_PARAMS is not available': {
-      env: {HUSKY_GIT_PARAMS: undefined, args: []},
-    },
+    'defaults to `--edit` when no args are passed and HUSKY_GIT_PARAMS is not available':
+      {
+        env: {HUSKY_GIT_PARAMS: undefined, args: []},
+      },
   },
 )
