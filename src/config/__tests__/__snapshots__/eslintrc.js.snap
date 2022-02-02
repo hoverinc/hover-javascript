@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ESLint React configuration 1`] = `
+Object {
+  "extends": Array [
+    <PROJECT_ROOT>/node_modules/eslint-config-airbnb/index.js,
+    <PROJECT_ROOT>/node_modules/eslint-config-airbnb-typescript/index.js,
+    "plugin:jest/recommended",
+    <PROJECT_ROOT>/node_modules/eslint-config-prettier/index.js,
+    "plugin:react-hooks/recommended",
+  ],
+  "overrides": Array [
+    Object {
+      "extends": Array [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      "files": Array [
+        "**/*.ts?(x)",
+      ],
+      "rules": Object {
+        "@typescript-eslint/dot-notation": "error",
+        "@typescript-eslint/no-implied-eval": "error",
+        "@typescript-eslint/no-throw-literal": "error",
+        "@typescript-eslint/return-await": "error",
+        "no-implied-eval": "off",
+        "no-throw-literal": "off",
+        "react/prop-types": "off",
+      },
+    },
+    Object {
+      "files": Array [
+        "**/__tests__/**/*.+(js|jsx|ts|tsx)",
+        "test/**/*.+(js|jsx|ts|tsx)",
+        "test/**/*.+(test.js|test.jsx|test.ts|test.tsx)",
+        "e2e/**/*.+(test.js|test.jsx|test.ts|test.tsx)",
+        "**/*.+(test.js|test.jsx|test.ts|test.tsx)",
+      ],
+      "rules": Object {
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "no-empty": Array [
+          "error",
+          Object {
+            "allowEmptyCatch": true,
+          },
+        ],
+      },
+    },
+    Object {
+      "files": Array [
+        "**/*/__tests__/helpers/**/*",
+        "**/*/__tests__/utils/**/*",
+      ],
+      "rules": Object {
+        "jest/no-export": "off",
+      },
+    },
+  ],
+  "plugins": Array [
+    "prettier",
+    "jest",
+    "react-hooks",
+  ],
+  "rules": Object {
+    "@typescript-eslint/dot-notation": "off",
+    "@typescript-eslint/no-implied-eval": "off",
+    "@typescript-eslint/no-throw-literal": "off",
+    "@typescript-eslint/return-await": "off",
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": Array [
+          "test/**",
+          "tests/**",
+          "spec/**",
+          "**/__tests__/**",
+          "**/__mocks__/**",
+          "test.{js,jsx}",
+          "test.{ts,tsx}",
+          "test-*.{js,jsx}",
+          "test-*.{ts,tsx}",
+          "**/*{.,_}{test,spec}.{js,jsx}",
+          "**/*{.,_}{test,spec}.{ts,tsx}",
+          "**/jest.config.js",
+          "**/jest.config.ts",
+          "**/jest.setup.js",
+          "**/jest.setup.ts",
+          "**/vue.config.js",
+          "**/vue.config.ts",
+          "**/webpack.config.js",
+          "**/webpack.config.ts",
+          "**/webpack.config.*.js",
+          "**/webpack.config.*.ts",
+          "**/rollup.config.js",
+          "**/rollup.config.ts",
+          "**/rollup.config.*.js",
+          "**/rollup.config.*.ts",
+          "**/gulpfile.js",
+          "**/gulpfile.ts",
+          "**/gulpfile.*.js",
+          "**/gulpfile.*.ts",
+          "**/Gruntfile{,.js}",
+          "**/Gruntfile{,.ts}",
+          "**/protractor.conf.js",
+          "**/protractor.conf.ts",
+          "**/protractor.conf.*.js",
+          "**/protractor.conf.*.ts",
+          "**/karma.conf.js",
+          "**/karma.conf.ts",
+          "**/.eslintrc.js",
+          "**/.eslintrc.ts",
+          "jest/**",
+          "test/**",
+          "e2e/**",
+          "**/*.config.{js,cjs,ts}",
+        ],
+        "optionalDependencies": false,
+      },
+    ],
+    "import/prefer-default-export": "off",
+    "no-implied-eval": "error",
+    "no-throw-literal": "error",
+    "no-void": Array [
+      "error",
+      Object {
+        "allowAsStatement": true,
+      },
+    ],
+    "prettier/prettier": "error",
+    "react/prop-types": "error",
+  },
+}
+`;
+
+exports[`ESLint configuration 1`] = `
+Object {
+  "extends": Array [
+    <PROJECT_ROOT>/node_modules/eslint-config-airbnb-base/index.js,
+    <PROJECT_ROOT>/node_modules/eslint-config-airbnb-typescript/base.js,
+    "plugin:jest/recommended",
+    <PROJECT_ROOT>/node_modules/eslint-config-prettier/index.js,
+  ],
+  "overrides": Array [
+    Object {
+      "extends": Array [
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      "files": Array [
+        "**/*.ts?(x)",
+      ],
+      "rules": Object {
+        "@typescript-eslint/dot-notation": "error",
+        "@typescript-eslint/no-implied-eval": "error",
+        "@typescript-eslint/no-throw-literal": "error",
+        "@typescript-eslint/return-await": "error",
+        "no-implied-eval": "off",
+        "no-throw-literal": "off",
+      },
+    },
+    Object {
+      "files": Array [
+        "**/__tests__/**/*.+(js|jsx|ts|tsx)",
+        "test/**/*.+(js|jsx|ts|tsx)",
+        "test/**/*.+(test.js|test.jsx|test.ts|test.tsx)",
+        "e2e/**/*.+(test.js|test.jsx|test.ts|test.tsx)",
+        "**/*.+(test.js|test.jsx|test.ts|test.tsx)",
+      ],
+      "rules": Object {
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
+        "no-empty": Array [
+          "error",
+          Object {
+            "allowEmptyCatch": true,
+          },
+        ],
+      },
+    },
+    Object {
+      "files": Array [
+        "**/*/__tests__/helpers/**/*",
+        "**/*/__tests__/utils/**/*",
+      ],
+      "rules": Object {
+        "jest/no-export": "off",
+      },
+    },
+  ],
+  "plugins": Array [
+    "prettier",
+    "jest",
+  ],
+  "rules": Object {
+    "@typescript-eslint/dot-notation": "off",
+    "@typescript-eslint/no-implied-eval": "off",
+    "@typescript-eslint/no-throw-literal": "off",
+    "@typescript-eslint/return-await": "off",
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": Array [
+          "test/**",
+          "tests/**",
+          "spec/**",
+          "**/__tests__/**",
+          "**/__mocks__/**",
+          "test.{js,jsx}",
+          "test.{ts,tsx}",
+          "test-*.{js,jsx}",
+          "test-*.{ts,tsx}",
+          "**/*{.,_}{test,spec}.{js,jsx}",
+          "**/*{.,_}{test,spec}.{ts,tsx}",
+          "**/jest.config.js",
+          "**/jest.config.ts",
+          "**/jest.setup.js",
+          "**/jest.setup.ts",
+          "**/vue.config.js",
+          "**/vue.config.ts",
+          "**/webpack.config.js",
+          "**/webpack.config.ts",
+          "**/webpack.config.*.js",
+          "**/webpack.config.*.ts",
+          "**/rollup.config.js",
+          "**/rollup.config.ts",
+          "**/rollup.config.*.js",
+          "**/rollup.config.*.ts",
+          "**/gulpfile.js",
+          "**/gulpfile.ts",
+          "**/gulpfile.*.js",
+          "**/gulpfile.*.ts",
+          "**/Gruntfile{,.js}",
+          "**/Gruntfile{,.ts}",
+          "**/protractor.conf.js",
+          "**/protractor.conf.ts",
+          "**/protractor.conf.*.js",
+          "**/protractor.conf.*.ts",
+          "**/karma.conf.js",
+          "**/karma.conf.ts",
+          "**/.eslintrc.js",
+          "**/.eslintrc.ts",
+          "jest/**",
+          "test/**",
+          "e2e/**",
+          "**/*.config.{js,cjs,ts}",
+        ],
+        "optionalDependencies": false,
+      },
+    ],
+    "import/prefer-default-export": "off",
+    "no-implied-eval": "error",
+    "no-throw-literal": "error",
+    "no-void": Array [
+      "error",
+      Object {
+        "allowAsStatement": true,
+      },
+    ],
+    "prettier/prettier": "error",
+  },
+}
+`;
+
+exports[`Strict ESLint configuration 1`] = `
+Object {
+  "rules": Object {
+    "import/order": Array [
+      "error",
+      Object {
+        "alphabetize": Object {
+          "order": "asc",
+        },
+        "newlines-between": "always",
+        "pathGroups": Array [
+          Object {
+            "group": "parent",
+            "pattern": "src/**/*",
+            "position": "before",
+          },
+          Object {
+            "group": "parent",
+            "pattern": "test/**/*",
+            "position": "before",
+          },
+          Object {
+            "group": "parent",
+            "pattern": "assets/**/*",
+            "position": "before",
+          },
+        ],
+        "pathGroupsExcludedImportTypes": Array [
+          "builtin",
+        ],
+      },
+    ],
+    "sort-imports": Array [
+      "error",
+      Object {
+        "ignoreDeclarationSort": true,
+      },
+    ],
+  },
+}
+`;
