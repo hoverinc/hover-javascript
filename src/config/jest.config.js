@@ -2,7 +2,7 @@
 
 const {jsWithTs: preset} = require('ts-jest/presets')
 
-const {ifAnyDep, hasFile, fromRoot} = require('../utils')
+const {ifAnyDep, hasAnyDep, hasFile, fromRoot} = require('../utils')
 
 const {
   testMatch,
@@ -29,14 +29,6 @@ const jestConfig = {
   testMatch,
   testPathIgnorePatterns: [...ignores, '<rootDir>/dist'],
   testLocationInResults: true,
-  transform: Object.fromEntries(
-    // Ensure we can resolve the preset even when
-    // it's in a nested `node_modules` installation
-    Object.entries(preset.transform).map(([key, value]) => [
-      key,
-      require.resolve(value),
-    ]),
-  ),
   coveragePathIgnorePatterns: [
     ...ignores,
     'src/(umd|cjs|esm)-entry.js$',
@@ -59,13 +51,24 @@ const jestConfig = {
     require.resolve('jest-watch-typeahead/filename'),
     require.resolve('jest-watch-typeahead/testname'),
   ],
-  globals: {
-    'ts-jest': {
-      diagnostics: {
-        warnOnly: true,
-      },
+  globals: {},
+}
+
+if (hasAnyDep('ts-jest') || hasFile('tsconfig.json')) {
+  jestConfig.transform = Object.fromEntries(
+    // Ensure we can resolve the preset even when
+    // it's in a nested `node_modules` installation
+    Object.entries(preset.transform).map(([key, value]) => [
+      key,
+      require.resolve(value),
+    ]),
+  )
+
+  jestConfig.globals['ts-jest'] = {
+    diagnostics: {
+      warnOnly: true,
     },
-  },
+  }
 }
 
 if (hasFile('tests/setup-env.js')) {
