@@ -5,10 +5,9 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
-    "declarationMap": true,
     "emitDeclarationOnly": true,
+    "declarationMap": true,
     "outDir": "../dist",
-    "rootDir": ".",
-    "skipLibCheck": true
+    "rootDir": "."
   }
 }
