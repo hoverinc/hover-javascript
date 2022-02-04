@@ -138,10 +138,10 @@ cases(
       args: ['--testCommand', '--config', 'some-config.js'],
     },
     'overrides built-in test command with --testCommand': {
-      args: ['--testCommand', '"yarn test:custom --findRelatedTests foo.js"'],
+      args: ['--testCommand', 'yarn test:custom --findRelatedTests foo.js'],
     },
     'overrides built-in test command with --test-command': {
-      args: ['--test-command', '"yarn test:custom --findRelatedTests foo.js"'],
+      args: ['--test-command', 'yarn test:custom --findRelatedTests foo.js'],
     },
     'overrides built-in test command with --testCommand and forwards args': {
       args: [
@@ -154,7 +154,7 @@ cases(
       args: [
         '--verbose',
         '--test-command',
-        '"yarn test:custom --findRelatedTests foo.js"',
+        'yarn test:custom --findRelatedTests foo.js',
       ],
     },
     'disables DocToc, overrides built-in test command, and forwards args': {
@@ -162,7 +162,7 @@ cases(
         '--verbose',
         '--no-toc',
         '--test-command',
-        '"yarn test:custom --findRelatedTests foo.js"',
+        'yarn test:custom --findRelatedTests foo.js',
         '--some-other-arg',
       ],
     },
