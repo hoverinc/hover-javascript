@@ -57,7 +57,7 @@
     "@typescript-eslint/parser": "^5.10.2",
     "arrify": "^2.0.1",
     "commitizen": "^4.2.4",
-    "concurrently": "^6.2.2",
+    "concurrently": "^7.0.0",
     "cosmiconfig": "^7.0.1",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.1",
