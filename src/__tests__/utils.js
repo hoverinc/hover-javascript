@@ -41,19 +41,35 @@ test('resolveHoverScripts resolves to "hover-scripts" if not in the @hover/javas
   expect(require('../utils').resolveHoverScripts()).toBe('hover-scripts')
 })
 
-test(`resolveBin resolves to the full path when it's not in $PATH`, () => {
-  expect(require('../utils').resolveBin('cross-env')).toBe(
-    require.resolve('cross-env/src/bin/cross-env').replace(process.cwd(), '.'),
-  )
-})
+describe('resolveBin', () => {
+  beforeAll(() => {
+    jest.unmock('read-pkg-up')
+  })
 
-test(`resolveBin resolves to the binary if it's in $PATH`, () => {
-  whichSyncMock.mockImplementationOnce(() =>
-    require.resolve('cross-env/src/bin/cross-env').replace(process.cwd(), '.'),
-  )
-  expect(require('../utils').resolveBin('cross-env')).toBe('cross-env')
-  expect(whichSyncMock).toHaveBeenCalledTimes(1)
-  expect(whichSyncMock).toHaveBeenCalledWith('cross-env')
+  afterAll(() => {
+    jest.mock('read-pkg-up', () => ({
+      sync: jest.fn(() => ({packageJson: {}, path: '/blah/package.json'})),
+    }))
+  })
+
+  test(`resolveBin resolves to the full path when it's not in $PATH`, () => {
+    expect(require('../utils').resolveBin('cross-env')).toBe(
+      require
+        .resolve('cross-env/src/bin/cross-env')
+        .replace(process.cwd(), '.'),
+    )
+  })
+
+  test(`resolveBin resolves to the binary if it's in $PATH`, () => {
+    whichSyncMock.mockImplementationOnce(() =>
+      require
+        .resolve('cross-env/src/bin/cross-env')
+        .replace(process.cwd(), '.'),
+    )
+    expect(require('../utils').resolveBin('cross-env')).toBe('cross-env')
+    expect(whichSyncMock).toHaveBeenCalledTimes(1)
+    expect(whichSyncMock).toHaveBeenCalledWith('cross-env')
+  })
 })
 
 describe('for windows', () => {

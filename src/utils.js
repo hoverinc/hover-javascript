@@ -30,12 +30,13 @@ function resolveBin(modName, {executable = modName, cwd = process.cwd()} = {}) {
     // ignore _error
   }
   try {
-    const { packageJson: binPackage, path: modPkgDir } = readPkgUp.sync({
+    const {packageJson: binPackage, path: binPackagePath} = readPkgUp.sync({
       cwd: path.dirname(require.resolve(modName)),
     })
-    
-    const {bin} = binPackage;
-    
+
+    const modPkgDir = path.dirname(binPackagePath)
+    const {bin} = binPackage
+
     const binPath = typeof bin === 'string' ? bin : bin[executable]
     const fullPathToBin = path.join(modPkgDir, binPath)
     if (fullPathToBin === pathFromWhich) {
