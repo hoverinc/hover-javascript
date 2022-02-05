@@ -1,1 +1,1 @@
-export * from 'ts-jest/utils'
+export {pathsToModuleNameMapper, createJestPreset} from 'ts-jest'
