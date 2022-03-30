@@ -51,6 +51,7 @@ const buildConfig = ({withReact = false} = {}) => {
       ifReact('plugin:react-hooks/recommended'),
     ].filter(Boolean),
     rules: {
+      'class-methods-use-this': 'off',
       'import/prefer-default-export': 'off',
       'import/no-extraneous-dependencies': [
         'error',
