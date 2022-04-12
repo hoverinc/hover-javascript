@@ -1,0 +1,13 @@
+{
+  "specials": ["babel", "bin", "eslint", "jest", "lint-staged", "tslint"],
+  "ignoreMatches": [
+    "@types/*",
+    "concurrently",
+    "doctoc",
+    "eslint-config-*",
+    "eslint-plugin-*",
+    "jest-github-actions-reporter",
+    "lint-staged",
+    "tslib"
+  ]
+}
