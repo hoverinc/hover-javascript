@@ -5,7 +5,7 @@ const {
   resolveDetectors,
   resolveParsers,
   resolveSpecials,
-} = require('../api/depcheck')
+} = require('../api/depcheck/depcheck')
 const {uniq, hasFile} = require('../utils')
 
 /**

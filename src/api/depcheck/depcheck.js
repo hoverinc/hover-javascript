@@ -1,6 +1,7 @@
 const fs = require('fs')
 const depcheck = require('depcheck')
-const {hasFile, uniq} = require('../utils')
+const hoverSpecials = require('./specials')
+const {hasFile, uniq} = require('../../utils')
 
 /**
  * @typedef Config
@@ -66,17 +67,37 @@ const resolveDetectors = detectors => {
 
 /**
  *
- * @param {string[]} specials
+ * @param {*[]} specials
  * @return {depcheck.Parser[]}
  */
 const resolveSpecials = specials => {
   return uniq(
     specials.map(special => {
-      // @ts-ignore
-      if (depcheck.special[special]) {
+      if (typeof special === 'string') {
         // @ts-ignore
-        return depcheck.special[special]
+        if (depcheck.special[special]) {
+          // @ts-ignore
+          return depcheck.special[special]
+        }
+
+        // @ts-ignore
+        if (hoverSpecials[special] && hoverSpecials[special].special) {
+          // @ts-ignore
+          return hoverSpecials[special].special
+        }
       }
+
+      if (Array.isArray(special)) {
+        const name = special[0] ?? ''
+        const config = special[1] ?? {}
+
+        // @ts-ignore
+        if (hoverSpecials[name] && hoverSpecials[name].configure) {
+          // @ts-ignore
+          return hoverSpecials[name].configure(config)
+        }
+      }
+
       throw new Error(`Undefined special ${special}`)
     }),
   )
