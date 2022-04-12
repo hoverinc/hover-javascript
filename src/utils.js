@@ -10,7 +10,7 @@ const {cosmiconfigSync} = require('cosmiconfig')
 
 const {packageJson: pkg, path: pkgPath} = readPkgUp.sync({
   cwd: fs.realpathSync(process.cwd()),
-}) ?? {packageJson: {name: ''}, path: ''}
+}) || {packageJson: {name: ''}, path: ''}
 
 const appDirectory = path.dirname(pkgPath)
 
@@ -105,7 +105,7 @@ const ifScript = ifPkgSubProp('scripts')
 function parseEnv(/** @type {string} */ name, /** @type {*} */ def) {
   if (envIsSet(name)) {
     try {
-      return JSON.parse(process.env[name] ?? '')
+      return JSON.parse(process.env[name] || '')
     } catch (err) {
       return process.env[name]
     }

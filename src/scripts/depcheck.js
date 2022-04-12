@@ -44,20 +44,20 @@ const parsedArgs = yargsParser(process.argv.slice(2), {
 
 const resolvedConfig = resolveConfig(parsedArgs.config || '')
 const resolvedDetectors = resolveDetectors(
-  uniq([...(resolvedConfig.detectors ?? []), ...parsedArgs.detectors]),
+  uniq([...(resolvedConfig.detectors || []), ...parsedArgs.detectors]),
 )
-const resolvedParsers = resolveParsers({...(resolvedConfig.parsers ?? {})})
+const resolvedParsers = resolveParsers({...(resolvedConfig.parsers || {})})
 const resolvedSpecials = resolveSpecials(
-  uniq([...(resolvedConfig.specials ?? []), ...parsedArgs.specials]),
+  uniq([...(resolvedConfig.specials || []), ...parsedArgs.specials]),
 )
 
 const resolvedOptions = {
   ignorePatterns: uniq([
-    ...(resolvedConfig.ignorePatterns ?? []),
+    ...(resolvedConfig.ignorePatterns || []),
     ...parsedArgs.ignorePatterns,
   ]),
   ignoreMatches: uniq([
-    ...(resolvedConfig.ignoreMatches ?? []),
+    ...(resolvedConfig.ignoreMatches || []),
     ...parsedArgs.ignores,
   ]),
 }

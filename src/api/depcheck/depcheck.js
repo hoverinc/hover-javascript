@@ -88,8 +88,8 @@ const resolveSpecials = specials => {
       }
 
       if (Array.isArray(special)) {
-        const name = special[0] ?? ''
-        const config = special[1] ?? {}
+        const name = special[0] || ''
+        const config = special[1] || {}
 
         // @ts-ignore
         if (hoverSpecials[name] && hoverSpecials[name].configure) {

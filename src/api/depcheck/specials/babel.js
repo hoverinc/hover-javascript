@@ -37,7 +37,7 @@ const configure = options => {
       return []
     }
 
-    const presets = babelConfig.presets ?? []
+    const presets = babelConfig.presets || []
     return presets
       .map(babelDependencyToName)
       .filter((/** @type {string} */ name) => !!name)
@@ -54,7 +54,7 @@ const configure = options => {
       return []
     }
 
-    const plugins = babelConfig.plugins ?? []
+    const plugins = babelConfig.plugins || []
     return plugins
       .map(babelDependencyToName)
       .filter((/** @type {string} */ name) => !!name)
