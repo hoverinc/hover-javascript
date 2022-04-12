@@ -39,6 +39,7 @@
     - [Prettier](#prettier)
     - [Jest](#jest)
     - [Semantic Release](#semantic-release)
+    - [Depcheck](#depcheck)
     - [Lint Staged](#lint-staged)
   - [Source Control Hooks](#source-control-hooks)
     - [Husky Example](#husky-example)
@@ -164,6 +165,31 @@ Or, for Semantic Release (used in `ci-after-success` script) in
 ```js
 module.exports = {
   extends: require.resolve('@hover/javascript/release'),
+}
+```
+
+#### Depcheck
+
+> ℹ️ The `hoverBabel` special requires NODE_PATH to be defined to resolve the
+> babel config file
+
+Or, for depcheck in `.depcheckrc.json'`:
+
+```json
+{
+  "specials": [
+    "babel",
+    "bin",
+    "jest",
+    [
+      "hoverBabel",
+      {
+        "config": "babel.config.js",
+        "env": "development"
+      }
+    ]
+  ],
+  "ignoreMatches": ["types/*"]
 }
 ```
 

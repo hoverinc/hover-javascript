@@ -10,7 +10,8 @@ const {cosmiconfigSync} = require('cosmiconfig')
 
 const {packageJson: pkg, path: pkgPath} = readPkgUp.sync({
   cwd: fs.realpathSync(process.cwd()),
-})
+}) || {packageJson: {name: ''}, path: ''}
+
 const appDirectory = path.dirname(pkgPath)
 
 function resolveHoverScripts() {
@@ -21,7 +22,10 @@ function resolveHoverScripts() {
 }
 
 // eslint-disable-next-line complexity
-function resolveBin(modName, {executable = modName, cwd = process.cwd()} = {}) {
+function resolveBin(
+  /** @type {string} */ modName,
+  {executable = modName, cwd = process.cwd()} = {},
+) {
   let pathFromWhich
   try {
     pathFromWhich = fs.realpathSync(which.sync(executable))
@@ -30,12 +34,20 @@ function resolveBin(modName, {executable = modName, cwd = process.cwd()} = {}) {
     // ignore _error
   }
   try {
-    const {packageJson: binPackage, path: binPackagePath} = readPkgUp.sync({
+    const executablePkg = readPkgUp.sync({
       cwd: path.dirname(require.resolve(modName)),
     })
+    if (typeof executablePkg === 'undefined') {
+      throw new Error(`unable to resolve package ${modName}`)
+    }
+
+    const {packageJson: binPackage, path: binPackagePath} = executablePkg
 
     const modPkgDir = path.dirname(binPackagePath)
     const {bin} = binPackage
+    if (typeof bin === 'undefined') {
+      throw new Error(`unable to resolve package binary ${modName}`)
+    }
 
     const binPath = typeof bin === 'string' ? bin : bin[executable]
     const fullPathToBin = path.join(modPkgDir, binPath)
@@ -51,37 +63,49 @@ function resolveBin(modName, {executable = modName, cwd = process.cwd()} = {}) {
   }
 }
 
-const fromRoot = (...p) => path.join(appDirectory, ...p)
-const hasFile = (...p) => fs.existsSync(fromRoot(...p))
-const ifFile = (files, t, f) =>
-  arrify(files).some(file => hasFile(file)) ? t : f
+const fromRoot = (/** @type {string[]} */ ...p) => path.join(appDirectory, ...p)
+const hasFile = (/** @type {string[]} */ ...p) => fs.existsSync(fromRoot(...p))
+
+const ifFile = (
+  /** @type {*} */ files,
+  /** @type {*} */ t,
+  /** @type {*} */ f,
+) => (arrify(files).some((/** @type {*} */ file) => hasFile(file)) ? t : f)
 
 const getPkgName = () => pkg.name
 
-const hasPkgProp = props => arrify(props).some(prop => has(pkg, prop))
+const hasPkgProp = (/** @type {*} */ props) =>
+  arrify(props).some((/** @type {*} */ prop) => has(pkg, prop))
 
-const hasPkgSubProp = pkgProp => props =>
-  hasPkgProp(arrify(props).map(p => `${pkgProp}.${p}`))
+const hasPkgSubProp = (/** @type {*} */ pkgProp) => (/** @type {*} */ props) =>
+  hasPkgProp(arrify(props).map((/** @type {*} */ p) => `${pkgProp}.${p}`))
 
-const ifPkgSubProp = pkgProp => (props, t, f) =>
-  hasPkgSubProp(pkgProp)(props) ? t : f
+const ifPkgSubProp =
+  (/** @type {*} */ pkgProp) =>
+  (/** @type {*} */ props, /** @type {*} */ t, /** @type {*} */ f) =>
+    hasPkgSubProp(pkgProp)(props) ? t : f
 
 const hasScript = hasPkgSubProp('scripts')
 const hasPeerDep = hasPkgSubProp('peerDependencies')
 const hasDep = hasPkgSubProp('dependencies')
 const hasDevDep = hasPkgSubProp('devDependencies')
-const hasAnyDep = args => [hasDep, hasDevDep, hasPeerDep].some(fn => fn(args))
+const hasAnyDep = (/** @type {*} */ args) =>
+  [hasDep, hasDevDep, hasPeerDep].some(fn => fn(args))
 
 const ifPeerDep = ifPkgSubProp('peerDependencies')
 const ifDep = ifPkgSubProp('dependencies')
 const ifDevDep = ifPkgSubProp('devDependencies')
-const ifAnyDep = (deps, t, f) => (hasAnyDep(arrify(deps)) ? t : f)
+const ifAnyDep = (
+  /** @type {*} */ deps,
+  /** @type {*} */ t,
+  /** @type {*} */ f,
+) => (hasAnyDep(arrify(deps)) ? t : f)
 const ifScript = ifPkgSubProp('scripts')
 
-function parseEnv(name, def) {
+function parseEnv(/** @type {string} */ name, /** @type {*} */ def) {
   if (envIsSet(name)) {
     try {
-      return JSON.parse(process.env[name])
+      return JSON.parse(process.env[name] || '')
     } catch (err) {
       return process.env[name]
     }
@@ -89,7 +113,7 @@ function parseEnv(name, def) {
   return def
 }
 
-function envIsSet(name) {
+function envIsSet(/** @type {string} */ name) {
   return (
     process.env.hasOwnProperty(name) &&
     process.env[name] &&
@@ -97,7 +121,10 @@ function envIsSet(name) {
   )
 }
 
-function getConcurrentlyArgs(scripts, {killOthers = true} = {}) {
+function getConcurrentlyArgs(
+  /** @type {*} */ scripts,
+  {killOthers = true} = {},
+) {
   const colors = [
     'bgBlue',
     'bgGreen',
@@ -108,15 +135,18 @@ function getConcurrentlyArgs(scripts, {killOthers = true} = {}) {
     'bgBlack',
     'bgYellow',
   ]
-  scripts = Object.entries(scripts).reduce((all, [name, script]) => {
-    if (script) {
-      all[name] = script
-    }
-    return all
-  }, {})
+  scripts = Object.entries(scripts).reduce(
+    (/** @type {*} */ all, [name, script]) => {
+      if (script) {
+        all[name] = script
+      }
+      return all
+    },
+    {},
+  )
   const prefixColors = Object.keys(scripts)
     .reduce(
-      (pColors, _s, i) =>
+      (/** @type {string[]} */ pColors, _s, i) =>
         pColors.concat([`${colors[i % colors.length]}.bold.reset`]),
       [],
     )
@@ -131,11 +161,15 @@ function getConcurrentlyArgs(scripts, {killOthers = true} = {}) {
     ...Object.values(scripts).map(s => JSON.stringify(s)), // stringify escapes quotes ✨
   ].filter(Boolean)
 }
-
-function uniq(arr) {
+function uniq(/** @type {Iterable<*> | null} */ arr) {
   return Array.from(new Set(arr))
 }
 
+/**
+ * @param {string} name
+ * @param {{[key: string]: string}} options
+ * @param {boolean} [clean=true]
+ */
 function writeExtraEntry(name, {cjs, esm}, clean = true) {
   if (clean) {
     rimraf.sync(fromRoot(name))
@@ -159,6 +193,11 @@ function writeExtraEntry(name, {cjs, esm}, clean = true) {
   )
 }
 
+/**
+ * @param {string} moduleName
+ * @param {{}} searchOptions
+ * @return {boolean}
+ */
 function hasLocalConfig(moduleName, searchOptions = {}) {
   const explorerSync = cosmiconfigSync(moduleName, searchOptions)
   const result = explorerSync.search(pkgPath)

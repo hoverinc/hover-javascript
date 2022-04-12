@@ -24,6 +24,7 @@ Available Scripts:
   ci-after-success
   commit-msg
   commit
+  depcheck
   format
   lint
   pre-commit
