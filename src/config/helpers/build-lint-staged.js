@@ -9,7 +9,7 @@ const sourceExtensions = ['js', 'jsx', 'ts', 'tsx']
 
 const readmeGlob = 'README.md'
 const formatGlob =
-  '*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)'
+  '*.+(js|jsx|json|json5|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)'
 
 // This works around the limitation imposed by using globs as keys in the
 // configuration. We want to run the lint and test commands on the same glob,

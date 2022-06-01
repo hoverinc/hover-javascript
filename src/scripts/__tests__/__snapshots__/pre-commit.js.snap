@@ -17,7 +17,7 @@ Array [
 exports[`pre-commit disables DocToc and forwards args 2`] = `
 Array [
   .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
-  {"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["./src/index.js test --findRelatedTests"]},
+  {"*.+(js|jsx|json|json5|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["./src/index.js test --findRelatedTests"]},
 ]
 `;
 
@@ -31,7 +31,7 @@ Array [
 exports[`pre-commit disables DocToc, overrides built-in test command, and forwards args 2`] = `
 Array [
   .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
-  {"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["yarn test:custom --findRelatedTests foo.js"]},
+  {"*.+(js|jsx|json|json5|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["yarn test:custom --findRelatedTests foo.js"]},
 ]
 `;
 
@@ -86,7 +86,7 @@ Array [
 exports[`pre-commit overrides built-in test command with --test-command 2`] = `
 Array [
   .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
-  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["yarn test:custom --findRelatedTests foo.js"]},
+  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|json5|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["yarn test:custom --findRelatedTests foo.js"]},
 ]
 `;
 
@@ -100,7 +100,7 @@ Array [
 exports[`pre-commit overrides built-in test command with --test-command and forwards args 2`] = `
 Array [
   .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
-  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["yarn test:custom --findRelatedTests foo.js"]},
+  {"README.md":["doctoc --maxlevel 4 --notitle"],"*.+(js|jsx|json|json5|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["yarn test:custom --findRelatedTests foo.js"]},
 ]
 `;
 
