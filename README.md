@@ -159,6 +159,10 @@ module.exports = {
 
 #### Semantic Release
 
+> 🔖 Set the `version` field in your `package.json` to
+> `0.0.0-semantically-released` to enable Semantic Release in the
+> `ci-after-success` script
+
 Or, for Semantic Release (used in `ci-after-success` script) in
 `release.config.js`:
 
