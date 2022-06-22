@@ -1,0 +1,7 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>hoverinc/renovate:npm.json5",
+    "github>hoverinc/renovate:npm-merge.json5"
+  ]
+}
