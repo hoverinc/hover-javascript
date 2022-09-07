@@ -22,6 +22,10 @@ const ignores = [
 /** @type JestConfig */
 const jestConfig = {
   roots: [fromRoot('.')],
+  // Here we're preserving Jest <= 28 snapshot format to prevent the need
+  // to update snapshots when upgrading Jest via @hover/javascript, see:
+  // https://jestjs.io/docs/upgrading-to-jest29#snapshot-format
+  snapshotFormat: {escapeString: true, printBasicPrototype: true},
   testEnvironment: ifAnyDep(['webpack', 'rollup', 'react'], 'jsdom', 'node'),
   testEnvironmentOptions: {url: 'http://localhost'},
   moduleFileExtensions: testMatchExtensions.concat('json'),
@@ -32,9 +36,9 @@ const jestConfig = {
   transform: Object.fromEntries(
     // Ensure we can resolve the preset even when
     // it's in a nested `node_modules` installation
-    Object.entries(preset.transform).map(([key, value]) => [
-      key,
-      require.resolve(value),
+    Object.entries(preset.transform).map(([glob, transformer]) => [
+      glob,
+      [require.resolve(transformer), {diagnostics: {warnOnly: true}}],
     ]),
   ),
   coveragePathIgnorePatterns: [
@@ -59,13 +63,6 @@ const jestConfig = {
     require.resolve('jest-watch-typeahead/filename'),
     require.resolve('jest-watch-typeahead/testname'),
   ],
-  globals: {
-    'ts-jest': {
-      diagnostics: {
-        warnOnly: true,
-      },
-    },
-  },
 }
 
 if (hasFile('tests/setup-env.js')) {
