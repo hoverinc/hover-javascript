@@ -3,5 +3,11 @@
   "extends": [
     "github>jrolfs/renovate:npm.json5",
     "github>jrolfs/renovate:npm-feat.json5"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["eslint"],
+      "groupName": "eslint"
+    }
   ]
 }
