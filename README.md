@@ -294,7 +294,7 @@ This project is actively maintained by engineers at
 [license-badge]: https://img.shields.io/npm/l/@hover/javascript.svg
 [license-link]: https://github.com/hoverinc/hover-javascript/blob/master/LICENSE
 [node-link]: https://nodejs.org/en/download/
-[node-badge]: https://img.shields.io/badge/node-v16.13.0-green
+[node-badge]: https://img.shields.io/badge/node-v18.12.1-green
 [prettier-badge]:
   https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier
 [prettier-link]: https://prettierjs.org/en/download/
