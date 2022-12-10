@@ -89,7 +89,7 @@
     "lint-staged": "^12.3.4",
     "lodash.has": "^4.5.2",
     "mkdirp": "^1.0.3",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.1",
     "read-pkg-up": "^7.0.1",
     "rimraf": "^3.0.2",
     "tslib": "^2.4.0",
