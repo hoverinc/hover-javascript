@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const rimraf = require('rimraf')
 const mkdirp = require('mkdirp')
+const arrify = require('arrify')
 const has = require('lodash.has')
 const readPkgUp = require('read-pkg-up')
 const which = require('which')
@@ -65,42 +66,19 @@ function resolveBin(
 const fromRoot = (/** @type {string[]} */ ...p) => path.join(appDirectory, ...p)
 const hasFile = (/** @type {string[]} */ ...p) => fs.existsSync(fromRoot(...p))
 
-/**
- * @param {string | string[]} stringOrArray
- */
-const liftStringArray = stringOrArray =>
-  typeof stringOrArray === 'string' ? [stringOrArray] : stringOrArray
-
-/**
- *
- * @template T
- * @template F
- *
- * @param {string | string[]} files
- * @param {T} t
- * @param {F} f
- */
-const ifFile = (files, t, f) =>
-  liftStringArray(files).some(file => hasFile(file)) ? t : f
+const ifFile = (
+  /** @type {*} */ files,
+  /** @type {*} */ t,
+  /** @type {*} */ f,
+) => (arrify(files).some((/** @type {*} */ file) => hasFile(file)) ? t : f)
 
 const getPkgName = () => pkg.name
 
-/**
- * @param {string | string[]} props
- */
-const hasPkgProp = props => liftStringArray(props).some(prop => has(pkg, prop))
+const hasPkgProp = (/** @type {*} */ props) =>
+  arrify(props).some((/** @type {*} */ prop) => has(pkg, prop))
 
-/**
- * @param {string} pkgProp
- */
-const hasPkgSubProp =
-  pkgProp =>
-  /**
-   * @param {string | string[]} props
-   * @returns
-   */
-  props =>
-    hasPkgProp(liftStringArray(props).map(p => `${pkgProp}.${p}`))
+const hasPkgSubProp = (/** @type {*} */ pkgProp) => (/** @type {*} */ props) =>
+  hasPkgProp(arrify(props).map((/** @type {*} */ p) => `${pkgProp}.${p}`))
 
 const ifPkgSubProp =
   (/** @type {*} */ pkgProp) =>
@@ -117,17 +95,11 @@ const hasAnyDep = (/** @type {*} */ args) =>
 const ifPeerDep = ifPkgSubProp('peerDependencies')
 const ifDep = ifPkgSubProp('dependencies')
 const ifDevDep = ifPkgSubProp('devDependencies')
-
-/**
- * @template T
- * @template F
- *
- * @param {string | string[]} deps
- * @param {T} t
- * @param {F} f
- */
-const ifAnyDep = (deps, t, f) => (hasAnyDep(liftStringArray(deps)) ? t : f)
-
+const ifAnyDep = (
+  /** @type {*} */ deps,
+  /** @type {*} */ t,
+  /** @type {*} */ f,
+) => (hasAnyDep(arrify(deps)) ? t : f)
 const ifScript = ifPkgSubProp('scripts')
 
 function parseEnv(/** @type {string} */ name, /** @type {*} */ def) {
