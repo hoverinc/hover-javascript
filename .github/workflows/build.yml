@@ -59,7 +59,7 @@ jobs:
 
       - name: Upload Coverage / Release
         run: yarn ci-after-success
-        if: ${{ matrix.node == '16' }}
+        if: ${{ matrix.node == '14' }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
