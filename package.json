@@ -64,7 +64,6 @@
     "@types/which": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^5.45.1",
     "@typescript-eslint/parser": "^5.45.1",
-    "arrify": "^2.0.1",
     "commitizen": "^4.2.6",
     "concurrently": "^7.0.0",
     "cosmiconfig": "^7.0.1",
