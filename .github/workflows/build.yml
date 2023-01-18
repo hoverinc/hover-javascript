@@ -29,7 +29,7 @@ jobs:
     if: ${{ needs.deduplicate.outputs.should_skip != 'true' }}
     strategy:
       matrix:
-        node: ['14', '16', '18']
+        node: ['12', '14', '16']
 
     steps:
       - name: Get Yarn cache path
