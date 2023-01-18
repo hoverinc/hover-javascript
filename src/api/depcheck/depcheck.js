@@ -1,7 +1,7 @@
 const fs = require('fs')
 const depcheck = require('depcheck')
-const {hasFile, uniq} = require('../../utils')
 const hoverSpecials = require('./specials')
+const {hasFile, uniq} = require('../../utils')
 
 /**
  * @typedef Config

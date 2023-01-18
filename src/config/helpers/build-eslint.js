@@ -69,8 +69,6 @@ const buildConfig = ({withReact = false} = {}) => {
       ],
       'no-void': ['error', {allowAsStatement: true}],
       'prettier/prettier': 'error',
-      // TODO: consider enabling this as a warning?
-      'jest/prefer-snapshot-hint': 'off',
       ...parserRules(false, isReact),
     },
     overrides: [
