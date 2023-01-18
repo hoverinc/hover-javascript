@@ -119,6 +119,7 @@ Object {
       },
     ],
     "import/prefer-default-export": "off",
+    "jest/prefer-snapshot-hint": "off",
     "no-implied-eval": "error",
     "no-throw-literal": "error",
     "no-void": Array [
@@ -251,6 +252,7 @@ Object {
       },
     ],
     "import/prefer-default-export": "off",
+    "jest/prefer-snapshot-hint": "off",
     "no-implied-eval": "error",
     "no-throw-literal": "error",
     "no-void": Array [
