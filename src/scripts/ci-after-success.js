@@ -28,7 +28,7 @@ const branch =
 const isCI = parseEnv('TRAVIS', false) || parseEnv('CI', false)
 
 const codecovCommand = `echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'`
-const releaseCommand = `echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release${
+const releaseCommand = `echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release${
   hasLocalConfig('release')
     ? ''
     : ` --extends ${hereRelative('../config/release.config.js')}`

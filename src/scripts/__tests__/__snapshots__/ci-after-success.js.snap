@@ -12,7 +12,7 @@ Array [
 
 exports[`ci-after-success calls concurrently with both scripts when on ci 3`] = `
 Array [
-  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release'",
+  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
 ]
 `;
 
@@ -28,7 +28,7 @@ Array [
 
 exports[`ci-after-success calls concurrently with both scripts when on github actions 3`] = `
 Array [
-  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release'",
+  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
 ]
 `;
 
@@ -44,7 +44,7 @@ Array [
 
 exports[`ci-after-success calls concurrently with both scripts when on travis 3`] = `
 Array [
-  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release'",
+  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
 ]
 `;
 
@@ -60,7 +60,7 @@ Array [
 
 exports[`ci-after-success configures semantic release with internal configuration when no local configuration exists 3`] = `
 Array [
-  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release --extends ./src/config/release.config.js'",
+  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release --extends ./src/config/release.config.js'",
 ]
 `;
 
@@ -108,7 +108,7 @@ Array [
 
 exports[`ci-after-success does not do the codecov script when opted out 3`] = `
 Array [
-  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release'",
+  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
 ]
 `;
 
@@ -124,7 +124,7 @@ Array [
 
 exports[`ci-after-success does not do the codecov script when there is no coverage directory 3`] = `
 Array [
-  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release'",
+  concurrently --prefix [{name}] --names release --prefix-colors bgBlue.bold.reset "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
 ]
 `;
 
@@ -158,6 +158,6 @@ Array [
 
 exports[`ci-after-success runs autorelease script on alternate release branch "next" 3`] = `
 Array [
-  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@19 -c 'echo running semantic-release && semantic-release'",
+  concurrently --prefix [{name}] --names codecov,release --prefix-colors bgBlue.bold.reset,bgGreen.bold.reset "echo installing codecov && npx -p codecov@3 -c 'echo running codecov && codecov'" "echo installing semantic-release && npx -p semantic-release@17 -c 'echo running semantic-release && semantic-release'",
 ]
 `;
