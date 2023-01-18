@@ -244,7 +244,6 @@ module.exports = {
   getConcurrentlyArgs,
   getPkgName,
   hasAnyDep,
-  hasDevDep,
   hasFile,
   hasLocalConfig,
   hasPkgProp,
