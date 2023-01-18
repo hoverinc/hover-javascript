@@ -26,27 +26,9 @@ describe('ls', () => {
     })
 
     test('with prefix', () => {
-      const result = ls.dirs(`${fixtures}/ls/dirs`, {prefix: 'prefix'})
+      const result = ls.dirs(`${fixtures}/ls/dirs`, 'prefix')
 
       const expected = ['prefix/.baz', 'prefix/bar', 'prefix/foo']
-
-      expect(result.sort()).toEqual(expected.sort())
-    })
-
-    test('with custom exclude (string)', () => {
-      const result = ls.dirs(`${fixtures}/ls/dirs`, {exclude: 'foo'})
-
-      const expected = ['.baz', 'bar', 'node_modules']
-
-      expect(result.sort()).toEqual(expected.sort())
-    })
-
-    test('with custom exclude (RegExp)', () => {
-      const result = ls.dirs(`${fixtures}/ls/dirs`, {
-        exclude: /(^node_modules|^bar)/,
-      })
-
-      const expected = ['.baz', 'foo']
 
       expect(result.sort()).toEqual(expected.sort())
     })
