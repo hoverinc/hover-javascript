@@ -287,7 +287,6 @@ Object {
 exports[`Strict ESLint configuration 1`] = `
 Object {
   "rules": Object {
-    "import/no-default-export": "error",
     "import/order": Array [
       "error",
       Object {
