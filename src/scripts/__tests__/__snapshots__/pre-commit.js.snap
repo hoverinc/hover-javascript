@@ -17,7 +17,7 @@ Array [
 exports[`pre-commit disables DocToc and forwards args 2`] = `
 Array [
   .test-tmp/hover-javascriptTMPSUFFIX/.lintstaged.json,
-  {"*.+(js|jsx|json|json5|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["./src/index.js test --findRelatedTests --passWithNoTests"]},
+  {"*.+(js|jsx|json|json5|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx|vue)":["./src/index.js format"],"*.+(js|jsx|ts|tsx)":["./src/index.js lint"],"*.+(tsx|ts|jsx|js)":["./src/index.js test --findRelatedTests"]},
 ]
 `;
 

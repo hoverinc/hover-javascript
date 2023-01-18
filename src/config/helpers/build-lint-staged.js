@@ -3,7 +3,7 @@ const {resolveHoverScripts, resolveBin} = require('../../utils')
 const hoverScripts = resolveHoverScripts()
 const doctoc = resolveBin('doctoc')
 
-const defaultTestCommand = `${hoverScripts} test --findRelatedTests --passWithNoTests`
+const defaultTestCommand = `${hoverScripts} test --findRelatedTests`
 
 const sourceExtensions = ['js', 'jsx', 'ts', 'tsx']
 
