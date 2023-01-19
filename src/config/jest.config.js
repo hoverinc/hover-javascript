@@ -1,8 +1,6 @@
 /** @typedef {import('@jest/types').Config.InitialOptions} JestConfig */
 
-const {jsWithTs: preset} = require('ts-jest/presets')
-
-const {ifAnyDep, hasAnyDep, hasFile, fromRoot} = require('../utils')
+const {ifAnyDep, hasFile, fromRoot, hasDevDep} = require('../utils')
 
 const {
   testMatch,
@@ -22,13 +20,31 @@ const ignores = [
 /** @type JestConfig */
 const jestConfig = {
   roots: [fromRoot('.')],
+  // Here we're preserving Jest <= 28 snapshot format to prevent the need
+  // to update snapshots when upgrading Jest via @hover/javascript, see:
+  // https://jestjs.io/docs/upgrading-to-jest29#snapshot-format
+  snapshotFormat: {escapeString: true, printBasicPrototype: true},
   testEnvironment: ifAnyDep(['webpack', 'rollup', 'react'], 'jsdom', 'node'),
-  testURL: 'http://localhost',
+  testEnvironmentOptions: {url: 'http://localhost'},
   moduleFileExtensions: testMatchExtensions.concat('json'),
   collectCoverageFrom: [`**/${testMatchGlob}`],
   testMatch,
   testPathIgnorePatterns: [...ignores, '<rootDir>/dist'],
   testLocationInResults: true,
+  // The default transform is now SWC, however, `ts-jest` will
+  // still be used if it is installed in the host project
+  transform: hasDevDep('ts-jest')
+    ? Object.fromEntries(
+        // Ensure we can resolve the preset even when
+        // it's in a nested `node_modules` installation
+        Object.entries(require('ts-jest/presets').transform).map(
+          ([glob, transformer]) => [
+            glob,
+            [require.resolve(transformer), {diagnostics: {warnOnly: true}}],
+          ],
+        ),
+      )
+    : {'^.+\\.(t|j)sx?$': ['@swc-node/jest']},
   coveragePathIgnorePatterns: [
     ...ignores,
     'src/(umd|cjs|esm)-entry.js$',
@@ -51,28 +67,9 @@ const jestConfig = {
     require.resolve('jest-watch-typeahead/filename'),
     require.resolve('jest-watch-typeahead/testname'),
   ],
-  globals: {},
-}
-
-if (hasAnyDep('ts-jest') || hasFile('tsconfig.json')) {
-  jestConfig.transform = Object.fromEntries(
-    // Ensure we can resolve the preset even when
-    // it's in a nested `node_modules` installation
-    Object.entries(preset.transform).map(([key, value]) => [
-      key,
-      require.resolve(value),
-    ]),
-  )
-
-  jestConfig.globals['ts-jest'] = {
-    diagnostics: {
-      warnOnly: true,
-    },
-  }
-}
-
-if (hasFile('tests/setup-env.js')) {
-  jestConfig.setupFilesAfterEnv = [fromRoot('tests/setup-env.js')]
+  setupFilesAfterEnv: hasFile('tests/setup-env.js')
+    ? [fromRoot('tests/setup-env.js')]
+    : undefined,
 }
 
 module.exports = jestConfig

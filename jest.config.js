@@ -10,14 +10,4 @@ module.exports = {
   roots: ['<rootDir>/src'],
   coverageThreshold: null,
   transformIgnorePatterns: [...transformIgnorePatterns, '.prettierrc.js'],
-  globals: {
-    'ts-jest': {
-      ...globals['ts-jest'],
-      tsconfig: './src/tsconfig.json',
-      diagnostics: {
-        warnOnly: true,
-        exclude: ['**/*'],
-      },
-    },
-  },
 }

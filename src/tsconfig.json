@@ -5,8 +5,8 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
-    "emitDeclarationOnly": true,
     "declarationMap": true,
+    "emitDeclarationOnly": true,
     "outDir": "../dist",
     "rootDir": "."
   }
