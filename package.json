@@ -3,9 +3,9 @@
   "version": "0.0.0-semantically-released",
   "description": "CLI toolbox for common scripts for JavaScript + TypeScript projects",
   "engines": {
-    "node": ">=12",
+    "node": ">=v12.22.12",
     "npm": ">=6",
-    "yarn": ">=1"
+    "yarn": ">=1.22.19"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -68,7 +68,7 @@
     "concurrently": "^7.6.0",
     "cosmiconfig": "^8.0.0",
     "cross-env": "^7.0.3",
-    "cross-spawn": "^7.0.1",
+    "cross-spawn": "^7.0.3",
     "doctoc": "^2.2.1",
     "eslint": "^8.32.0",
     "eslint-config-airbnb": "19.0.4",
