@@ -1,6 +1,5 @@
 const {
   globals,
-  transform,
   transformIgnorePatterns,
   ...config
 } = require('./src/config/jest.config')
