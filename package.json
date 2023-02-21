@@ -3,7 +3,7 @@
   "version": "0.0.0-semantically-released",
   "description": "CLI toolbox for common scripts for JavaScript + TypeScript projects",
   "engines": {
-    "node": ">=v12.22.12",
+    "node": ">=v18.14.2",
     "npm": ">=6",
     "yarn": ">=1.22.19"
   },
