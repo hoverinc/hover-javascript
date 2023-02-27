@@ -37,10 +37,18 @@ const jestConfig = {
     ? Object.fromEntries(
         // Ensure we can resolve the preset even when
         // it's in a nested `node_modules` installation
-        Object.entries(require('ts-jest/presets').transform).map(
-          ([glob, transformer]) => [
+        Object.entries(require('ts-jest/presets').jsWithTs.transform).map(
+          ([glob, [transformer, options]]) => [
             glob,
-            [require.resolve(transformer), {diagnostics: {warnOnly: true}}],
+            [
+              require.resolve(transformer),
+              {
+                ...options,
+                diagnostics: {
+                  warnOnly: true,
+                },
+              },
+            ],
           ],
         ),
       )
