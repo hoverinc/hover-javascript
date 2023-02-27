@@ -56,7 +56,7 @@ const configs = path =>
  * Enumerate one level of directories
  *
  * @param {string} path - directory to enumerate
- * @param {DirsOptions} options -
+ * @param {DirsOptions} [options] - options
  */
 const dirs = (path, options) => {
   const {exclude, prefix} = {exclude: /^node_modules/, ...options}

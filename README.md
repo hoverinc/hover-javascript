@@ -146,7 +146,13 @@ module.exports = require('@hover/javascript/prettier')
 
 Or, for Jest in `jest.config.js`:
 
-> ℹ️ If **ts-jest** is installed, it will automatically be used as the `preset`
+> ⚠️ Starting with
+> [**7.0**](https://github.com/hoverinc/hover-javascript/releases/tag/v7.0.0),
+> the default Jest `transform` is
+> [**@swc-node/jest**](https://github.com/swc-project/swc-node/#swc-nodejest).
+> If you want to continue using
+> [**ts-jest**](https://kulshekhar.github.io/ts-jest/), simpy install `ts-jest`
+> in your project and it will automatically be used as the `transform` instead.
 
 ```js
 const config = require('@hover/javascript/jest')
