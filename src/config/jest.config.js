@@ -44,9 +44,7 @@ const jestConfig = {
               require.resolve(transformer),
               {
                 ...options,
-                diagnostics: {
-                  warnOnly: true,
-                },
+                diagnostics: false,
               },
             ],
           ],
