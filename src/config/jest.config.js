@@ -1,5 +1,12 @@
 /** @typedef {import('@jest/types').Config.InitialOptions} JestConfig */
+/** @typedef {import('@swc-node/core').Options} SwcNodeOptions */
 
+const {dirname} = require('path')
+const merge = require('lodash.merge')
+const {
+  readDefaultTsConfig,
+  tsCompilerOptionsToSwcConfig,
+} = require('@swc-node/register/read-default-tsconfig')
 const {ifAnyDep, hasFile, fromRoot, hasDevDep} = require('../utils')
 
 const {
@@ -16,6 +23,23 @@ const ignores = [
   '/__tests__/utils/',
   '__mocks__',
 ]
+
+/**
+ * Get the path at which `@hover/javascript/jest` is installed in a dependent
+ * project in order to resolve the Jest preset as sometimes package managers
+ * nest the preset installation within the `@hover/javascript` installation.
+ * 
+ * @returns 
+ */
+const getResolvePaths = () => {
+  try {
+    const nested = require.resolve('@hover/javascript/jest')
+
+    return {paths: [dirname(nested)]}
+  } catch {
+    return undefined
+  }
+}
 
 /** @type JestConfig */
 const jestConfig = {
@@ -50,7 +74,33 @@ const jestConfig = {
           ],
         ),
       )
-    : {'^.+\\.(t|j)sx?$': [require.resolve('@swc-node/jest')]},
+    : {
+        '^.+\\.(t|j)sx?$': [
+          require.resolve('@swc-node/jest', getResolvePaths()),
+          /** @type {SwcNodeOptions} */ (
+            merge(tsCompilerOptionsToSwcConfig(readDefaultTsConfig(), ''), {
+              esModuleInterop: true,
+              module: 'commonjs',
+              swc: {
+                jsc: {
+                  target: 'es2020',
+                  experimental: {
+                    plugins: [[require.resolve('swc_mut_cjs_exports'), {}]],
+                  },
+                  parser: {
+                    syntax: 'typescript',
+                    tsx: true,
+                    decorators: false,
+                    dynamicimport: true,
+                  },
+                  loose: true,
+                  externalHelpers: false,
+                },
+              },
+            })
+          ),
+        ],
+      },
   coveragePathIgnorePatterns: [
     ...ignores,
     'src/(umd|cjs|esm)-entry.js$',
