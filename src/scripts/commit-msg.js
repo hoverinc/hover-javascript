@@ -22,7 +22,9 @@ const config = useBuiltinConfig
   : []
 
 const result = spawn.sync(
-  resolveBin('@commitlint/cli', {executable: 'commitlint'}),
+  `TS_NODE_TRANSPILE_ONLY=true ${resolveBin('@commitlint/cli', {
+    executable: 'commitlint',
+  })}`,
   [...env, ...config, ...args, ...defaultEdit],
   {
     stdio: 'inherit',
