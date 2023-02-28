@@ -62,7 +62,7 @@ const buildConfig = ({withReact = false} = {}) => {
             'jest/**',
             'test/**',
             'e2e/**',
-            '**/*.config.{js,cjs,ts}',
+            '**/*.config.{js,cjs,ts,mjs}',
           ]),
           optionalDependencies: false,
         },
