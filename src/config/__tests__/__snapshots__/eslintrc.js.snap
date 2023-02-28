@@ -288,6 +288,18 @@ Object {
 
 exports[`Strict ESLint configuration 1`] = `
 Object {
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "**/*.d.ts",
+        "**/__mocks__/**/*",
+        "**/*.config.{js,cjs,ts,mjs}",
+      ],
+      "rules": Object {
+        "import/no-default-export": "off",
+      },
+    },
+  ],
   "rules": Object {
     "import/no-default-export": "error",
     "import/order": Array [

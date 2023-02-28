@@ -16,4 +16,12 @@ module.exports = {
     ],
     'sort-imports': ['error', {ignoreDeclarationSort: true}],
   },
+  overrides: [
+    {
+      files: ['**/*.d.ts', '**/__mocks__/**/*', '**/*.config.{js,cjs,ts,mjs}'],
+      rules: {
+        'import/no-default-export': 'off',
+      },
+    },
+  ],
 }
