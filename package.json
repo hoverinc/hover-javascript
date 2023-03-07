@@ -14,7 +14,7 @@
     "hover-scripts": "dist/index.js"
   },
   "scripts": {
-    "build": "run-p build:*",
+    "build": "run-p 'build:*'",
     "build:source": "babel --source-maps --out-dir dist --ignore '**/__tests__/**','**/__mocks__/**' --copy-files --no-copy-ignored src",
     "build:types": "tsc -p src/",
     "ci-after-success": "node src ci-after-success",
@@ -23,7 +23,7 @@
     "format": "node src format",
     "lint": "node src lint",
     "prepublishOnly": "yarn build",
-    "start": "run-p start:*",
+    "start": "run-p 'start:*'",
     "start:source": "yarn build:source --watch",
     "start:types": "tsc -b -w --preserveWatchOutput src/",
     "test": "SWC_NODE_PROJECT=src/tsconfig.json node src test",
