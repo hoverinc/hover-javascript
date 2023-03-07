@@ -3,9 +3,9 @@
   "version": "0.0.0-semantically-released",
   "description": "CLI toolbox for common scripts for JavaScript + TypeScript projects",
   "engines": {
-    "node": ">=v12.22.12",
+    "node": ">=v14",
     "npm": ">=6",
-    "yarn": ">=1.22.19"
+    "yarn": ">=1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
