@@ -147,5 +147,6 @@
     "ts-jest": {
       "optional": true
     }
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }
