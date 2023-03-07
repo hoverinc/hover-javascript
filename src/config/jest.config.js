@@ -50,7 +50,7 @@ const jestConfig = {
           ],
         ),
       )
-    : {'^.+\\.(t|j)sx?$': ['@swc-node/jest']},
+    : {'^.+\\.(t|j)sx?$': [require.resolve('@swc-node/jest')]},
   coveragePathIgnorePatterns: [
     ...ignores,
     'src/(umd|cjs|esm)-entry.js$',
