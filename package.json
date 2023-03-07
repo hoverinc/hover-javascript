@@ -37,7 +37,6 @@
     "dist",
     "commitlint.js",
     "config.js",
-    "dist",
     "eslint-react.js",
     "eslint",
     "jest.js",
