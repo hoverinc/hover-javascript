@@ -93,7 +93,7 @@
     "read-pkg-up": "^7.0.1",
     "rimraf": "^4.1.1",
     "tslib": "^2.4.1",
-    "typescript": "^4",
+    "typescript": "^4.9.5",
     "which": "^3.0.0",
     "yargs-parser": "^21.1.1"
   },
