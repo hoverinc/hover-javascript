@@ -8,7 +8,7 @@ versions = ["patch"]
 usernames = ["dependabot"]
 
 [approve]
-auto_approve_usernames = ["dependabot"]
+auto_approve_usernames = ["renovate"]
 
 [update]
 ignored_usernames = ["dependabot"]
