@@ -1,0 +1,19 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>jrolfs/renovate:npm.json5',
+    'github>jrolfs/renovate:npm-feat.json5',
+    ':widenPeerDependencies',
+  ],
+  packageRules: [
+    {
+      matchPackagePatterns: ['eslint'],
+      groupName: 'eslint',
+    },
+
+    // Overriding hoverinc/renovate to merge _all_ minor
+    // updates (not just devDependencies) because, technically,
+    // @hover/javascript itself is one big devDependency
+    {matchUpdateTypes: ['patch', 'minor'], automerge: true},
+  ],
+}
