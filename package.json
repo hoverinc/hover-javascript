@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=v14.21.3",
     "npm": ">=6",
-    "yarn": ">=2.4.3"
+    "yarn": ">=3.6.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
