@@ -128,9 +128,9 @@
   },
   "homepage": "https://github.com/hoverinc/hover-javascript#readme",
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.12",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
     "@types/cross-spawn": "^6.0.2",
     "depcheck": "^1.4.3",
     "eslint-config-kentcdodds": "^20.4.0",
