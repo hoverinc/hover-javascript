@@ -2038,7 +2038,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.62.0
     commitizen: ^4.3.0
     concurrently: ^7.6.0
-    cosmiconfig: ^8.0.0
+    cosmiconfig: ^8.2.0
     cross-env: ^7.0.3
     cross-spawn: ^7.0.3
     depcheck: ^1.4.3
@@ -4719,6 +4719,18 @@ __metadata:
     parse-json: ^5.0.0
     path-type: ^4.0.0
   checksum: ff4cdf89ac1ae52e7520816622c21a9e04380d04b82d653f5139ec581aa4f7f29e096d46770bc76c4a63c225367e88a1dfa233ea791669a35101f5f9b972c7d1
+  languageName: node
+  linkType: hard
+
+"cosmiconfig@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "cosmiconfig@npm:8.2.0"
+  dependencies:
+    import-fresh: ^3.2.1
+    js-yaml: ^4.1.0
+    parse-json: ^5.0.0
+    path-type: ^4.0.0
+  checksum: 836d5d8efa750f3fb17b03d6ca74cd3154ed025dffd045304b3ef59637f662bde1e5dc88f8830080d180ec60841719cf4ea2ce73fb21ec694b16865c478ff297
   languageName: node
   linkType: hard
 
