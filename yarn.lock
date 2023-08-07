@@ -2031,7 +2031,7 @@ __metadata:
     "@types/jest": ^29.4.0
     "@types/lodash.has": ^4.5.7
     "@types/mkdirp": ^1.0.2
-    "@types/node": ^18.11.18
+    "@types/node": ^18.17.3
     "@types/rimraf": ^3.0.2
     "@types/which": ^2.0.2
     "@typescript-eslint/eslint-plugin": ^5.62.0
@@ -3108,10 +3108,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.11.18":
+"@types/node@npm:*":
   version: 18.11.18
   resolution: "@types/node@npm:18.11.18"
   checksum: 03f17f9480f8d775c8a72da5ea7e9383db5f6d85aa5fefde90dd953a1449bd5e4ffde376f139da4f3744b4c83942166d2a7603969a6f8ea826edfb16e6e3b49d
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.17.3":
+  version: 18.17.3
+  resolution: "@types/node@npm:18.17.3"
+  checksum: 884fb68936b2b0ff90863fcf80610dd2f3d9fe1947897248b0138df05fe41ee6ce62941b37b565e3b3fd77601cd3977a64de858654c6ab9064413b171740d6ba
   languageName: node
   linkType: hard
 
