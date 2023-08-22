@@ -177,7 +177,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/generator@npm:^7.22.10":
+"@babel/generator@npm:^7.22.10, @babel/generator@npm:^7.22.5":
   version: 7.22.10
   resolution: "@babel/generator@npm:7.22.10"
   dependencies:
@@ -513,7 +513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-split-export-declaration@npm:^7.22.6":
+"@babel/helper-split-export-declaration@npm:^7.22.5, @babel/helper-split-export-declaration@npm:^7.22.6":
   version: 7.22.6
   resolution: "@babel/helper-split-export-declaration@npm:7.22.6"
   dependencies:
@@ -630,12 +630,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:7.16.4":
-  version: 7.16.4
-  resolution: "@babel/parser@npm:7.16.4"
+"@babel/parser@npm:7.22.5":
+  version: 7.22.5
+  resolution: "@babel/parser@npm:7.22.5"
   bin:
     parser: ./bin/babel-parser.js
-  checksum: ce0a8f92f440f2a12bc932f070a7b60c5133bf8a63f461841f9e39af0194f573707959d606c6fad1a2fd496a45148553afd9b74d3b8dd36cdb7861598d1f3e36
+  checksum: 470ebba516417ce8683b36e2eddd56dcfecb32c54b9bb507e28eb76b30d1c3e618fd0cfeee1f64d8357c2254514e1a19e32885cfb4e73149f4ae875436a6d59c
   languageName: node
   linkType: hard
 
@@ -1665,7 +1665,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.12.5, @babel/traverse@npm:^7.20.10, @babel/traverse@npm:^7.20.12, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.7.2":
+"@babel/traverse@npm:7.22.5":
+  version: 7.22.5
+  resolution: "@babel/traverse@npm:7.22.5"
+  dependencies:
+    "@babel/code-frame": ^7.22.5
+    "@babel/generator": ^7.22.5
+    "@babel/helper-environment-visitor": ^7.22.5
+    "@babel/helper-function-name": ^7.22.5
+    "@babel/helper-hoist-variables": ^7.22.5
+    "@babel/helper-split-export-declaration": ^7.22.5
+    "@babel/parser": ^7.22.5
+    "@babel/types": ^7.22.5
+    debug: ^4.1.0
+    globals: ^11.1.0
+  checksum: 560931422dc1761f2df723778dcb4e51ce0d02e560cf2caa49822921578f49189a5a7d053b78a32dca33e59be886a6b2200a6e24d4ae9b5086ca0ba803815694
+  languageName: node
+  linkType: hard
+
+"@babel/traverse@npm:^7.20.10, @babel/traverse@npm:^7.20.12, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.7.2":
   version: 7.20.12
   resolution: "@babel/traverse@npm:7.20.12"
   dependencies:
@@ -2082,7 +2100,7 @@ __metadata:
     cosmiconfig: ^8.2.0
     cross-env: ^7.0.3
     cross-spawn: ^7.0.3
-    depcheck: ^1.4.3
+    depcheck: ^1.4.5
     doctoc: ^2.2.1
     eslint: ^8.46.0
     eslint-config-airbnb: 19.0.4
@@ -4248,6 +4266,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"callsite@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "callsite@npm:1.0.0"
+  checksum: 569686d622a288a4f0a827466c2f967b6d7a98f2ee1e6ada9dcf5a6802267a5e2a995d40f07113b5f95c7b2b2d5cbff4fdde590195f2a8bed24b829d048688f8
+  languageName: node
+  linkType: hard
+
 "callsites@npm:^3.0.0":
   version: 3.1.0
   resolution: "callsites@npm:3.1.0"
@@ -5025,17 +5050,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"depcheck@npm:^1.4.3":
-  version: 1.4.3
-  resolution: "depcheck@npm:1.4.3"
+"depcheck@npm:^1.4.5":
+  version: 1.4.5
+  resolution: "depcheck@npm:1.4.5"
   dependencies:
-    "@babel/parser": 7.16.4
-    "@babel/traverse": ^7.12.5
+    "@babel/parser": 7.22.5
+    "@babel/traverse": 7.22.5
     "@vue/compiler-sfc": ^3.0.5
+    callsite: ^1.0.0
     camelcase: ^6.2.0
     cosmiconfig: ^7.0.0
     debug: ^4.2.0
     deps-regex: ^0.1.4
+    findup-sync: ^5.0.0
     ignore: ^5.1.8
     is-core-module: ^2.4.0
     js-yaml: ^3.14.0
@@ -5044,17 +5071,16 @@ __metadata:
     minimatch: ^3.0.4
     multimatch: ^5.0.0
     please-upgrade-node: ^3.2.0
-    query-ast: ^1.0.3
     readdirp: ^3.5.0
     require-package-name: ^2.0.1
     resolve: ^1.18.1
-    sass: ^1.29.0
-    scss-parser: ^1.0.4
+    resolve-from: ^5.0.0
+    sass: ^1.50.1
     semver: ^7.3.2
     yargs: ^16.1.0
   bin:
     depcheck: bin/depcheck.js
-  checksum: 122631cab325707a55e26a8b530eb72c893bd481194100b1853ac2bc944b61320eb0e1ea0ff7e71724009cdfbd4057381d7bf868b9c5aad0c4207ac0bdca5e48
+  checksum: e63ece03d5c462f01e15144ed1f6240c7291e69b963d44319baa9ea6b16c3e8b0479f5103d68b169ddb8ed66c1d13d834afe2289086ac1203d2c6b792befce5c
   languageName: node
   linkType: hard
 
@@ -6167,6 +6193,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"findup-sync@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "findup-sync@npm:5.0.0"
+  dependencies:
+    detect-file: ^1.0.0
+    is-glob: ^4.0.3
+    micromatch: ^4.0.4
+    resolve-dir: ^1.0.1
+  checksum: 576716c77a0e8330b17ae9cba27d1fda8907c8cda7bf33a47f1999e16e089bfc6df4dd62933e0760f430736183c054348c34aa45dd882d49c8c098f55b89ee1d
+  languageName: node
+  linkType: hard
+
 "flat-cache@npm:^3.0.4":
   version: 3.0.4
   resolution: "flat-cache@npm:3.0.4"
@@ -6892,15 +6930,6 @@ __metadata:
     has: ^1.0.3
     side-channel: ^1.0.4
   checksum: 97e84046bf9e7574d0956bd98d7162313ce7057883b6db6c5c7b5e5f05688864b0978ba07610c726d15d66544ffe4b1050107d93f8a39ebc59b15d8b429b497a
-  languageName: node
-  linkType: hard
-
-"invariant@npm:2.2.4":
-  version: 2.2.4
-  resolution: "invariant@npm:2.2.4"
-  dependencies:
-    loose-envify: ^1.0.0
-  checksum: cc3182d793aad82a8d1f0af697b462939cb46066ec48bbf1707c150ad5fad6406137e91a262022c269702e01621f35ef60269f6c0d7fd178487959809acdfb14
   languageName: node
   linkType: hard
 
@@ -8320,7 +8349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -9674,15 +9703,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"query-ast@npm:^1.0.3":
-  version: 1.0.4
-  resolution: "query-ast@npm:1.0.4"
-  dependencies:
-    invariant: 2.2.4
-  checksum: fed7983738d690437e24d113e74c39e51a33da893c58e46286007f26dc283c8dd5b25a854ec91864ae60e8398b0bac8667c2588b532b8b20503cc05fc25d10ed
-  languageName: node
-  linkType: hard
-
 "querystringify@npm:^2.1.1":
   version: 2.2.0
   resolution: "querystringify@npm:2.2.0"
@@ -10227,16 +10247,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.29.0":
-  version: 1.50.0
-  resolution: "sass@npm:1.50.0"
+"sass@npm:^1.50.1":
+  version: 1.66.1
+  resolution: "sass@npm:1.66.1"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 43738cc83a3921731456f769aba190277f0620f8b80c14426ab098be9ab8dc8465957f5bf2edbcffda189edb3024ed83dee2cb8cd580459ca4984a9fc88c18f7
+  checksum: 74fc11d0fcd5e16c5331b57dd59865705a299c64e89f2b99646869caeb011dc8d0b6144a6c74a90c264e9ef70654207dbf44fc9b7e3393f8bd14809b904c8a52
   languageName: node
   linkType: hard
 
@@ -10246,15 +10266,6 @@ __metadata:
   dependencies:
     xmlchars: ^2.2.0
   checksum: d3fa3e2aaf6c65ed52ee993aff1891fc47d5e47d515164b5449cbf5da2cbdc396137e55590472e64c5c436c14ae64a8a03c29b9e7389fc6f14035cf4e982ef3b
-  languageName: node
-  linkType: hard
-
-"scss-parser@npm:^1.0.4":
-  version: 1.0.5
-  resolution: "scss-parser@npm:1.0.5"
-  dependencies:
-    invariant: 2.2.4
-  checksum: 0f3b16aea76cdb36e5d19f8c17e65a49b2666824dc037e0853278c6e61b01746283a95c1323bcfc4bf45cf24fdae3515f2ca7f3851e3bf19667f2fb0727a54ec
   languageName: node
   linkType: hard
 
