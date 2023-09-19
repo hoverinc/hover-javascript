@@ -130,7 +130,7 @@
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
     "@types/cross-spawn": "^6.0.3",
-    "depcheck": "^1.4.5",
+    "depcheck": "^1.4.6",
     "eslint-config-kentcdodds": "^20.5.0",
     "husky": "^8.0.3",
     "jest-in-case": "^1.0.2",
