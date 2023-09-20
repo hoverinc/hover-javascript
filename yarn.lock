@@ -2198,7 +2198,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.62.0
     commitizen: ^4.3.0
     concurrently: ^7.6.0
-    cosmiconfig: ^8.2.0
+    cosmiconfig: ^8.3.6
     cross-env: ^7.0.3
     cross-spawn: ^7.0.3
     depcheck: ^1.4.6
@@ -4922,15 +4922,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "cosmiconfig@npm:8.2.0"
+"cosmiconfig@npm:^8.3.6":
+  version: 8.3.6
+  resolution: "cosmiconfig@npm:8.3.6"
   dependencies:
-    import-fresh: ^3.2.1
+    import-fresh: ^3.3.0
     js-yaml: ^4.1.0
-    parse-json: ^5.0.0
+    parse-json: ^5.2.0
     path-type: ^4.0.0
-  checksum: 836d5d8efa750f3fb17b03d6ca74cd3154ed025dffd045304b3ef59637f662bde1e5dc88f8830080d180ec60841719cf4ea2ce73fb21ec694b16865c478ff297
+  peerDependencies:
+    typescript: ">=4.9.5"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: dc339ebea427898c9e03bf01b56ba7afbac07fc7d2a2d5a15d6e9c14de98275a9565da949375aee1809591c152c0a3877bb86dbeaf74d5bd5aaa79955ad9e7a0
   languageName: node
   linkType: hard
 
@@ -7022,6 +7027,16 @@ __metadata:
     parent-module: ^1.0.0
     resolve-from: ^4.0.0
   checksum: caef42418a087c3951fb676943a7f21ba8971aa07f9b622dff4af7edcef4160e1b172dccd85a88d7eb109cf41406a4592f70259e6b3b33aeafd042bb61f81d96
+  languageName: node
+  linkType: hard
+
+"import-fresh@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "import-fresh@npm:3.3.0"
+  dependencies:
+    parent-module: ^1.0.0
+    resolve-from: ^4.0.0
+  checksum: 2cacfad06e652b1edc50be650f7ec3be08c5e5a6f6d12d035c440a42a8cc028e60a5b99ca08a77ab4d6b1346da7d971915828f33cdab730d3d42f08242d09baa
   languageName: node
   linkType: hard
 
