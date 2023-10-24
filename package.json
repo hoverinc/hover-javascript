@@ -62,7 +62,7 @@
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "commitizen": "^4.3.0",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.2.2",
     "cosmiconfig": "^8.3.6",
     "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
