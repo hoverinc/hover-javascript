@@ -2254,7 +2254,7 @@ __metadata:
     "@swc-node/jest": ^1.5.6
     "@swc/core": ^1.3.38
     "@swc/helpers": ^0.4.14
-    "@types/cross-spawn": ^6.0.3
+    "@types/cross-spawn": ^6.0.4
     "@types/jest": ^29.5.4
     "@types/lodash.has": ^4.5.7
     "@types/mkdirp": ^1.0.2
@@ -3199,12 +3199,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cross-spawn@npm:^6.0.3":
-  version: 6.0.3
-  resolution: "@types/cross-spawn@npm:6.0.3"
+"@types/cross-spawn@npm:^6.0.4":
+  version: 6.0.4
+  resolution: "@types/cross-spawn@npm:6.0.4"
   dependencies:
     "@types/node": "*"
-  checksum: 06d50fa1e1370ef60b9c9085b76adec7d7bc20728fbb02b3c2061d4d922312acf1ba56a7c94d88c27a22fc6241ab6b970c936f3294038a9c97a719fbc8eb8a76
+  checksum: 45624a955c064dda167f8aae5560918307110e3a1221989b5957c52842208c2ee29e099c9120615b1dde66afe7a7c3db627c754e328f574a0ae313644e43ceef
   languageName: node
   linkType: hard
 
