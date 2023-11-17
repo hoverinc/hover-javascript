@@ -3,7 +3,7 @@
   "version": "0.0.0-semantically-released",
   "description": "CLI toolbox for common scripts for JavaScript + TypeScript projects",
   "engines": {
-    "node": ">=14.21.3"
+    "node": ">=18"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
