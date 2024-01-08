@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "run-p 'build:*'",
-    "build:source": "babel --source-maps --out-dir dist --ignore '**/__tests__/**','**/__mocks__/**' --copy-files --no-copy-ignored src",
+    "build:source": "babel --source-maps --extensions '.ts' --out-dir dist --ignore '**/__tests__/**','**/__mocks__/**' --copy-files --no-copy-ignored src",
     "build:types": "tsc -p src/",
     "ci-after-success": "node src ci-after-success",
     "commit": "node src commit",
@@ -132,6 +132,7 @@
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
+    "@babel/preset-typescript": "^7.23.3",
     "@types/cross-spawn": "^6.0.4",
     "@types/lodash.merge": "^4",
     "depcheck": "^1.4.7",

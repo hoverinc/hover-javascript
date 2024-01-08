@@ -6,6 +6,7 @@
         "targets": {"node": "12"},
         "modules": "commonjs"
       }
-    ]
+    ],
+    "@babel/preset-typescript"
   ]
 }
