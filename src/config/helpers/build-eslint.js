@@ -53,6 +53,7 @@ const buildConfig = ({withReact = false} = {}) => {
     rules: {
       'class-methods-use-this': 'off',
       'import/prefer-default-export': 'off',
+      'import/consistent-type-specifier-style': 'off',
       'import/no-extraneous-dependencies': [
         'error',
         {

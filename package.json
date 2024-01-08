@@ -111,7 +111,8 @@
       "no-console": "off",
       "no-nested-ternary": "off",
       "no-useless-catch": "off",
-      "jest/prefer-snapshot-hint": "off"
+      "jest/prefer-snapshot-hint": "off",
+      "import/consistent-type-specifier-style": "off"
     }
   },
   "eslintIgnore": [

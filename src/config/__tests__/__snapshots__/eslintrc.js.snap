@@ -67,6 +67,7 @@ Object {
     "@typescript-eslint/no-throw-literal": "off",
     "@typescript-eslint/return-await": "off",
     "class-methods-use-this": "off",
+    "import/consistent-type-specifier-style": "off",
     "import/no-extraneous-dependencies": Array [
       "error",
       Object {
@@ -200,6 +201,7 @@ Object {
     "@typescript-eslint/no-throw-literal": "off",
     "@typescript-eslint/return-await": "off",
     "class-methods-use-this": "off",
+    "import/consistent-type-specifier-style": "off",
     "import/no-extraneous-dependencies": Array [
       "error",
       Object {
