@@ -20,7 +20,7 @@ Object {
       "rules": Object {
         "@typescript-eslint/dot-notation": "error",
         "@typescript-eslint/no-implied-eval": "error",
-        "@typescript-eslint/no-throw-literal": "error",
+        "@typescript-eslint/only-throw-error": "error",
         "@typescript-eslint/return-await": "error",
         "no-implied-eval": "off",
         "no-throw-literal": "off",
@@ -64,7 +64,7 @@ Object {
   "rules": Object {
     "@typescript-eslint/dot-notation": "off",
     "@typescript-eslint/no-implied-eval": "off",
-    "@typescript-eslint/no-throw-literal": "off",
+    "@typescript-eslint/only-throw-error": "off",
     "@typescript-eslint/return-await": "off",
     "class-methods-use-this": "off",
     "import/consistent-type-specifier-style": "off",
@@ -156,7 +156,7 @@ Object {
       "rules": Object {
         "@typescript-eslint/dot-notation": "error",
         "@typescript-eslint/no-implied-eval": "error",
-        "@typescript-eslint/no-throw-literal": "error",
+        "@typescript-eslint/only-throw-error": "error",
         "@typescript-eslint/return-await": "error",
         "no-implied-eval": "off",
         "no-throw-literal": "off",
@@ -198,7 +198,7 @@ Object {
   "rules": Object {
     "@typescript-eslint/dot-notation": "off",
     "@typescript-eslint/no-implied-eval": "off",
-    "@typescript-eslint/no-throw-literal": "off",
+    "@typescript-eslint/only-throw-error": "off",
     "@typescript-eslint/return-await": "off",
     "class-methods-use-this": "off",
     "import/consistent-type-specifier-style": "off",
