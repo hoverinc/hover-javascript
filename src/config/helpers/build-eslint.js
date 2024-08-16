@@ -75,6 +75,9 @@ const buildConfig = ({withReact = false} = {}) => {
       'prettier/prettier': 'error',
       // TODO: consider enabling this as a warning?
       'jest/prefer-snapshot-hint': 'off',
+      // The latest `eslint-config-airbnb-typescript` adopts `@stylistic`
+      // which conflicts with our `eslint-config-prettier` configuration
+      '@stylistic/indent': 'off',
       ...parserRules(false, isReact),
     },
     overrides: [

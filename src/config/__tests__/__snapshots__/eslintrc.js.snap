@@ -62,6 +62,7 @@ Object {
     "react-hooks",
   ],
   "rules": Object {
+    "@stylistic/indent": "off",
     "@typescript-eslint/dot-notation": "off",
     "@typescript-eslint/no-implied-eval": "off",
     "@typescript-eslint/only-throw-error": "off",
@@ -196,6 +197,7 @@ Object {
     "jest",
   ],
   "rules": Object {
+    "@stylistic/indent": "off",
     "@typescript-eslint/dot-notation": "off",
     "@typescript-eslint/no-implied-eval": "off",
     "@typescript-eslint/only-throw-error": "off",
