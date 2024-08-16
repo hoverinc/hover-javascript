@@ -1,6 +1,6 @@
 const {
   rules: airbnbRules,
-} = require('eslint-config-airbnb-typescript/lib/shared')
+} = require('@hover/eslint-config-airbnb-typescript/lib/shared')
 
 const {hasAnyDep} = require('../../utils')
 const {testMatch} = require('../helpers/test-match')
@@ -9,7 +9,10 @@ const withBaseConfig = (base, separator) => variant =>
   require.resolve(base + (variant ? `${separator}${variant}` : ''))
 
 const airbnb = withBaseConfig('eslint-config-airbnb', '-')
-const airbnbTypeScript = withBaseConfig('eslint-config-airbnb-typescript', '/')
+const airbnbTypeScript = withBaseConfig(
+  '@hover/eslint-config-airbnb-typescript',
+  '/',
+)
 const prettier = withBaseConfig('eslint-config-prettier', '/')
 
 const hasReact = hasAnyDep('react')

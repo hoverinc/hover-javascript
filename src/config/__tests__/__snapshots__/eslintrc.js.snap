@@ -4,7 +4,7 @@ exports[`ESLint React configuration 1`] = `
 Object {
   "extends": Array [
     <PROJECT_ROOT>/node_modules/eslint-config-airbnb/index.js,
-    <PROJECT_ROOT>/node_modules/eslint-config-airbnb-typescript/index.js,
+    <PROJECT_ROOT>/node_modules/@hover/eslint-config-airbnb-typescript/index.js,
     "plugin:jest/recommended",
     <PROJECT_ROOT>/node_modules/eslint-config-prettier/index.js,
     "plugin:react-hooks/recommended",
@@ -141,7 +141,7 @@ exports[`ESLint configuration 1`] = `
 Object {
   "extends": Array [
     <PROJECT_ROOT>/node_modules/eslint-config-airbnb-base/index.js,
-    <PROJECT_ROOT>/node_modules/eslint-config-airbnb-typescript/base.js,
+    <PROJECT_ROOT>/node_modules/@hover/eslint-config-airbnb-typescript/base.js,
     "plugin:jest/recommended",
     <PROJECT_ROOT>/node_modules/eslint-config-prettier/index.js,
   ],
