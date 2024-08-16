@@ -1,6 +1,6 @@
 {
   "name": "@hover/javascript",
-  "version": "0.0.0-semantically-released",
+  "version": "8.0.0-eslint8.0",
   "description": "CLI toolbox for common scripts for JavaScript + TypeScript projects",
   "engines": {
     "node": ">=18"
