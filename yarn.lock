@@ -2222,7 +2222,7 @@ __metadata:
     "@swc/helpers": ^0.4.14
     "@types/cross-spawn": ^6.0.6
     "@types/jest": ^29.5.4
-    "@types/lodash.has": ^4.5.8
+    "@types/lodash.has": ^4.5.9
     "@types/mkdirp": ^1.0.2
     "@types/node": ^18.18.6
     "@types/rimraf": ^3.0.2
@@ -3260,12 +3260,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.has@npm:^4.5.8":
-  version: 4.5.8
-  resolution: "@types/lodash.has@npm:4.5.8"
+"@types/lodash.has@npm:^4.5.9":
+  version: 4.5.9
+  resolution: "@types/lodash.has@npm:4.5.9"
   dependencies:
     "@types/lodash": "*"
-  checksum: 8a14202a0b09c67a1ac8d01d6e4e19ea8080bfe65c1a86dc9470c8bb0d05ae3b669378f2b3da0c35b227e13e638dbb64f6753284ae284d0e56c8c8e0f318e3cf
+  checksum: fb470ed1254fd7798c7f466ad37bf86e67dffcfb51b40c1dd71a40192c28a6abf51c875029e809975ea142958f603a42fe97a1f74506a57cb615381723edd427
   languageName: node
   linkType: hard
 
