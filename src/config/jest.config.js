@@ -9,6 +9,7 @@ const {
 } = require('@swc-node/register/read-default-tsconfig')
 
 const {ifAnyDep, hasFile, fromRoot, hasDevDep, getDebug} = require('../utils')
+const {pathsToModuleNameMapper} = require('../api/test')
 
 const {
   testMatch,
@@ -142,6 +143,12 @@ const jestConfig = {
   testMatch,
   testPathIgnorePatterns: [...ignores, '<rootDir>/dist'],
   testLocationInResults: true,
+  moduleNameMapper: debug.trace(
+    pathsToModuleNameMapper(
+      debug.trace(swcConfig.paths, 'moduleNameMapper:paths'),
+    ),
+    'moduleNameMapper',
+  ),
   transform: getTransform(),
   coveragePathIgnorePatterns: [
     ...ignores,
