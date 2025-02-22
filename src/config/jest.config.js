@@ -7,13 +7,16 @@ const {
   readDefaultTsConfig,
   tsCompilerOptionsToSwcConfig,
 } = require('@swc-node/register/read-default-tsconfig')
-const {ifAnyDep, hasFile, fromRoot, hasDevDep} = require('../utils')
+
+const {ifAnyDep, hasFile, fromRoot, hasDevDep, getDebug} = require('../utils')
 
 const {
   testMatch,
   testMatchGlob,
   testMatchExtensions,
 } = require('./helpers/test-match')
+
+const debug = getDebug('jest')
 
 const ignores = [
   '/node_modules/',
@@ -25,11 +28,47 @@ const ignores = [
 ]
 
 /**
+ * @type {SwcNodeOptions}
+ */
+const DEFAULT_SWC_OPTIONS = {
+  esModuleInterop: true,
+  module: 'commonjs',
+  react: {runtime: 'automatic'},
+  swc: {
+    jsc: {
+      target: 'es2020',
+      experimental: {
+        plugins: [[require.resolve('swc_mut_cjs_exports'), {}]],
+      },
+      parser: {
+        syntax: 'typescript',
+        tsx: true,
+        decorators: false,
+        dynamicimport: true,
+      },
+      loose: true,
+      externalHelpers: false,
+      transform: {
+        react: {
+          runtime: 'automatic',
+        },
+      },
+    },
+  },
+}
+
+const tsConfig = readDefaultTsConfig()
+const swcConfig = merge(
+  tsCompilerOptionsToSwcConfig(tsConfig, ''),
+  DEFAULT_SWC_OPTIONS,
+)
+
+debug.prefix('tsconfig:paths')(tsConfig.paths)
+
+/**
  * Get the path at which `@hover/javascript/jest` is installed in a dependent
  * project in order to resolve the Jest preset as sometimes package managers
  * nest the preset installation within the `@hover/javascript` installation.
- * 
- * @returns 
  */
 const getResolvePaths = () => {
   try {
@@ -39,6 +78,54 @@ const getResolvePaths = () => {
   } catch {
     return undefined
   }
+}
+
+/**
+ * The default transform is now SWC, however, `ts-jest` will
+ * still be used if it is installed in the host project
+ *
+ * @returns {JestConfig['transform']}
+ */
+const getTransform = () => {
+  const log = debug.prefix('transform')
+
+  if (hasDevDep('ts-jest')) {
+    log('Detected `ts-jest` package, using ts-jest transform')
+
+    const transform = Object.fromEntries(
+      // Ensure we can resolve the preset even when
+      // it's in a nested `node_modules` installation
+      Object.entries(require('ts-jest/presets').jsWithTs.transform).map(
+        ([glob, [transformer, options]]) => [
+          glob,
+          [
+            require.resolve(transformer),
+            {
+              ...options,
+              diagnostics: false,
+            },
+          ],
+        ],
+      ),
+    )
+
+    log(transform)
+
+    return transform
+  }
+
+  log('No `ts-jest` package detected, using default SWC transform')
+
+  const transform = {
+    '^.+\\.(t|j|mj)sx?$': [
+      require.resolve('@swc-node/jest', getResolvePaths()),
+      swcConfig,
+    ],
+  }
+
+  log(transform)
+
+  return transform
 }
 
 /** @type JestConfig */
@@ -55,52 +142,7 @@ const jestConfig = {
   testMatch,
   testPathIgnorePatterns: [...ignores, '<rootDir>/dist'],
   testLocationInResults: true,
-  // The default transform is now SWC, however, `ts-jest` will
-  // still be used if it is installed in the host project
-  transform: hasDevDep('ts-jest')
-    ? Object.fromEntries(
-        // Ensure we can resolve the preset even when
-        // it's in a nested `node_modules` installation
-        Object.entries(require('ts-jest/presets').jsWithTs.transform).map(
-          ([glob, [transformer, options]]) => [
-            glob,
-            [
-              require.resolve(transformer),
-              {
-                ...options,
-                diagnostics: false,
-              },
-            ],
-          ],
-        ),
-      )
-    : {
-        '^.+\\.(t|j)sx?$': [
-          require.resolve('@swc-node/jest', getResolvePaths()),
-          /** @type {SwcNodeOptions} */ (
-            merge(tsCompilerOptionsToSwcConfig(readDefaultTsConfig(), ''), {
-              esModuleInterop: true,
-              module: 'commonjs',
-              swc: {
-                jsc: {
-                  target: 'es2020',
-                  experimental: {
-                    plugins: [[require.resolve('swc_mut_cjs_exports'), {}]],
-                  },
-                  parser: {
-                    syntax: 'typescript',
-                    tsx: true,
-                    decorators: false,
-                    dynamicimport: true,
-                  },
-                  loose: true,
-                  externalHelpers: false,
-                },
-              },
-            })
-          ),
-        ],
-      },
+  transform: getTransform(),
   coveragePathIgnorePatterns: [
     ...ignores,
     'src/(umd|cjs|esm)-entry.js$',
