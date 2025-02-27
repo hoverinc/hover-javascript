@@ -1,3 +1,4 @@
+const debug = require('debug')
 const fs = require('fs')
 const path = require('path')
 const rimraf = require('rimraf')
@@ -266,10 +267,49 @@ const relative =
   p =>
     path.join(dirname, p).replace(process.cwd(), '.')
 
+const DEBUG_NAMESPACE = 'hover'
+
+/**
+ * Get debug output functions prefixed for the provided namespace.
+ *
+ * @param {string} namespace
+ */
+const getDebug = namespace => {
+  /**
+   * @param {string} [prefix]
+   */
+  const debugForNamespace = prefix =>
+    debug([DEBUG_NAMESPACE, namespace, prefix].filter(Boolean).join(':'))
+
+  return Object.assign(debugForNamespace(), {
+    /**
+     * Output and return an an expression for debugging.
+     *
+     * @template T
+     *
+     * @param {T} output
+     * @param {string} [prefix] Optional prefix to append to debug namespace
+     *
+     * @returns {T}
+     */
+    trace: (output, prefix) => {
+      debugForNamespace(prefix)(output)
+      return output
+    },
+    /**
+     * Get a debug function with an additional prefix appended to namespace.
+     *
+     * @param {string} prefix
+     */
+    prefix: prefix => debugForNamespace(prefix),
+  })
+}
+
 module.exports = {
   appDirectory,
   fromRoot,
   getConcurrentlyArgs,
+  getDebug,
   getPkgName,
   hasAnyDep,
   hasDevDep,

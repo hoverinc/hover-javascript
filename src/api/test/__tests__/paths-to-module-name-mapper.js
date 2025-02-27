@@ -1,4 +1,4 @@
-import {pathsToModuleNameMapper} from '../paths-to-module-name-mapper'
+const pathsToModuleNameMapper = require('../paths-to-module-name-mapper')
 
 const tsconfigMap = {
   log: ['src/utils/log'],

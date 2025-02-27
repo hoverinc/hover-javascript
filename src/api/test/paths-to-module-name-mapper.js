@@ -5,27 +5,38 @@
  * @see {@link https://github.com/kulshekhar/ts-jest/blob/dd3523cb7571714f06f1ea2ed1e3cf11970fbfce/src/config/paths-to-module-name-mapper.ts}
  */
 
-import type {Config} from '@jest/types'
-import type {CompilerOptions} from 'typescript'
+/**
+ * We don't need to escape all chars, so commented out is the real one
+ * const escapeRegex = (str: string) => str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+ *
+ * @param {string} str
+ * @returns {string}
+ */
+const escapeRegex = str => str.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&')
 
-type TsPathMapping = Exclude<CompilerOptions['paths'], undefined>
-type JestPathMapping = Config.InitialOptions['moduleNameMapper']
+/**
+ * @typedef {Exclude<import('typescript').CompilerOptions['paths'], undefined>} TsPathMapping
+ * @typedef {import('@jest/types').Config.InitialOptions['moduleNameMapper']} JestPathMapping
+ */
 
-// we don't need to escape all chars, so commented out is the real one
-// const escapeRegex = (str: string) => str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
-const escapeRegex = (str: string) => str.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&')
-
-export const pathsToModuleNameMapper = (
-  mapping: TsPathMapping,
-  {prefix = '', useESM = false}: {prefix?: string; useESM?: boolean} = {},
-): JestPathMapping => {
-  const jestMap: JestPathMapping = {}
+/**
+ * Converts TypeScript path mappings to Jest module name mappings
+ *
+ * @param {TsPathMapping} mapping - The TypeScript path mapping object
+ * @param {{prefix?: string, useESM?: boolean}} options - Configuration options
+ * @returns {JestPathMapping}
+ */
+const pathsToModuleNameMapper = (
+  mapping,
+  {prefix = '', useESM = false} = {},
+) => {
+  /** @type {JestPathMapping} */
+  const jestMap = {}
   for (const fromPath of Object.keys(mapping)) {
     const toPaths = mapping[fromPath]
     // check that we have only one target path
     if (toPaths.length === 0) {
       console.warn(`Not mapping "${fromPath}" because it has no target.`)
-
       continue
     }
 
@@ -35,7 +46,6 @@ export const pathsToModuleNameMapper = (
       const paths = toPaths.map(target => {
         const enrichedPrefix =
           prefix !== '' && !prefix.endsWith('/') ? `${prefix}/` : prefix
-
         return `${enrichedPrefix}${target}`
       })
       const cjsPattern = `^${escapeRegex(fromPath)}$`
@@ -48,7 +58,6 @@ export const pathsToModuleNameMapper = (
             : target
         const enrichedPrefix =
           prefix !== '' && !prefix.endsWith('/') ? `${prefix}/` : prefix
-
         return `${enrichedPrefix}${enrichedTarget.replace(/\*/g, '$1')}`
       })
       if (useESM) {
@@ -74,3 +83,5 @@ export const pathsToModuleNameMapper = (
 
   return jestMap
 }
+
+module.exports = pathsToModuleNameMapper
