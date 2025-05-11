@@ -56,7 +56,7 @@
     "@types/jest": "^29.5.4",
     "@types/lodash.has": "^4.5.9",
     "@types/mkdirp": "^1.0.2",
-    "@types/node": "^18.19.61",
+    "@types/node": "^18.19.100",
     "@types/rimraf": "^3.0.2",
     "@types/which": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
